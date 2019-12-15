@@ -12,3 +12,7 @@ RUN apt install vim -y
 RUN git config --global user.name "ChiweiChen"
 RUN git config --global user.email chiwei0705@gmail.com
 
+COPY Gemfile ./
+COPY Gemfile.lock ./
+
+RUN bundle install

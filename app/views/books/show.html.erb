@@ -1,14 +1,22 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Book name:</strong>
-  <%= @book.book_name %>
-</p>
-
-<p>
-  <strong>Summary:</strong>
-  <%= @book.summary %>
-</p>
-
-<%= link_to 'Edit', edit_book_path(@book) %> |
-<%= link_to 'Back', books_path %>
+<div class="container">
+    <div class="row">
+      <!-- Sidebar Column -->
+      <% @book.chapters.each do |chapter|%>
+      <!--Creates chapter variable-->
+        <div class="col-lg-3 mb-4">
+        <!-- For each chapter, create a box that takes up 3 portions of the page-->
+          <div class="list-group">
+          
+          <a href="/books/<%=@book.id%>/chapters/<%=chapter.id%>" class="list-group-item"> <%= chapter.title%></a>
+          <!--
+          Nested route created in routes.rb
+          e.g. /books/:id/chapters/:id
+          Get book_id and chapter_id for respective chapters
+          @book from set_book in books_controller
+          -->
+          </div>
+        </div>
+      <% end%>
+    </div>
+    <!-- /.row -->
+</div>

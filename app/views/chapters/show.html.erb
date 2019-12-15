@@ -1,24 +1,39 @@
-<p id="notice"><%= notice %></p>
+<div class="container d-flex align-content-between flex-wrap" style="min-height: 600px"> 
 
-<p>
-  <strong>Title:</strong>
-  <%= @chapter.title %>
-</p>
+  <div class="col-12">
+    <!-- Page Heading/Breadcrumbs -->
+    <h1 class="mt-4 mb-3">第<%=@which_chapter%>章
+    <!--Uses @which_chapter variable created in chapters_controller-->
+      <small><%=@chapter.title%></small>
+    </h1>
+    <p><%=@chapter.content%>
+    </p>
+  </div>
+  <div class="col-12">
+    <h3>
+    留言
+    </h3>
+    <div class="text-center">
+      <form action="/comments" method="post">
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+        <input type="hidden" name="comment[user_id]"  value=<%= current_user.id%>>
+        <!--use <%=%> for current_user.id to make it detectable by value on the html-->
+        <textarea id="editor" name="comment[comment]" cols="100" rows="5"></textarea>
+        <input type="hidden" name="comment[chapter_id]" value=<%= @chapter.id%>>
+        <br>
+        <button class="btn btn-success">送出</button>
+      </form>
+    </div>
+    <script src="https://cdn.ckeditor.com/ckeditor5/16.0.0/classic/ckeditor.js"></script>
+    <script>
+      ClassicEditor
+        .create(document.querySelector('#editor'))
+        .catch(error=>{
+          console.error(error);
+        });
+    </script>
+  </div>
 
-<p>
-  <strong>Content:</strong>
-  <%= @chapter.content %>
-</p>
+</div>
 
-<p>
-  <strong>User:</strong>
-  <%= @chapter.user_id %>
-</p>
 
-<p>
-  <strong>Book:</strong>
-  <%= @chapter.book_id %>
-</p>
-
-<%= link_to 'Edit', edit_chapter_path(@chapter) %> |
-<%= link_to 'Back', chapters_path %>

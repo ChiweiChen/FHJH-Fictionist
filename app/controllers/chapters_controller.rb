@@ -10,6 +10,16 @@ class ChaptersController < ApplicationController
   # GET /chapters/1
   # GET /chapters/1.json
   def show
+    #Get the book this chapter belongs to
+    @which_chapter=0
+    @chapter.book.chapters.each_with_index do |chapter, count|
+    #_with_index increments second variable
+    #ex. |v1, v2| increments v2
+      if (@chapter.id==chapter.id)
+        @which_chapter=count + 1
+      end
+    end
+    #For each chapter, check whether or not it is the same one as the one being displayed on the page
   end
 
   # GET /chapters/new
@@ -65,6 +75,7 @@ class ChaptersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_chapter
       @chapter = Chapter.find(params[:id])
+      #Parameters for book_id and chapter_id are found from URL
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
