@@ -1,4 +1,4 @@
 class Chapter < ApplicationRecord
     belongs_to :book
-    belongs_to :users
+    has_and_belongs_to_many :users
 end

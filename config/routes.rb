@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   resources :likes
   resources :chapters
   resources :books do
+    member do 
+      get :dashboard
+    end
     resources :chapters
   end
   resources :users do

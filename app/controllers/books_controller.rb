@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  before_action :set_book, only: [:show, :edit, :update, :destroy]
+  before_action :set_book, only: [:show, :edit, :update, :destroy, :dashboard]
   #When showing the page, the page runs the function set_book before Show, creating @book for use in View
 
   # GET /books
@@ -7,23 +7,25 @@ class BooksController < ApplicationController
   def index
     puts params[:category]
     #prints out category parameters
-    category=params[:category]
+    category_id=params[:category]
   
-    if category == nil
+    if category_id == nil
     #use nil when you don't receive any parameters; don't use "", even an empty string is considered data
       @books = Book.all
     else
-      @books = Book.where(category:category)
+      @books = Category.find(category_id).books
       
     end
     # @books = Book.where(category: ...)
     
-    @category_name= Category.find_by(name:category).try(:show) || "全部"
+    @category_name= Category.find_by(id:category_id).try(:show) || "全部"
     # find_by; similar to find; [Model].find_by(column:[value]); returns first result
     # same as Category.where(name:category)[0]
     # try(:column); try executing something; if there are no results, return nil
     # || "or" operator; ex. a || b; chose the variable which is not nil
-    
+  end
+
+  def dashboard
     
   end
 
@@ -49,6 +51,8 @@ class BooksController < ApplicationController
     respond_to do |format|
       if @book.save
         @book.update(category_ids: params[:book][:category_ids])
+        chapter = Chapter.create(title: 'Chapter 1', content: 'Chapter 1 Content', book_id: @book.id, is_first: true)
+        chapter.update(user_ids: current_user.id)
         #@book.update([column_name]: [value])
         #category_ids does not belong to any table, it belongs to the model Book
         #the :book in params is a key for book_name, book_summary, and category_ids
@@ -69,6 +73,7 @@ class BooksController < ApplicationController
   def update
     respond_to do |format|
       if @book.update(book_params)
+        @book.update(category_ids: params[:book][:category_ids])
         format.html { redirect_to @book, notice: 'Book was successfully updated.' }
         format.json { render :show, status: :ok, location: @book }
       else

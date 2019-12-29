@@ -25,6 +25,7 @@ class ChaptersController < ApplicationController
   # GET /chapters/new
   def new
     @chapter = Chapter.new
+    @book = Book.find(params[:book_id])
   end
 
   # GET /chapters/1/edit
@@ -35,10 +36,11 @@ class ChaptersController < ApplicationController
   # POST /chapters.json
   def create
     @chapter = Chapter.new(chapter_params)
-
+    @book = Book.find(params[:chapter][:book_id])
     respond_to do |format|
       if @chapter.save
-        format.html { redirect_to @chapter, notice: 'Chapter was successfully created.' }
+        @chapter.update(user_ids: current_user.id)
+        format.html { redirect_to "/books/#{@book.id}/dashboard", notice: 'Chapter was successfully created.' }
         format.json { render :show, status: :created, location: @chapter }
       else
         format.html { render :new }
@@ -80,6 +82,6 @@ class ChaptersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def chapter_params
-      params.require(:chapter).permit(:title, :content, :user_id, :book_id)
+      params.require(:chapter).permit(:title, :content, :book_id)
     end
 end

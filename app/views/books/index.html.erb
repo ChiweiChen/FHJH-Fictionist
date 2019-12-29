@@ -7,6 +7,7 @@
     </h1>
 
     <div class="row col-md-9">
+    <% if @books!=nil %>
 
       <% @books.each do |book| %>
         <div class="col-lg-4 col-sm-6 portfolio-item">
@@ -14,8 +15,13 @@
             <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
             <div class="card-body">
               <h4 class="card-title">
-                <a href="#"><%= book.book_name %></a>
+                <a href="#"><%= book.book_name %>  </a>
               </h4>
+              <p class="card-text">
+                <% book.categories.each do |category|%>
+                  <span class="badge badge-pill badge-primary"><%=category.show%></span>
+                <%end%>
+              </p>
               <p class="card-text"><%= book.summary %></p>
               <a class="btn btn-primary" href="/books/<%= book.id %>">目錄</a>
               <a class="btn btn-primary" href="/books/<%= book.id %>">訂閱</a>
@@ -23,6 +29,7 @@
           </div>
         </div>
       <%end %>
+    <%end%>
 
         
 
@@ -54,27 +61,12 @@
                   <li>
                     <a href="/books/">全部</a>
                   </li>
-                  <li>
-                    <a href="/books/?category=horror">恐怖</a>
-                  </li>
-                  <li>
-                    <a href="/books/?category=romance">愛情</a>
-                  </li>
-                  <li>
-                    <a href="/books/?category=east_fi">玄幻</a>
-                  </li>
-                </ul>
-              </div>
-              <div class="col-lg-6">
-                <ul class="list-unstyled mb-0">
-                  <li>
-                    <a href="/books/?category=adventure">冒險</a>
-                  </li>
-                  <li>
-                    <a href="/books/?category=mag_fi">奇幻</a>
-                  </li>
-                  <li>
-                    <a href="/books/?category=sci_fi">科幻</a>
+                  <% @categories.each do |category|%>
+                    <li>
+                      <a href="/books/?category=<%=category.id%>"><%=category.show%></a>
+                    </li>
+                  <% end%>
+                  
                   </li>
                 </ul>
               </div>

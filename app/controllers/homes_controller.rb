@@ -1,9 +1,9 @@
 class HomesController < ApplicationController
-    def index
-    end
-    def about
-    end
     def user
-        @books=Book.all
+        @pieces = []
+        chapters = current_user.chapters.where(is_first: true)
+        chapters.each do |chapter|
+            @pieces.push(chapter.book)
+        end
     end
 end

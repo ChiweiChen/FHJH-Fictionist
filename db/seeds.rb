@@ -5,12 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-# Book.delete_all()
-# book1 = Book.create(book_name: 'A horror novel', summary: 'This is a horror novel', category:'horror')
-# book2 = Book.create(book_name: 'A romance novel', summary: 'This is a romance novel', category:'romance')
-# book3 = Book.create(book_name: 'A science fiction novel', summary: 'This is a science fiction novel', category:'science_fiction')
-# book4 = Book.create(book_name: 'A imaginary fiction novel', summary: 'This is a science fiction novel', category:'imaginary_fiction')
-# book5 = Book.create(book_name: 'A fiction novel', summary: 'This is a science fiction novel', category:'fiction')
+Book.delete_all()
+
 # book6 = Book.create(book_name: 'An adventure novel', summary: 'This is an adventure novel', category:'adventure')
 # Chapter.delete_all()
 # book1.chapters.create(title: 'yes', content: 'no')
@@ -21,7 +17,7 @@
 # book5.chapters.create(title: 'yes', content: 'no')
 # book6.chapters.create(title: 'yes', content: 'no')
 Category.delete_all()
-category1 = Category.create(name: 'horror',show: '恐怖')
+category1 = Category.create(name: 'short',show: '短篇')
 category2 = Category.create(name: 'sci_fi',show: '科幻')
 category3 = Category.create(name: 'old_love',show: '古代愛情')
 category4 = Category.create(name: 'mag_fi',show: '奇幻')
@@ -30,6 +26,10 @@ category6 = Category.create(name: 'bl',show: '耽美')
 category7 = Category.create(name: 'fan_fi',show: '同人')
 category8 = Category.create(name: 'urban_love',show: '都市愛情')
 category9 = Category.create(name: 'school_love',show: '校園愛情')
-category10 = Category.create(name: 'english',show: '英文')
-catagory11 = Category.create(name: 'convo',show: '對話')
-category12 = Category.create(name: 'mystery',show: '推理')
+category10 = Category.create(name: 'foreign',show: '外文')
+catagory11 = Category.create(name: 'real',show: '現實')
+category12 = Category.create(name: 'mystery',show: '懸疑')
+User.delete_all()
+
+
+

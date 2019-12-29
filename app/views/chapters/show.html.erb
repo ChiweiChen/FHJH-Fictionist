@@ -6,7 +6,7 @@
     <!--Uses @which_chapter variable created in chapters_controller-->
       <small><%=@chapter.title%></small>
     </h1>
-    <p><%=@chapter.content%>
+    <p><%=@chapter.content.html_safe%>
     </p>
   </div>
   <div class="col-12">
@@ -24,14 +24,7 @@
         <button class="btn btn-success">送出</button>
       </form>
     </div>
-    <script src="https://cdn.ckeditor.com/ckeditor5/16.0.0/classic/ckeditor.js"></script>
-    <script>
-      ClassicEditor
-        .create(document.querySelector('#editor'))
-        .catch(error=>{
-          console.error(error);
-        });
-    </script>
+    
   </div>
 
 </div>

@@ -76,18 +76,18 @@
     <div class="row col-md-12">
 
     
-      <% @books.each do |book| %>
+      <% @pieces.each do |piece| %>
         <div class="col-lg-4 col-sm-6 portfolio-item">
           <div class="card h-100">
             <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
             <div class="card-body">
               <h4 class="card-title">
-                <a href="#"><%= book.book_name %></a>
+                <a href="#"><%= piece.book_name %></a>
               </h4>
-              <p class="card-text"><%= book.summary %></p>
-              <a class="btn btn-primary" href="/books/<%= book.id %>">目錄</a>
-              <a class="btn btn-primary" href="/books/<%= book.id %>">訂閱</a>
-              <a class="btn btn-primary" href="/books/<%= book.id %>/chapters/41/edit">編輯</a>
+              <p class="card-text"><%= piece.summary %></p>
+              <a class="btn btn-primary" href="/books/<%= piece.id %>">目錄</a>
+              <a class="btn btn-primary" href="/books/<%= piece.id %>">訂閱</a>
+              <a class="btn btn-primary" href="/books/<%= piece.id %>/dashboard">編輯</a>
             </div>
           </div>
         </div>

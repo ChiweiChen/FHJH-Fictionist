@@ -28,13 +28,11 @@
               作品類別
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
-            
-              <a class="dropdown-item" href="/books/?category=horror">恐怖</a>
-              <a class="dropdown-item" href="/books/?category=romance">愛情</a>
-              <a class="dropdown-item" href="/books/?category=science_fiction">科幻</a>
-              <a class="dropdown-item" href="/books/?category=fiction">玄幻</a>
-              <a class="dropdown-item" href="/books/?category=imaginary_fiction">奇幻</a>
-              <a class="dropdown-item" href="/books/?category=adventure">冒險</a>
+              <% @categories.each do |category| %>
+                <a class="dropdown-item" href="/books/?category=<%=category.id%>">
+                  <%= category.show %> 
+                </a>
+              <%end %>
             </div>
           </li>
           <li class="nav-item">

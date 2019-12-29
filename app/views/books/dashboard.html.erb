@@ -1,0 +1,48 @@
+<div class="row container">
+    <div class="col-md-9 row">
+      <!-- Sidebar Column -->
+      <% @book.chapters.each do |chapter|%>
+      <!--Creates chapter variable-->
+        <div class="col-lg-3 mb-4">
+        <!-- For each chapter, create a box that takes up 3 portions of the page-->
+          <div class="list-group">
+          
+          <a href="/books/<%=@book.id%>/chapters/<%=chapter.id%>" class="list-group-item"> <%= chapter.title%></a>
+          <!--
+          Nested route created in routes.rb
+          e.g. /books/:id/chapters/:id
+          Get book_id and chapter_id for respective chapters
+          @book from set_book in books_controller
+          -->
+          </div>
+        </div>
+      <% end%>
+    </div>
+    <div class="col-md-3">
+        <!-- Categories Widget -->
+        <div class="card my-4">
+          <h5 class="card-header">編輯作品</h5>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-lg-6">
+                <ul class="list-unstyled mb-0">
+                  <li>
+                    <a href="/books/<%=@book.id%>/chapters/new">新增章節</a>
+                  </li>
+                  <li>
+                    <a href="/books/?category=horror">收回章節</a>
+                  </li>
+                  <li>
+                    <a href="/books/?category=horror">編輯章節</a>
+                  </li>
+                  <li>
+                    <a href="/books/?category=romance">作品資料</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <!-- /.row -->
+</div>

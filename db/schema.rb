@@ -10,14 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_08_094418) do
+ActiveRecord::Schema.define(version: 2019_12_23_032120) do
 
   create_table "books", force: :cascade do |t|
     t.string "book_name"
     t.string "summary"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "category"
     t.string "cover"
   end
 
@@ -41,6 +40,7 @@ ActiveRecord::Schema.define(version: 2019_12_08_094418) do
     t.datetime "updated_at", precision: 6, null: false
     t.datetime "upload"
     t.integer "views"
+    t.boolean "is_first"
   end
 
   create_table "chapters_users", id: false, force: :cascade do |t|
@@ -79,6 +79,7 @@ ActiveRecord::Schema.define(version: 2019_12_08_094418) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
