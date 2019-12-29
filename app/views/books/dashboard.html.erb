@@ -1,3 +1,17 @@
+<style>
+    a:hover{
+        color: black;
+        background-color: white;
+        text-decoration: none;
+    }
+    a.hidden-text{
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        display: inline-block;
+        max-width: 100%;
+        overflow: hidden;
+    }
+</style>
 <div class="row container">
     <div class="col-md-9 row">
       <!-- Sidebar Column -->
@@ -7,7 +21,17 @@
         <!-- For each chapter, create a box that takes up 3 portions of the page-->
           <div class="list-group">
           
-          <a href="/books/<%=@book.id%>/chapters/<%=chapter.id%>" class="list-group-item"> <%= chapter.title%></a>
+          <div class="list-group-item">
+            <a class="hidden-text" href="/books/<%=@book.id%>/chapters/<%=chapter.id%>"><%= chapter.title%></a>
+            <br/>
+            <a class="badge badge-pill badge-success" href="/books/<%=@book.id%>/chapters/<%=chapter.id%>/edit">編輯</a>
+            <%if(chapter.upload.nil?)%>
+                <button class="badge badge-pill badge-primary upload" data-chapter-id="<%= chapter.id %>">發佈</button>
+            <%else%>
+                <button class="badge badge-pill badge-danger unsend"data-chapter-id="<%= chapter.id %>">收回</button>
+            <%end%>
+            
+         </div>
           <!--
           Nested route created in routes.rb
           e.g. /books/:id/chapters/:id
@@ -46,3 +70,29 @@
       </div>
     <!-- /.row -->
 </div>
+<script>
+    $('.upload').click(function(){
+        var chapterId = $(this).data('chapter-id')
+        $.ajax({
+            method: "POST",
+            url: `/chapters/${chapterId}/upload`
+        })
+        .done(function( msg ) {
+            if(msg){
+                location.reload()
+            }
+        });
+    })
+    $('.unsend').click(function(){
+        var chapterId = $(this).data('chapter-id')
+        $.ajax({
+            method: "POST",
+            url: `/chapters/${chapterId}/unsend`
+        })
+        .done(function( msg ) {
+            if(msg){
+                location.reload()
+            }
+        });
+    })
+</script>

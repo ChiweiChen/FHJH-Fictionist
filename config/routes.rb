@@ -3,7 +3,12 @@ Rails.application.routes.draw do
   
   resources :comments
   resources :likes
-  resources :chapters
+  resources :chapters do
+    member do
+      post :unsend
+      post :upload
+    end
+  end
   resources :books do
     member do 
       get :dashboard

@@ -1,6 +1,36 @@
-<h1>Editing Chapter</h1>
+<div class="container w-75">
+  <%= form_with(model: @chapter, local: true) do |form| %>
+    <% if @chapter.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(book.errors.count, "error") %> prohibited this book from being saved:</h2>
 
-<%= render 'form', chapter: @chapter %>
+        <ul>
+          <% book.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <h1>編輯章節</h1>
+    <div class="form-group">
+      <label >章節名稱</label>
+      <input type="text" class="form-control" id="chapter_title" name="chapter[title]" value="<%=@chapter.title%>">
+    </div>
 
-<%= link_to 'Show', @chapter %> |
-<%= link_to 'Back', users_path %>
+    <div class="form-group">
+      <label>內容</label>
+      <textarea class="form-control" id="editor" name="chapter[content]" rows="50" ><%=@chapter.content%></textarea>
+    </div>
+    <button  type="submit" class="btn btn-primary">儲存</button><br>
+    
+    <a href="/books/<%=@book.id%>/dashboard">回上一頁</a>
+  <% end %>
+</div>
+<script src="https://cdn.ckeditor.com/ckeditor5/16.0.0/classic/ckeditor.js"></script>
+    <script>
+      ClassicEditor
+        .create(document.querySelector('#editor'))
+        .catch(error=>{
+          console.error(error);
+        });
+    </script>

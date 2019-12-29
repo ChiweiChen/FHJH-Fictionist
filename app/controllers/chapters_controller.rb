@@ -1,5 +1,6 @@
 class ChaptersController < ApplicationController
-  before_action :set_chapter, only: [:show, :edit, :update, :destroy]
+  before_action :set_chapter, only: [:show, :edit, :update, :destroy, :upload, :unsend]
+  protect_from_forgery except: :upload
 
   # GET /chapters
   # GET /chapters.json
@@ -30,6 +31,7 @@ class ChaptersController < ApplicationController
 
   # GET /chapters/1/edit
   def edit
+    @book = Book.find(params[:book_id])
   end
 
   # POST /chapters
@@ -71,6 +73,16 @@ class ChaptersController < ApplicationController
       format.html { redirect_to chapters_url, notice: 'Chapter was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def upload
+    @chapter.update(upload: Time.now)
+    render json: true
+  end
+
+  def unsend
+    @chapter.update(upload: nil)
+    render json: true
   end
 
   private
