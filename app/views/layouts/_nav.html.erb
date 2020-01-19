@@ -24,16 +24,16 @@
             </div>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" href="/books/#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               作品類別
             </a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
-              <% @categories.each do |category| %>
-                <a class="dropdown-item" href="/books/?category=<%=category.id%>">
-                  <%= category.show %> 
-                </a>
-              <%end %>
-            </div>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
+                <% @categories.each do |category| %>
+                  <a class="dropdown-item" href="/books/?category=<%=category.id%>">
+                    <%= category.show %> 
+                  </a>
+                <%end %>
+              </div>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/about">排行榜</a>

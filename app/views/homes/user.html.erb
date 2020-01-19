@@ -22,7 +22,6 @@
               <!--pluck takes the column 'show' from a book's corresponding categories from the category_ids stuff
                 join just joins the two items in the array that was returned from pluck('show')-->
               <a class="btn btn-primary" href="/books/<%= book.id %>">目錄</a>
-              <a class="btn btn-primary" href="/books/<%= book.id %>">訂閱</a>
             </div>
           </div>
         </div>
@@ -86,7 +85,6 @@
               </h4>
               <p class="card-text"><%= piece.summary %></p>
               <a class="btn btn-primary" href="/books/<%= piece.id %>">目錄</a>
-              <a class="btn btn-primary" href="/books/<%= piece.id %>">訂閱</a>
               <a class="btn btn-primary" href="/books/<%= piece.id %>/dashboard">編輯</a>
             </div>
           </div>

@@ -19,7 +19,7 @@
 
     <div class="form-group">
       <label>內容</label>
-      <textarea class="form-control" id="editor" name="chapter[content]" rows="50" ><%=@chapter.content%></textarea>
+      <textarea class="form-control" id="editor" name="chapter[content]" rows="50" ><%=@chapter.content.html_safe%></textarea>
     </div>
     <button  type="submit" class="btn btn-primary">儲存</button><br>
     

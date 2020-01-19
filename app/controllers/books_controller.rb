@@ -74,7 +74,7 @@ class BooksController < ApplicationController
     respond_to do |format|
       if @book.update(book_params)
         @book.update(category_ids: params[:book][:category_ids])
-        format.html { redirect_to @book, notice: 'Book was successfully updated.' }
+        format.html { redirect_to "/books/#{@book.id}/dashboard", notice: 'Book was successfully updated.' }
         format.json { render :show, status: :ok, location: @book }
       else
         format.html { render :edit }
