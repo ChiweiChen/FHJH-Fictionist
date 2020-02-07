@@ -6,24 +6,30 @@
     <!--Uses @which_chapter variable created in chapters_controller-->
       <small><%=@chapter.title%></small>
     </h1>
+    <div class="content">
     <p><%=@chapter.content.html_safe%>
     </p>
+    </div>
   </div>
   <div class="col-12">
-    <h3>
-    留言
-    </h3>
-    <div class="text-center">
-      <form action="/comments" method="post">
-        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-        <input type="hidden" name="comment[user_id]"  value=<%= current_user.id%>>
-        <!--use <%=%> for current_user.id to make it detectable by value on the html-->
-        <textarea id="editor" name="comment[comment]" cols="100" rows="5"></textarea>
-        <input type="hidden" name="comment[chapter_id]" value=<%= @chapter.id%>>
-        <br>
-        <button class="btn btn-success">送出</button>
-      </form>
-    </div>
+  <!--
+    <%if user_signed_in?%>
+      <h3>
+      留言
+      </h3>
+      <div class="text-left">
+        <form action="/comments" method="post">
+          <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+          <input type="hidden" name="comment[user_id]"  value=<%= current_user.id%>>-->
+          <!--use <%=%> for current_user.id to make it detectable by value on the html-->
+          <!--textarea id="editor" name="comment[comment]" cols="100" rows="5"></textarea>
+          <input type="hidden" name="comment[chapter_id]" value=<%= @chapter.id%>>
+          <br>
+          <button class="btn btn-success">送出</button>
+        </form>
+      </div>
+    <%end%>
+  -->
     
   </div>
 

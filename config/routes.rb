@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   resources :books do
     member do 
       get :dashboard
+      post :subscribe
+      post :unsubscribe
     end
     resources :chapters
   end

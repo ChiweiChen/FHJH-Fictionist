@@ -32,6 +32,7 @@ class ChaptersController < ApplicationController
   # GET /chapters/1/edit
   def edit
     @book = Book.find(params[:book_id])
+    
   end
 
   # POST /chapters

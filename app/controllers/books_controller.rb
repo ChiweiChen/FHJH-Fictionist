@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  before_action :set_book, only: [:show, :edit, :update, :destroy, :dashboard]
+  before_action :set_book, only: [:show, :edit, :update, :destroy, :dashboard, :subscribe, :unsubscribe]
   #When showing the page, the page runs the function set_book before Show, creating @book for use in View
 
   # GET /books
@@ -11,9 +11,10 @@ class BooksController < ApplicationController
   
     if category_id == nil
     #use nil when you don't receive any parameters; don't use "", even an empty string is considered data
-      @books = Book.all
+      @books = Book.all.includes(:users, :categories)
+      #finds users and categories from other tables in advance
     else
-      @books = Category.find(category_id).books
+      @books = Category.find(category_id).books.includes(:users, :categories)
       
     end
     # @books = Book.where(category: ...)
@@ -33,7 +34,7 @@ class BooksController < ApplicationController
   # GET /books/1.json
   def show
   end
-
+  
   # GET /books/new
   def new
     @book = Book.new
@@ -93,6 +94,20 @@ class BooksController < ApplicationController
     end
   end
 
+  def subscribe
+    subscribers=@book.users.pluck("id")
+    subscribers.push(current_user.id)
+    @book.update(user_ids: subscribers)
+    render json: true
+  end
+
+  def unsubscribe
+    subscribers=@book.users.pluck("id")
+    subscribers.delete(current_user.id)
+    @book.update(user_ids: subscribers)
+    render json: true
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_book
@@ -102,7 +117,7 @@ class BooksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def book_params
-      params.require(:book).permit(:book_name, :summary)
+      params.require(:book).permit(:book_name, :summary, :cover)
       #category_ids is not included in permit because it does weird stuff and it's only used to create relationships
     end
 end

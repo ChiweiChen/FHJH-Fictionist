@@ -6,4 +6,14 @@ class HomesController < ApplicationController
             @pieces.push(chapter.book)
         end
     end
+
+    def index
+        a=Date.today.wday
+        @todays=[]
+        Book.all.each do |book|
+            if(book.id%7==a)
+                @todays.push(book)
+            end
+        end
+    end
 end
