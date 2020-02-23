@@ -10,7 +10,7 @@
     <% if @books!=nil %>
 
       <% @books.each do |book| %>
-        <div class="col-lg-4 col-sm-6 portfolio-item">
+        <div class="col-sm-3 portfolio-item">
           <div class="card h-100">
             <a href="#"><img class="card-img-top" src="<%= book.get_cover%>" alt=""></a>
             <div class="card-body">
@@ -44,7 +44,8 @@
       <!-- Sidebar Widgets Column -->
       <div class="col-md-3">
 
-        <!-- Search Widget -->
+        <!--
+        
         <div class="card mb-4">
           <h5 class="card-header">搜尋</h5>
           <div class="card-body">
@@ -56,6 +57,7 @@
             </div>
           </div>
         </div>
+        -->
 
         <!-- Categories Widget -->
         <div class="card my-4">
@@ -83,14 +85,11 @@
     </div>
     <!-- /.row -->
     <!-- Pagination -->
-        <ul class="pagination justify-content-center mb-4">
-          <li class="page-item">
-            <a class="page-link" href="#">&larr; Older</a>
-          </li>
-          <li class="page-item disabled">
-            <a class="page-link" href="#">Newer &rarr;</a>
-          </li>
-        </ul>
+    <div class="apple_pagination">
+      <%=will_paginate @books%>
+    </div>
+    
+        
   </div>
 </div>
 <script>

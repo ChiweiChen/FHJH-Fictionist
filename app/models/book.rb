@@ -13,7 +13,7 @@ class Book < ApplicationRecord
         if self.cover.attached?
             Rails.application.routes.url_helpers.rails_blob_path(self.cover, only_path:true)
         else
-            "http://placehold.it/700x400"
+            "http://placehold.it/600x800"
         end
     end
 end

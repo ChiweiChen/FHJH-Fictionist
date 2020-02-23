@@ -42,36 +42,15 @@
   <!-- Page Content -->
   <div class="container"> 
     <h1 class="my-4">歡迎來到夢想中文網!</h1>
-    <!-- Marketing Icons Section -->
-    <div class="row">
-      <% @books.each do |book| %>
-        <div class="col-lg-4 col-sm-6 portfolio-item">
-          <div class="card h-100">
-            <a href="#"><img class="card-img-top" src="http://placehold.it/600x800" alt=""></a>
-            <div class="card-body">
-              <h4 class="card-title">
-                <a href="#"><%= book.book_name %></a>
-              </h4>
-              <p class="card-text"><%= book.summary %></p>
-              <a class="btn btn-primary" href="/books/<%= book.id %>">目錄</a>
-              <%if user_signed_in?%>
-                <a class="btn btn-primary" href="/books/<%= book.id %>">訂閱</a>
-              <%end%>
-            </div>
-          </div>
-        </div>
-      <%end%>
-    </div>
-    <!-- /.row -->
 
     <!-- Portfolio Section -->
     <h2>今日作品</h2>
 
     <div class="row">
       <% @todays.each do |book| %>
-        <div class="col-lg-4 col-sm-6 portfolio-item">
+        <div class="col-sm-3 portfolio-item">
           <div class="card h-100">
-            <a href="#"><img class="card-img-top" src="http://placehold.it/600x800" alt=""></a>
+            <a href="#"><img class="card-img-top" src=<%=book.get_cover%> alt=""></a>
             <div class="card-body">
               <h4 class="card-title">
                 <a href="#"><%= book.book_name %></a>

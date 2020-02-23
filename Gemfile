@@ -25,6 +25,7 @@ gem 'devise'
 gem 'rails-i18n'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
+gem 'will_paginate'
 
 gem 'pry'
 

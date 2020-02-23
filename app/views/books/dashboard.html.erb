@@ -55,7 +55,8 @@
                   </li>
                   <li>
                     <a href="/books/<%=@book.id%>/edit">作品資料</a>
-                  </li>
+                  </li> 
+                  
                 </ul>
               </div>
             </div>
@@ -85,8 +86,11 @@
         })
         .done(function( msg ) {
             if(msg){
-                location.reload()
+              Swal.fire('收回成功')
+              location.reload()
+
             }
         });
     })
+
 </script>

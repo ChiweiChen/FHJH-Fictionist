@@ -28,10 +28,12 @@
   <% end %>
 </div>
 <script src="https://cdn.ckeditor.com/ckeditor5/16.0.0/classic/ckeditor.js"></script>
-    <script>
+<script>
+  setTimeout(() => {
       ClassicEditor
-        .create(document.querySelector('#editor'))
-        .catch(error=>{
-          console.error(error);
-        });
-    </script>
+      .create(document.querySelector('#editor'))
+      .catch(error=>{
+        console.error(error);
+      });  
+  }, 100);
+</script>

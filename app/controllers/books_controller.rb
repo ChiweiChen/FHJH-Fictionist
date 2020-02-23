@@ -11,10 +11,10 @@ class BooksController < ApplicationController
   
     if category_id == nil
     #use nil when you don't receive any parameters; don't use "", even an empty string is considered data
-      @books = Book.all.includes(:users, :categories)
+      @books = Book.all.includes(:users, :categories).paginate(page: params[:page])
       #finds users and categories from other tables in advance
     else
-      @books = Category.find(category_id).books.includes(:users, :categories)
+      @books = Category.find(category_id).books.includes(:users, :categories).paginate(page: params[:page])
       
     end
     # @books = Book.where(category: ...)
