@@ -5,6 +5,7 @@ class HomesController < ApplicationController
         chapters.each do |chapter|
             @pieces.push(chapter.book)
         end
+        
     end
 
     def index

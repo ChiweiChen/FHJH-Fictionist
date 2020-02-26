@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Book.delete_all()
+
 
 # book6 = Book.create(book_name: 'An adventure novel', summary: 'This is an adventure novel', category:'adventure')
 # Chapter.delete_all()
@@ -18,7 +18,7 @@ Book.delete_all()
 # book6.chapters.create(title: 'yes', content: 'no')
 #Category.delete_all()
 
-#User.delete_all()
+User.delete_all()
 
 
 

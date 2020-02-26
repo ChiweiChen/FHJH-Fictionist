@@ -15,15 +15,16 @@
             <a href="#"><img class="card-img-top" src="<%= book.get_cover%>" alt=""></a>
             <div class="card-body">
               <h4 class="card-title">
-                <a href="#"><%= book.book_name %>  </a>
+                <a href="/books/<%= book.id %>"><%= book.book_name %>  </a>
               </h4>
               <p class="card-text">
                 <% book.categories.each do |category|%>
-                  <span class="badge badge-pill badge-primary"><%=category.show%></span>
+                  <a href="/books/?category=<%=category.id%>" class="badge badge-pill badge-primary"><%=category.show%></a>
                 <%end%>
               </p>
-              <p class="card-text"><%= book.summary %></p>
-              <a class="btn btn-primary" href="/books/<%= book.id %>">目錄</a>
+              <em><%=book.get_author%></em>
+              <br>
+              <br>
               <%if user_signed_in?%>
                 <%if book.check_subscriber(current_user.id)%>
                   <button class="btn btn-warning unsubscribe" data-book-id="<%=book.id%>">不收藏</button>
@@ -43,7 +44,6 @@
 
       <!-- Sidebar Widgets Column -->
       <div class="col-md-3">
-
         <!--
         
         <div class="card mb-4">

@@ -112,7 +112,7 @@ Devise.setup do |config|
   # algorithm), the cost increases exponentially with the number of stretches (e.g.
   # a value of 20 is already extremely slow: approx. 60 seconds for 1 calculation).
   config.stretches = Rails.env.test? ? 1 : 11
-
+  
   # Set up a pepper to generate the hashed password.
   # config.pepper = 'eaa52f06641eb4ad42089e411950e1d16797a1bf54c605769d7c2e5843006d8e96f99ad472a4eb2589818e7350ff9f429d5eeafa9793d514eb7db3b573916885'
 
@@ -232,7 +232,7 @@ Devise.setup do |config|
   # Turn scoped views on. Before rendering "sessions/new", it will first check for
   # "users/sessions/new". It's turned off by default because it's slower if you
   # are using only default views.
-  # config.scoped_views = false
+  config.scoped_views = true
 
   # Configure the default scope given to Warden. By default it's the first
   # devise role declared in your routes (usually :user).

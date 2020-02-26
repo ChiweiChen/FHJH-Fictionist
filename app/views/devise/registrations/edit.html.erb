@@ -1,43 +1,73 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h2>編輯使用者資料</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
+<div class="container-fluid row">
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
+  <div class="column-sm-2">
+    <div class ="field">
+     <%= f.label :name %><br />
+     <%= f.text_field :name, autofocus: true %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  
+  
+  <div class="col-sm-3 portfolio-item">
+    <div class="card h-100">
+      <div class="card-body">
+        <h4 class="card-title">
+          <a>請輸入新密碼  </a>
+        </h4>
+        <p class="card-text field">
+            <%= f.password_field :password, autocomplete: "new-password" %>
+        </p>
+        <% if @minimum_password_length %>
+        
+          <em>（最少 <%= @minimum_password_length %> 碼）</em>
+        <% end %>
+        <h4 class="card-title">
+          <a>
+            確認密碼
+          </a>
+        </h4>
+        <p class="card-text field">
+          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+        </p>
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+  
+  <div class="column-sm-2">
+    <div class="field">
+    <%= f.label :current_password %><br />
     <%= f.password_field :current_password, autocomplete: "current-password" %>
+    </div>
   </div>
+  
+  
+  <div class="column-sm-2">
+    <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
+  </div>
+</div>
+  <div class="column-sm-2">
+      <%= f.submit "更新" %>
+  </div>
+  
+  
 
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
+  
 <% end %>
+<!-- 
+<h3>刪除帳號</h3>
 
-<h3>Cancel my account</h3>
+<p>Unhappy? <%= button_to "刪除帳號", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
-<%= link_to "Back", :back %>
+-->
+
+<%= link_to "回到上一頁", :back %>

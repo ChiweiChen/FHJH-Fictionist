@@ -9,11 +9,25 @@ class Book < ApplicationRecord
         users.pluck("id").include?(user_id)
     end
 
+    def get_author
+        if(self.chapters.first.user_ids!=nil)
+            
+
+        
+            return User.find(self.chapters.first.user_ids[0]).name
+        end
+        
+            
+    end
     def get_cover
         if self.cover.attached?
             Rails.application.routes.url_helpers.rails_blob_path(self.cover, only_path:true)
         else
             "http://placehold.it/600x800"
         end
+    end
+
+    def get_categories
+        self.categories
     end
 end

@@ -1,5 +1,5 @@
 <header>
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="margin-bottom:150px">
       <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -41,8 +41,13 @@
 
   <!-- Page Content -->
   <div class="container"> 
-    <h1 class="my-4">歡迎來到夢想中文網!</h1>
-
+  <!-- 
+    <% if user_signed_in?%>
+      <h1><%=current_user.name%>,歡迎來到東方文創！</h1>
+    <% else%>
+      <h1 class="my-4">歡迎來到夢想中文網!</h1>
+    <%end%>
+  -->
     <!-- Portfolio Section -->
     <h2>今日作品</h2>
 
@@ -53,10 +58,9 @@
             <a href="#"><img class="card-img-top" src=<%=book.get_cover%> alt=""></a>
             <div class="card-body">
               <h4 class="card-title">
-                <a href="#"><%= book.book_name %></a>
+                <a href="/books/<%= book.id %>"><%= book.book_name %></a>
               </h4>
               <p class="card-text"><%= book.summary %></p>
-              <a class="btn btn-primary" href="/books/<%= book.id %>">目錄</a>
               <%if user_signed_in?%>
                 <a class="btn btn-primary" href="/books/<%= book.id %>">訂閱</a>
               <%end%>
