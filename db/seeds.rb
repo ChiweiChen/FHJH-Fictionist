@@ -20,6 +20,6 @@
 
 User.delete_all()
 Book.delete_all()
-
+Chapter.delete_all()
 
 
