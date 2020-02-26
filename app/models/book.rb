@@ -10,10 +10,7 @@ class Book < ApplicationRecord
     end
 
     def get_author
-        if(self.chapters.first.user_ids!=nil)
-            
-
-        
+        if(self.chapters.first.user_ids[0]!=nil)
             return User.find(self.chapters.first.user_ids[0]).name
         end
         

@@ -6,13 +6,17 @@
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
-  <div class="column-sm-2">
-    <div class ="field">
-     <%= f.label :name %><br />
-     <%= f.text_field :name, autofocus: true %>
+  
+  <div class="col-sm-3 portfolio-item">
+    <div class="card h-100">
+      <div class="card-body">
+        <h4 class="card-title">
+          <%= f.label :name %><br />
+        </h4>
+        <%= f.text_field :name, autofocus: true %>
+      </div>
     </div>
   </div>
-  
   
   <div class="col-sm-3 portfolio-item">
     <div class="card h-100">
@@ -39,20 +43,35 @@
     </div>
   </div>
   
-  <div class="column-sm-2">
-    <div class="field">
-    <%= f.label :current_password %><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
+  <div class="col-sm-3 portfolio-item">
+    <div class="card h-100">
+      <div class="card-body">
+        <h4 class="card-title">
+          <%= f.label :current_password %><br />
+        </h4>
+        <p class="card-text field">
+          <%= f.password_field :current_password, autocomplete: "current-password" %>
+        </p>
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="col-sm-3 portfolio-item">
+    <div class="card h-100">
+      <div class="card-body">
+        <h4 class="card-title">
+          <%= f.label :email %><br />
+        </h4>
+        <p class="card-text field">
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        </p>
+        
+      </div>
     </div>
   </div>
   
   
-  <div class="column-sm-2">
-    <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-    </div>
-  </div>
 </div>
   <div class="column-sm-2">
       <%= f.submit "更新" %>
