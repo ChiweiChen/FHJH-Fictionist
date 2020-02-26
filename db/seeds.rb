@@ -19,6 +19,7 @@
 #Category.delete_all()
 
 User.delete_all()
+Book.delete_all()
 
 
 
