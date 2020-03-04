@@ -15,7 +15,7 @@ class HomesController < ApplicationController
         @todays=[]
         i=1
         if Book.all.size<9
-            for i in 0..Book.all.size
+            for i in 0..Book.all.size-1
                 @todays.push(Book.find(@all_book_ids[i]))
             end
         else 
