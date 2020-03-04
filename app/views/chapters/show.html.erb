@@ -1,7 +1,9 @@
 <style>
 .content{
   font-size:18px;
-  margin-top:70px;
+  margin-top:50px;
+  margin-bottom:50px;
+  font-family:"Arial";
 }
 </style>
 <div class="container d-flex align-content-between flex-wrap" style="min-height: 600px; margin-bottom:150px"> 
@@ -12,12 +14,44 @@
     <!--Uses @which_chapter variable created in chapters_controller-->
       <%=@chapter.title%>
     </h1>
-    
-    <div class="content">
-    <p><%=@chapter.content.html_safe%>
-    </p>
+    <div class="container fluid row">
+      <%if @chapter.has_prev%>
+        <a class="btn btn-primary column-sm-3" style="text-align:right; margin-right:20px;" href="/books/<%=@chapter.book.id%>/chapters/<%=@chapter.get_prev%>">前一章</a>
+      <%end%>
+      <%if @chapter.has_next%>
+        <a class="btn btn-primary column-sm-3" style="text-align:right;margin-right:50px;" href="/books/<%=@chapter.book.id%>/chapters/<%=@chapter.get_next%>">下一章</a>
+      <%end%>
+      <select class="column-sm-3" id="selecth1FontFamily" name="selectFontFamily" onchange="updateh1family();">
+        <option> Serif </option>
+        <option> Arial </option>
+        <option> Sans-Serif </option>                                  
+        <option> DFKai-sb </option>                               
+      </select>
     </div>
+    <div class="content"  style="min-height:600px">
+      <p id="content"><%=@chapter.content.html_safe%></p>
+    </div>
+    <div class="container fluid row">
+      <%if @chapter.has_prev%>
+        <a class="btn btn-primary column-sm-3" style="text-align:right;margin-right:20px;" href="/books/<%=@chapter.book.id%>/chapters/<%=@chapter.get_prev%>">前一章</a>
+      <%end%>
+      <%if @chapter.has_next%>
+        <a class="btn btn-primary column-sm-3" style="text-align:right" href="/books/<%=@chapter.book.id%>/chapters/<%=@chapter.get_next%>">下一章</a>
+      <%end%>
+      
+    </div>
+    
+    
   </div>
+  <script>
+      function updateh1family() {
+        var selector = document.getElementById('selecth1FontFamily');
+        var family = selector.options[selector.selectedIndex].value;
+        var content = document.getElementById('content')
+        content.style.fontFamily = family;        
+      }
+
+  </script>
   <!--
   <div class="col-12">
   
@@ -41,7 +75,5 @@
     
   </div>
   -->
-
-</div>
 
 
