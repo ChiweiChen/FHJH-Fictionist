@@ -1,3 +1,8 @@
+<style>
+    *{
+      font-family: DFKai-sb;
+    }
+</style>
 <div class="container w-75">
   <%= form_with(model: @book, local: true, multipart: true) do |form| %>
     <% if @book.errors.any? %>
