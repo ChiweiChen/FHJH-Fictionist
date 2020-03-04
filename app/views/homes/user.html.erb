@@ -21,7 +21,8 @@
     <div class="col-sm-9">
       <h1 >您的收藏
       </h1>
-      <table>
+      <hr>
+      <table style="margin-bottom:30px">
         <% @books.each do |book| %>
           <%if book.check_subscriber(current_user.id)%>
             <tr>
@@ -30,6 +31,7 @@
               <%end%>
               </th>
               <th><a href="/books/<%= book.id %>"><%= book.book_name %></a></th>
+              <th><a><%=book.get_author%></a>
               <th>
                 <%if book.check_subscriber(current_user.id)%>
                   <button class="btn btn-warning unsubscribe" data-book-id="<%=book.id%>">不收藏</button>
@@ -40,10 +42,11 @@
           <%end%>
         <%end %>
       </table>
+      
 
-      <h1 >您的作品
-        
+      <h1 style="margin-top:60px">您的作品
       </h1>
+      <hr>
       <div class="col-sm-9">
         <table>
           <% @pieces.each do |piece| %>

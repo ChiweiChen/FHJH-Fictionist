@@ -52,7 +52,7 @@ class BooksController < ApplicationController
     respond_to do |format|
       if @book.save
         @book.update(category_ids: params[:book][:category_ids])
-        chapter = Chapter.create(title: 'Chapter 1', content: 'Chapter 1 Content', book_id: @book.id, is_first: true)
+        chapter = Chapter.create(title: '第一章', content: '第一章內容', book_id: @book.id, is_first: true)
         chapter.update(user_ids: current_user.id)
         #@book.update([column_name]: [value])
         #category_ids does not belong to any table, it belongs to the model Book

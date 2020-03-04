@@ -1,17 +1,18 @@
 <style>
 .content{
   font-size:18px;
-  margin-top:100px;
+  margin-top:70px;
 }
 </style>
 <div class="container d-flex align-content-between flex-wrap" style="min-height: 600px; margin-bottom:150px"> 
-
+  
   <div class="col-12">
     <!-- Page Heading/Breadcrumbs -->
-    <h1 class="mt-4 mb-3">第<%=@which_chapter%>章
+    <h1 class="mt-4 mb-3">
     <!--Uses @which_chapter variable created in chapters_controller-->
-      <small><%=@chapter.title%></small>
+      <%=@chapter.title%>
     </h1>
+    
     <div class="content">
     <p><%=@chapter.content.html_safe%>
     </p>

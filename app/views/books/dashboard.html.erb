@@ -11,8 +11,9 @@
         max-width: 100%;
         overflow: hidden;
     }
+    
 </style>
-<div class="row container">
+<div class="row container " style="min-height:400px;">
     <div class="col-md-9 row">
       <!-- Sidebar Column -->
       <% @book.chapters.each do |chapter|%>
@@ -49,12 +50,13 @@
           <div class="card-body">
             <div class="row">
               <div class="col-lg-6">
-                <ul class="list-unstyled mb-0">
-                  <li>
-                    <a href="/books/<%=@book.id%>/chapters/new">新增章節</a>
+                <ul class="list-unstyled mb-3" style="min-width:100px">
+                  <li >
+                    <a class="btn btn-primary" href="/books/<%=@book.id%>/chapters/new">新增章節</a>
                   </li>
+                  <br>
                   <li>
-                    <a href="/books/<%=@book.id%>/edit">作品資料</a>
+                    <a class="btn btn-primary" href="/books/<%=@book.id%>/edit">作品資料</a>
                   </li> 
                   
                 </ul>
@@ -63,8 +65,10 @@
           </div>
         </div>
       </div>
+    </div>
     <!-- /.row -->
-</div>
+<a href="/user" class="btn">回上一頁</a>
+
 <script>
     $('.upload').click(function(){
         var chapterId = $(this).data('chapter-id')

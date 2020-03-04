@@ -21,8 +21,11 @@ class ChaptersController < ApplicationController
       end
     end
     #For each chapter, check whether or not it is the same one as the one being displayed on the page
+    
   end
 
+  
+  
   # GET /chapters/new
   def new
     @chapter = Chapter.new
@@ -91,6 +94,7 @@ class ChaptersController < ApplicationController
     def set_chapter
       @chapter = Chapter.find(params[:id])
       #Parameters for book_id and chapter_id are found from URL
+      
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

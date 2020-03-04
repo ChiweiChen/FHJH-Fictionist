@@ -8,13 +8,23 @@ class HomesController < ApplicationController
         
     end
 
+    
     def index
-        a=Date.today.wday
+        @all_book_ids=Book.all.ids
+        @all_book_ids=@all_book_ids.rotate(Date.today.yday)
         @todays=[]
-        Book.all.each do |book|
-            if(book.id%7==a)
-                @todays.push(book)
+        i=1
+        if Book.all.size<9
+            for i in 0..Book.all.size
+                @todays.push(Book.find(@all_book_ids[i]))
+            end
+        else 
+            for i in 0..8
+                @todays.push(Book.find(@all_book_ids[i]))
             end
         end
+        
+        
+        
     end
 end

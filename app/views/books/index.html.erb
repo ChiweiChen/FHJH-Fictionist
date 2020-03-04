@@ -10,12 +10,12 @@
     <% if @books!=nil %>
 
       <% @books.each do |book| %>
-        <div class="col-sm-3 portfolio-item">
+        <div class="col-sm-3 portfolio-item" >
           <div class="card h-100">
             <a href="#"><img class="card-img-top" src="<%= book.get_cover%>" alt=""></a>
             <div class="card-body">
-              <h4 class="card-title">
-                <a href="/books/<%= book.id %>"><%= book.book_name %>  </a>
+              <h4 class="card-title" style="min-height:50px">
+                <a href="/books/<%= book.id %>" style="text-overflow: ellipsis;"><%= book.book_name %>  </a>
               </h4>
               <p class="card-text">
                 <% book.categories.each do |category|%>

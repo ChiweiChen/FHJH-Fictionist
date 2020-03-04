@@ -16,6 +16,7 @@ class Book < ApplicationRecord
         
             
     end
+    
     def get_cover
         if self.cover.attached?
             Rails.application.routes.url_helpers.rails_blob_path(self.cover, only_path:true)
