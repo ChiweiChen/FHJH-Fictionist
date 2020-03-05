@@ -3,6 +3,11 @@
 body{
   background-color:#fefbd8;
 }
+p{
+  
+  padding:10px;
+}
+
 </style>
 <div class="container d-flex align-content-between flex-wrap" style="min-height: 600px; margin-bottom:150px"> 
   
@@ -27,17 +32,15 @@ body{
       </select>
       
       <select class="column-sm-2" id="selectFontSize" name="selectFontSize" onchange="updatesize()">
-        <option>12px</option>
         <option>16px</option>
         <option>20px</option>
         <option>24px</option>
         <option>28px</option>
         <option>32px</option>
-        <option>36px</option>
       </select>
     
     </div>
-    <div id="content" style="min-height:600px;font-size:12px;margin-top:50px;margin-bottom:50px;">
+    <div id="content" style="min-height:600px;font-size:16px;margin-top:50px;margin-bottom:50px;">
       <%=@chapter.content.html_safe%>
     </div>
     <div class="container fluid row">
@@ -75,6 +78,7 @@ body{
       var title = document.getElementById('title')
       
       contents.style.fontSize=size;
+      contents.style.lineHeight=size*2.5
       
     
     }
