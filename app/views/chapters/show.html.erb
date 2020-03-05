@@ -1,6 +1,8 @@
 <style>
 
-
+body{
+  background-color:#fefbd8;
+}
 </style>
 <div class="container d-flex align-content-between flex-wrap" style="min-height: 600px; margin-bottom:150px"> 
   
@@ -17,17 +19,25 @@
       <%if @chapter.has_next%>
         <a class="btn btn-primary column-sm-3" style="text-align:right;margin-right:50px;" href="/books/<%=@chapter.book.id%>/chapters/<%=@chapter.get_next%>">下一章</a>
       <%end%>
-      <select id="selectFontFamily" name="selectFontFamily" onchange="updatefamily()">
+      <select class="column-sm-2" id="selectFontFamily" name="selectFontFamily" onchange="updatefamily()">
         <option> Serif </option>
         <option> Arial </option>
         <option> Sans-Serif </option>                                  
-        <option> DFKai-sb</option>               
-        <option> Times New Roman</option>                
+        <option> DFKai-sb</option>                             
+      </select>
+      
+      <select class="column-sm-2" id="selectFontSize" name="selectFontSize" onchange="updatesize()">
+        <option>12px</option>
+        <option>16px</option>
+        <option>20px</option>
+        <option>24px</option>
+        <option>28px</option>
+        <option>32px</option>
+        <option>36px</option>
       </select>
     
     </div>
-    
-    <div id="content" style="min-height:600px;font-size:18px;margin-top:50px;margin-bottom:50px;">
+    <div id="content" style="min-height:600px;font-size:12px;margin-top:50px;margin-bottom:50px;">
       <%=@chapter.content.html_safe%>
     </div>
     <div class="container fluid row">
@@ -56,6 +66,17 @@
       }
       
       title.style.fontFamily = family;        
+    }
+
+    function updatesize() {
+      var selector = document.getElementById('selectFontSize');
+      var size = selector.options[selector.selectedIndex].value;
+      var contents = document.getElementById("content")
+      var title = document.getElementById('title')
+      
+      contents.style.fontSize=size;
+      
+    
     }
 
 </script>
