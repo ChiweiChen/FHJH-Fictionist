@@ -17,13 +17,9 @@ p{
     <!--Uses @which_chapter variable created in chapters_controller-->
       <%=@chapter.title%>
     </h1>
+    <a href="/books/<%=@chapter.book.id %>" style="font-size:18px;" class="btn ">目錄</a>
     <div class="container fluid row">
-      <%if @chapter.has_prev%>
-        <a class="btn btn-primary column-sm-3" style="text-align:right; margin-right:20px;" href="/books/<%=@chapter.book.id%>/chapters/<%=@chapter.get_prev%>">前一章</a>
-      <%end%>
-      <%if @chapter.has_next%>
-        <a class="btn btn-primary column-sm-3" style="text-align:right;margin-right:50px;" href="/books/<%=@chapter.book.id%>/chapters/<%=@chapter.get_next%>">下一章</a>
-      <%end%>
+      
       <select class="column-sm-2" id="selectFontFamily" name="selectFontFamily" onchange="updatefamily()">
         <option> Serif </option>
         <option> Arial </option>
@@ -31,13 +27,20 @@ p{
         <option> DFKai-sb</option>                             
       </select>
       
-      <select class="column-sm-2" id="selectFontSize" name="selectFontSize" onchange="updatesize()">
+      <select class="column-sm-2" id="selectFontSize" name="selectFontSize" onchange="updatesize()" style="margin-right:20px;">
         <option>16px</option>
         <option>20px</option>
         <option>24px</option>
         <option>28px</option>
         <option>32px</option>
       </select>
+
+      <%if @chapter.has_prev%>
+        <a class="btn btn-primary column-sm-3" style="text-align:right; margin-right:20px;" href="/books/<%=@chapter.book.id%>/chapters/<%=@chapter.get_prev%>">前一章</a>
+      <%end%>
+      <%if @chapter.has_next%>
+        <a class="btn btn-primary column-sm-3" style="text-align:right;margin-right:50px;" href="/books/<%=@chapter.book.id%>/chapters/<%=@chapter.get_next%>">下一章</a>
+      <%end%>
     
     </div>
     <div id="content" style="min-height:600px;font-size:16px;margin-top:50px;margin-bottom:50px;">
