@@ -9,7 +9,7 @@ p{
 }
 
 </style>
-<div class="container d-flex align-content-between flex-wrap" style="min-height: 600px; margin-bottom:150px"> 
+<div class="container d-flex align-content-between flex-wrap" style="min-height: 600px; margin-bottom:60px"> 
   
   <div class="col-12">
     <!-- Page Heading/Breadcrumbs -->
@@ -84,8 +84,8 @@ p{
     }
 
 </script>
-  <!--
-  <div class="col-12">
+
+  <div class="container" style="margin-bottom:50px;">
   
     <%if user_signed_in?%>
       <h3>
@@ -94,18 +94,22 @@ p{
       <div class="text-left">
         <form action="/comments" method="post">
           <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-          <input type="hidden" name="comment[user_id]"  value=<%= current_user.id%>>-->
-          <!--use <%=%> for current_user.id to make it detectable by value on the html-->
-          <!--textarea id="editor" name="comment[comment]" cols="100" rows="5"></textarea>
+          <input type="hidden" name="comment[user_id]"  value=<%= current_user.id%>>
+          <!--use <%=%> for current_user.id to make it detectable by value on the html -->
+          <textarea id="editor" name="comment[comment]" cols="100" rows="5"></textarea>
           <input type="hidden" name="comment[chapter_id]" value=<%= @chapter.id%>>
           <br>
           <button class="btn btn-success">送出</button>
         </form>
       </div>
     <%end%>
-  
-    
   </div>
-  -->
+  <div class="container">
+    <%@comments.each do |comment|%>
+      <div class="column-sm-3"><%=User.find(comment.get_author).name%>:</div>
+      <div class="column-sm-9" style="margin-bottom:20px;"><%=comment.comment%></div>
+    <%end%>
+  </div>
+
 
 

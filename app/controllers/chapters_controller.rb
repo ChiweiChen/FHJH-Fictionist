@@ -20,6 +20,7 @@ class ChaptersController < ApplicationController
         @which_chapter=count + 1
       end
     end
+    @comments=Comment.where(chapter_id: @chapter.id)
     #For each chapter, check whether or not it is the same one as the one being displayed on the page
     
   end

@@ -2,6 +2,13 @@
     *{
       font-family: DFKai-sb;
     }
+    #title{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    }
 </style>
 <p id="notice"><%= notice %></p>
 
@@ -11,7 +18,7 @@
     <h1 class="mt-4 mb-3 col-md-12"><%=@category_name%>作品
     </h1>
 
-    <div class="row col-md-9">
+    <div class="row col-md-10">
     <% if @books!=nil %>
 
       <% @books.each do |book| %>
@@ -19,17 +26,18 @@
           <div class="card h-100">
             <a href="#"><img class="card-img-top" src="<%= book.get_cover%>" alt=""></a>
             <div class="card-body">
-              <h4 class="card-title" style="min-height:50px">
+              <h4  id="title" style="min-height:30px;font-size:20px;">
                 <a href="/books/<%= book.id %>" style="text-overflow: ellipsis;"><%= book.book_name %>  </a>
               </h4>
+              <em><%=book.get_author%></em>
               <p class="card-text">
                 <% book.categories.each do |category|%>
                   <a href="/books/?category=<%=category.id%>" class="badge badge-pill badge-primary"><%=category.show%></a>
                 <%end%>
               </p>
-              <em><%=book.get_author%></em>
-              <br>
-              <br>
+              
+              
+              
               <%if user_signed_in?%>
                 <%if book.check_subscriber(current_user.id)%>
                   <button class="btn btn-warning unsubscribe" data-book-id="<%=book.id%>">不收藏</button>
@@ -48,7 +56,7 @@
       </div>
 
       <!-- Sidebar Widgets Column -->
-      <div class="col-md-3">
+      <div class="col-md-2">
         <!--
         
         <div class="card mb-4">
@@ -65,20 +73,19 @@
         -->
 
         <!-- Categories Widget -->
-        <div class="card my-4">
-          <h5 class="card-header">Categories</h5>
-          <div class="card-body">
+        <div class="card my-12">
+          <h5 class="card-header">推薦作品</h5>
+          <div class="card-body" style="background-color:gray;">
             <div class="row">
-              <div class="col-lg-6">
+              <div class="col-lg-12">
                 <ul class="list-unstyled mb-0">
-                  <li>
-                    <a href="/books/">全部</a>
-                  </li>
-                  <% @categories.each do |category|%>
-                    <li>
-                      <a href="/books/?category=<%=category.id%>"><%=category.show%></a>
+                  <%@recs.each do |rec|%>
+                    <li> 
+                      <a href="/books/<%=rec.id%>" style="color:white;font-size:16px;"><%=rec.book_name%></a>
+                      <hr style="color:white;">
                     </li>
-                  <% end%>
+                  <%end%>
+                  
                   
                   </li>
                 </ul>

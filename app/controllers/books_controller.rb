@@ -24,6 +24,19 @@ class BooksController < ApplicationController
     # same as Category.where(name:category)[0]
     # try(:column); try executing something; if there are no results, return nil
     # || "or" operator; ex. a || b; chose the variable which is not nil
+    @all_book_ids=Book.all.ids
+    @all_book_ids=@all_book_ids.rotate(Date.today.yday+9)
+    @recs=[]
+    i=1
+    if Book.all.size<9
+        for i in 0..Book.all.size-1
+            @recs.push(Book.find(@all_book_ids[i]))
+        end
+    else 
+        for i in 0..8
+            @recs.push(Book.find(@all_book_ids[i]))
+        end
+    end
   end
 
   def dashboard
