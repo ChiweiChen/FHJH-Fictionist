@@ -130,7 +130,7 @@ class BooksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def book_params
-      params.require(:book).permit(:book_name, :summary, :cover)
+      params.require(:book).permit(:book_name, :summary, :cover, :search)
       #category_ids is not included in permit because it does weird stuff and it's only used to create relationships
     end
 end

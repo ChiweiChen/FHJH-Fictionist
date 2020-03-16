@@ -29,7 +29,7 @@
 
     <div class="form-group">
       <label>摘要</label>
-      <textarea class="form-control" id="book_summary" name="book[summary]" rows="6"><%=@book.summary%></textarea>
+      <textarea class="form-control" id="editor" name="book[summary]" rows="6"><%=@book.summary%></textarea>
     </div>
 
     <div class="form-group">
@@ -58,4 +58,14 @@
   });
   var categories = $('#categories').val()
   $('#category')[0].selectize.setValue(categories.split(','))
+</script>
+<script src="https://cdn.ckeditor.com/ckeditor5/16.0.0/classic/ckeditor.js"></script>
+<script>
+  setTimeout(() => {
+      ClassicEditor
+      .create(document.querySelector('#editor'))
+      .catch(error=>{
+        console.error(error);
+      });  
+  }, 100);
 </script>

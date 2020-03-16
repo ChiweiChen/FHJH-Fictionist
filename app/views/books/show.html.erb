@@ -15,7 +15,7 @@ a:hover{
     </h1>
     <hr>
     <p style="font-family:DFKai-sbl; font-size:16px;">
-      <%=@book.summary%>
+      <%=@book.summary.html_safe%>
     </p>
   
 </div>
@@ -25,15 +25,16 @@ a:hover{
     <h1><b>章節</b>
     </h1>
     <hr>
-    <div class="row" style="margin-bottom:300px">
+    <div class="row container" style="margin-bottom:300px">
       <!-- Sidebar Column -->
+      
       <% @book.chapters.uploaded.each do |chapter|%>
 
       <!--Creates chapter variable-->
-        <div class="col-lg-2 mb-4">
+        
         <!-- For each chapter, create a box that takes up 3 portions of the page-->
-          <div class="list-group">
-          
+        <div class="col-sm-3">
+
           <a href="/books/<%=@book.id%>/chapters/<%=chapter.id%>" class="list-group-item"> <%= chapter.title%></a>
           <!--
           Nested route created in routes.rb
@@ -41,8 +42,8 @@ a:hover{
           Get book_id and chapter_id for respective chapters
           @book from set_book in books_controller
           -->
-          </div>
         </div>
+        
       <% end%>
     </div>
     

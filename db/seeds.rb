@@ -18,8 +18,6 @@
 # book6.chapters.create(title: 'yes', content: 'no')
 #Category.delete_all()
 
-User.delete_all()
-Book.delete_all()
-Chapter.delete_all()
+
 
 
