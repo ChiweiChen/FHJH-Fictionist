@@ -22,9 +22,9 @@
     <% if @books!=nil %>
 
       <% @books.each do |book| %>
-        <div class="col-sm-3 portfolio-item" style="max-height:400px;" >
+        <div class="col-sm-3 portfolio-item">
           <div class="card h-100">
-            <a href="#"><img class="card-img-top" src="<%= book.get_cover%>" alt=""></a>
+            <a href="/books/<%=book.id%>"><img class="card-img-top" src="<%= book.get_cover%>" alt=""></a>
             <div class="card-body">
               <h4  id="title" style="min-height:30px;font-size:20px;">
                 <a href="/books/<%= book.id %>" style="text-overflow: ellipsis;"><%= book.book_name %>  </a>
