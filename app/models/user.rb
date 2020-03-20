@@ -3,8 +3,23 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  
   has_and_belongs_to_many :chapters
   has_many :subscriptions
   has_many :books, through: :subscriptions
-
+  attr_writer :login
+  def login
+    @login || self.name || self.email
+  end
+  def self.find_first_by_auth_conditions(warden_conditions)
+    conditions = warden_conditions.dup
+    if login = conditions.delete(:login)
+      where(conditions).where(["lower(name) = :value OR lower(email) = :value", { :value => login.downcase }]).first
+    else
+      where(conditions).first
+      
+    end
+    
+  end  
+  
 end
