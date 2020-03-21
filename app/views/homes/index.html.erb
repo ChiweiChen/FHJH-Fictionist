@@ -1,12 +1,9 @@
 <style>
     *{
       font-family: DFKai-sb;
-      box-sizing: content-box;
+      
     }
-    p{
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
+    
     .summary{
       
     overflow: hidden;
@@ -18,8 +15,8 @@
     
     .cat-item{
       float: left;
-      width: 100px;
-      height: 110px;
+      min-width: 80px;
+      min-height: 100px;
       background-color: #FFFFFF;
       margin:1px;
       font:600 12px PingFangSC-Regular,HelveticaNeue-Light,'Helvetica Neue Light','Microsoft YaHei',sans-serif;
@@ -34,20 +31,16 @@
     .announce{
       
       background-color: #FFFFFF;
-      height: 165px;
+      height:50%;
       margin:1px;
     }
     .covers{
-      
+      height:50%;
       background-color: #FFFFFF;
-      height: 165px;
-      margin:1px;
+     
+      
     }
-    .col-sm-3{
-      float: center;
-      margin-right: auto;
-      margin-left: auto;
-    }
+    
     
 
 
@@ -112,7 +105,7 @@
           </div>
         </div>
       </div>
-      <div class="col-sm-2 ">
+      <div class="col-sm-3 ">
         <div class="announce" >
           <b>網站公告</b>
         </div>
@@ -167,7 +160,7 @@
     <hr>
     <div class="container row">
       <% @todays.each do |book| %>
-        <div class="col-sm-3 portfolio-item">
+        <div class="col-sm-4 portfolio-item">
           <div class="card h-100">
             <a href="/books/<%=book.id%>"><img class="card-img-top"  src=<%=book.get_cover%> alt=""></a>
             <div class="card-body">
