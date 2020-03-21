@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     end
     resources :chapters
   end
+  
   resources :users do
     collection do
       get :books
