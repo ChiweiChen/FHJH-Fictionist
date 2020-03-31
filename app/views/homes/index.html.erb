@@ -167,7 +167,7 @@
               <h4 class="card-title">
                 <a href="/books/<%= book.id %>"><%= book.book_name %></a>
               </h4>
-              <p class="card-text summary" style="min-height:60px; max-height:60px;"><%= book.summary %></p>
+              <p class="card-text summary" style="min-height:60px; max-height:60px;"><%= book.summary.html_safe %></p>
               <%if user_signed_in?%>
                 <a class="btn btn-primary" href="/books/<%= book.id %>">訂閱</a>
               <%end%>

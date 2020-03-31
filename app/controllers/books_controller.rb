@@ -40,7 +40,12 @@ class BooksController < ApplicationController
   end
 
   def dashboard
-    
+    if User.where(name: @book.get_author)[0]==nil
+      redirect_to "/books/#{@book.id}/"
+      
+    elsif current_user.id != User.where(name: @book.get_author)[0].id
+      redirect_to "/books/#{@book.id}/"
+    end
   end
 
   # GET /books/1
