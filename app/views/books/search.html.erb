@@ -1,0 +1,47 @@
+<h1>搜尋結果：<h1>
+    <% @results.each do |result| %>  
+        <div class="col-sm-2"><img class="card-img-top" src="<%= result.get_cover%>" alt=""></div>
+        <div><a href="/books/<%=result.id%>"><%=result.book_name%></a></div>
+        <div><%=result.get_author%></div>
+        <div>
+            <%result.get_categories.each do |category|%>
+                <a href="/books/?category=<%=category.id%>"><%=category.show%></a>
+            <%end%>
+        </div>
+        <div>
+            <%if user_signed_in?%>
+                <%if result.check_subscriber(current_user.id)%>
+                  <button class="btn btn-warning unsubscribe" data-book-id="<%=result.id%>">不收藏</button>
+                <% else%>
+                  <button class="btn btn-primary subscribe" data-book-id="<%=result.id%>">收藏</button>
+                <% end%>
+            <%end%>
+        </div>
+        <div><a href="/books/<%=result.id%>" class="btn btn-primary">書籍詳情</a></div>
+    <% end %>
+<script>
+  $('.subscribe').click(function(){
+      var bookId = $(this).data('book-id')
+      $.ajax({
+          method: "POST",
+          url: `/books/${bookId}/subscribe`
+      })
+      .done(function( msg ) {
+          if(msg){
+              location.reload()
+          }
+      });
+  })
+  $('.unsubscribe').click(function(){
+      var bookId = $(this).data('book-id')
+      $.ajax({
+          method: "POST",
+          url: `/books/${bookId}/unsubscribe`
+      })
+      .done(function( msg ) {
+          if(msg){
+              location.reload()
+          }
+      });
+  })
+</script>

@@ -1,11 +1,29 @@
 class HomesController < ApplicationController
     def user
+        if current_user.admin?
+            redirect_to "/admin/"
+        end
         @pieces = []
         chapters = current_user.chapters.where(is_first: true)
         chapters.each do |chapter|
             @pieces.push(chapter.book)
         end
         
+    end
+
+    
+
+    def admin
+        @books=Book.all
+        if current_user==nil
+            redirect_to "/"
+        else
+            if current_user.admin?
+            else
+                redirect_to "/"
+            end
+        
+        end
     end
 
     

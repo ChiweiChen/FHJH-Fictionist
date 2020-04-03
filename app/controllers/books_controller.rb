@@ -43,7 +43,7 @@ class BooksController < ApplicationController
     if current_user == nil
       redirect_to "/books/#{@book.id}/"
     else
-      if User.where(name: @book.get_author)[0].id != current_user.id
+      if User.where(name: @book.get_author)[0].id != current_user.id && current_user.is_admin!=true
         redirect_to "/books/#{@book.id}/"
       end
     end
@@ -103,12 +103,21 @@ class BooksController < ApplicationController
     end
   end
 
+  def search
+      if params[:search].blank?
+        redirect_to(root_path, alert: "Empty field!") and return
+      else
+        @parameter = params[:search].downcase  
+        @results = Book.all.where("lower(book_name) LIKE :search", search: "%#{@parameter}%")
+      end
+  end
+
   # DELETE /books/1
   # DELETE /books/1.json
   def destroy
     @book.destroy
     respond_to do |format|
-      format.html { redirect_to books_url, notice: 'Book was successfully destroyed.' }
+      format.html { redirect_to '/admin', notice: 'Book was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

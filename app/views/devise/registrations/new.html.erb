@@ -3,12 +3,13 @@
 div{
   margin-right:10px
 }
+
 </style>
 <h2>註冊</h2>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
-<div class="container-fluid row">
-  <div class="column-sm-3 portfolio-item">
+<div>
+  <div class="portfolio-item">
     <div class="card h-100">
       <div class="card-body">
         <h6 class="card-title">
@@ -22,7 +23,7 @@ div{
       </div>
     </div>
   </div>
-  <div class="column-sm-3 portfolio-item">
+  <div class="portfolio-item">
     <div class="card h-100">
       <div class="card-body">
         <h6 class="card-title">
@@ -35,7 +36,7 @@ div{
       </div>
     </div>
   </div>
-  <div class="column-sm-3 portfolio-item">
+  <div class="portfolio-item">
     <div class="card h-100">
       <div class="card-body">
         <h6 class="card-title">
@@ -51,7 +52,7 @@ div{
       </div>
     </div>
   </div>
-  <div class="column-sm-3 portfolio-item">
+  <div class="portfolio-item">
     <div class="card h-100">
       <div class="card-body">
         <h6 class="card-title">

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>東方文創</title>
+<meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="YXPQc5jpRE2q//9bzyBO0II8e5/ZPc0GFmIjE/5Vh15cEwxhPUr88EQUXyHOpUklHkYYj40Y7RNZ8H0O03d7/A==" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.default.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.css">
+<link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
+<link href='/css/pagination.css' rel='stylesheet' type='text/css'>
+<!-- Global site tag (gtag.js) - Google Analytics --> 
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-158900010-1"></script> 
+<script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-158900010-1');
+    </script> 
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> 
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script> 
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script> 
+<script src="https://cdn.bootcss.com/selectize.js/0.12.6/js/standalone/selectize.min.js"></script> 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+<link rel="stylesheet" media="all" href="/assets/books.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" data-turbolinks-track="reload" />
+<link rel="stylesheet" media="all" href="/assets/chapters.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" data-turbolinks-track="reload" />
+<link rel="stylesheet" media="all" href="/assets/comments.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" data-turbolinks-track="reload" />
+<link rel="stylesheet" media="all" href="/assets/likes.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" data-turbolinks-track="reload" />
+<link rel="stylesheet" media="all" href="/assets/scaffolds.self-4e4284119c8feef92c15a5d15d864c32e826b286b38d48dd1a1b7e38a574b651.css?body=1" data-turbolinks-track="reload" />
+<link rel="stylesheet" media="all" href="/assets/application.self-ee261293a8b3ce592230c9136372cf88e7c13b6a57024254633da4000c080b66.css?body=1" data-turbolinks-track="reload" />
+<script src="/packs/js/application-05bc83490fcade04d051.js" data-turbolinks-track="reload"></script>
+</head>
+
+<style>
+/*字型上*/
+* {
+    font-family: Arial, "微軟正黑體";
+}
+/*字型下*/
+body {
+    padding-top: 56px;
+}
+/*字型色上*/
+.myfontcolor {
+    color: #51C29A;
+}
+/*字型色下*/
+/*連結上*/
+a:hover {
+    text-decoration: none;
+}
+/*連結下*/
+
+.carousel-item {
+    height: 330px;
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.portfolio-item {
+    margin-bottom: 30px;
+}
+.logo {
+    color: rgba(255,255,255,.5);
+    display: block;
+    padding: 8px;
+    text-decoration: none;
+}
+.logo:hover {
+    text-decoration: none;
+}
+.summary {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+/*有改一些上*/
+.cat-item {
+    float: left;
+    min-width: 80px;
+    min-height: 100px;
+    background-color: #FFFFFF;
+    margin: 1px;
+    font-weight: bold;
+    /*      font:600 12px PingFangSC-Regular,HelveticaNeue-Light,'Helvetica Neue Light','Microsoft YaHei',sans-serif;*/
+    text-align: center;
+    line-height: 110px;
+}
+.cat-item:hover {
+    background-color: #51C29A;
+    color: #fff;
+    transition: all .3s;
+}
+/*有改一些下*/
+/*clor拿掉上*/
+.announce {
+    height: 50%;
+    margin: 1px;
+}
+/*clor拿掉下*/
+.covers {
+    height: 50%;
+    background-color: #FFFFFF;
+}
+/*	以下為2020403新增的/////////////////////////*/
+.topbox {
+    height: 100px;
+}
+.mynav {
+    position: fixed;
+    height: 80px;
+    background-color: #fff;
+}
+.registered a {
+    position: fixed;
+    right: 90px;
+    line-height: 10px;
+    display: inline-block;
+    margin: 10px;
+    color: #51C29A;
+}
+.sign a {
+    position: fixed;
+    right: 20px;
+    line-height: 10px;
+    display: inline-block;
+    margin: 10px;
+    color: #51C29A;
+}
+.navbar {
+    top: 80px;
+    box-shadow: 0px 5px 10px #aaa;
+    background-color: #51C29A;
+    color: #fff;
+}
+.sortbox a {
+    color: #51C29A;
+}
+.sortbox a:hover {
+    background-color: #51C29A;
+    color: #fff;
+}
+.marqueebox {
+    margin: 15px;
+    width: 100%;
+}
+</style>
+<body>
+<!--有改一些上-->
+<div class="topbox"></div>
+<div class="mynav fixed-top"> <img src="" alt="">
+  <ul class=" navbar-nav ml-auto">
+    <li class="registered nav-item"> <a class="nav-link" href="/users/sign_up"> 🖋註冊 </a> </li>
+    <li class="sign nav-item"> <a class="nav-link" href="/users/sign_in"> 🖋登入 </a> </li>
+  </ul>
+</div>
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark fixed-top"> 
+  <!--  有改一些下--> 
+  <!--<div><a href="/"><img href="/" src="http://placehold.it/120x30"></a></div>-->
+  <div><a class="logo" href="/">東方文創</a></div>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+  <div class="collapse navbar-collapse" id="navbarResponsive">
+    <ul class="navbar-nav ml-auto">
+      <!--
+          <li class="nav-item">
+            <a class="nav-link" href="/about">關於我們</a>
+          </li>
+          -->
+      <li class="nav-item"> <a class="nav-link" href="/books">全部作品</a> </li>
+      <li class="nav-item"> <a class="nav-link" href="/contact">聯絡我們</a> </li>
+      <!--
+          <li>
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="搜尋作者、作品...">
+              <span class="input-group-btn">
+                <button class="btn btn-secondary" type="button">搜尋</button>
+              </span>
+            </div>
+          </li>
+          -->
+      <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="/books/#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 作品類別 </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio"> <a class="dropdown-item" href="/books/?category=1"> 短篇 </a> <a class="dropdown-item" href="/books/?category=2"> 科幻 </a> <a class="dropdown-item" href="/books/?category=3"> 古代愛情 </a> <a class="dropdown-item" href="/books/?category=4"> 奇幻 </a> <a class="dropdown-item" href="/books/?category=5"> 玄幻 </a> <a class="dropdown-item" href="/books/?category=6"> 耽美 </a> <a class="dropdown-item" href="/books/?category=7"> 同人 </a> <a class="dropdown-item" href="/books/?category=8"> 都市愛情 </a> <a class="dropdown-item" href="/books/?category=9"> 校園愛情 </a> <a class="dropdown-item" href="/books/?category=10"> 外文 </a> <a class="dropdown-item" href="/books/?category=11"> 現實 </a> <a class="dropdown-item" href="/books/?category=12"> 懸疑 </a> </div>
+      </li>
+      <!--
+          <li class="nav-item">
+            <a class="nav-link" href="/about">排行榜</a>
+          </li>
+          --> 
+      
+      <!--
+      <li class="nav-item"> <a class="nav-link" href="/users/sign_up"> 註冊 </a> </li>
+      <li class="nav-item"> <a class="nav-link" href="/users/sign_in"> 登入 </a> </li>
+-->
+    </ul>
+  </div>
+</nav>
+<div style='min-height: 600px;'> 
+  <!--Adds a 600-pixel thing between page content and footer-->
+  
+  <header>
+    <div class="container-fluid text-center" style="margin-bottom: 30px; ">
+      <div class="row content"> 
+        <!--		 下方新增sortbox-->
+        <div class="col-sm-2 sortbox"> <a class="cat-item" href="/books/?category=5">玄幻</a> <a class="cat-item" href="/books/?category=3">古言</a> <a class="cat-item" href="/books/?category=8">都言</a> <a class="cat-item" href="/books/?category=1">短篇</a> <a class="cat-item" href="/books/?category=10">外文</a> <a class="cat-item" href="/books/?category=6" >耽美</a> <a class="cat-item" href="/books/?category=5">玄幻</a> <a class="cat-item" href="/books/?category=3">古言</a> </div>
+        <div class="col-sm-7">
+          <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner" role="listbox"> 
+              <!-- Slide One - Set the background image for this slide in the line below -->
+              <div class="carousel-item active" style="background-image: url('https://imgur.com/Jv0urki.jpg')">
+                <div class="carousel-caption d-none d-md-block"> 
+                  <!--<h3>First Slide</h3>
+                <p>This is a description for the first slide.</p>--> 
+                </div>
+              </div>
+              <!-- Slide Two - Set the background image for this slide in the line below -->
+              <div class="carousel-item" style="background-image: url('https://imgur.com/lUOZoxi.jpg');">
+                <div class="carousel

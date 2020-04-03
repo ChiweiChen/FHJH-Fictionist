@@ -8,7 +8,7 @@
 
 
 # book6 = Book.create(book_name: 'An adventure novel', summary: 'This is an adventure novel', category:'adventure')
-# Chapter.delete_all()
+# Chapter.delete_all()4
 # book1.chapters.create(title: 'yes', content: 'no')
 # book1.chapters.create(title: 'no', content: 'yes')
 # book2.chapters.create(title: 'yes', content: 'no')
@@ -16,6 +16,7 @@
 # book4.chapters.create(title: 'yes', content: 'no')
 # book5.chapters.create(title: 'yes', content: 'no')
 # book6.chapters.create(title: 'yes', content: 'no')
+User.create(email: 'admin@gmail.com', name: 'admin',is_admin: true )
 #Category.delete_all()
 
 

@@ -36,7 +36,13 @@ class ChaptersController < ApplicationController
   # GET /chapters/1/edit
   def edit
     @book = Book.find(params[:book_id])
-    
+    if current_user == nil
+      redirect_to "/books/#{@book.id}/"
+    else
+      if User.where(name: @book.get_author)[0].id != current_user.id && current_user.is_admin!=true
+        redirect_to "/books/#{@book.id}/"
+      end
+    end
   end
 
   # POST /chapters

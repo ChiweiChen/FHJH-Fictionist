@@ -1,94 +1,59 @@
 
 <style>
-  li{
-    font-family:DFKai-sb;
-  }
-  .logo{
-    color: rgba(255,255,255,.5);
-    display:block;
-    padding: 8px;
-    text-decoration: none;
-  }
-  .logo:hover{
-    text-decoration: none;
-  }
-</style>
-<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
   
-    
-
-      <!--<div><a href="/"><img href="/" src="http://placehold.it/120x30"></a></div>-->
-      <div><a class="logo" href="/">東方文創</a></div>
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <!--
+</style>
+<div class="topbox"></div>
+<div class="mynav fixed-top"> <img src="" alt="">
+  <ul class=" navbar-nav ml-auto">
+    <li class="registered nav-item"> <a class="nav-link" href="/users/sign_up"> 🖋註冊 </a> </li>
+    <li class="sign nav-item"> <a class="nav-link" href="/users/sign_in"> 🖋登入 </a> </li>
+  </ul>
+</div>
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark fixed-top"> 
+  <!--  有改一些下--> 
+  <!--<div><a href="/"><img href="/" src="http://placehold.it/120x30"></a></div>-->
+  <div><a class="logo" href="/">東方文創</a></div>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+  <div class="collapse navbar-collapse" id="navbarResponsive">
+    <ul class="navbar-nav ml-auto">
+      <!--
           <li class="nav-item">
             <a class="nav-link" href="/about">關於我們</a>
           </li>
           -->
-          <li class="nav-item">
-            <a class="nav-link" href="/books">全部作品</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/contact">聯絡我們</a>
-          </li>
-          <!--
-          <li>
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="搜尋作者、作品...">
-              <span class="input-group-btn">
-                <button class="btn btn-secondary" type="button">搜尋</button>
-              </span>
-            </div>
-          </li>
-          -->
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="/books/#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              作品類別
-            </a>
-              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
-                <% @categories.each do |category| %>
-                  <a class="dropdown-item" href="/books/?category=<%=category.id%>">
-                    <%= category.show %> 
-                  </a>
-                <%end %>
-              </div>
-          </li>
-          <!--
+      <li class="nav-item"> <a class="nav-link" href="/books">全部作品</a> </li>
+      <li class="nav-item"> <a class="nav-link" href="/contact">聯絡我們</a> </li>
+      
+      <li>
+        <%= form_tag(search_path, :method => "get",   
+            class: 'navbar-form navbar-left') do %>  
+          <div class="input-group">  
+            <%= search_field_tag :search, params[:search], placeholder: "Search", class: "form-control" %>  
+            <div class="input-group-btn">  
+              <!--<%= button_tag "", :class => 'btn btn-info glyphicon glyphicon-search',:name => nil%>  -->
+              <button class="btn btn-secondary btn btn-info glyphicon glyphicon-search" >搜尋</button>
+            </div>  
+          </div>  
+        <% end %>
+      </li>
+          
+      <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="/books/#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 作品類別 </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio"> 
+          <%@categories.each do |category|%>
+            <a class="dropdown-item" href="/books/?category=<%=category.id%>"><%=category.show%></a>
+          <%end%>
+        
+      </li>
+      <!--
           <li class="nav-item">
             <a class="nav-link" href="/about">排行榜</a>
           </li>
-          -->
-          
-          <% if user_signed_in?%>
-            <li class="nav-item">
-              <a rel="nofollow" class="nav-link" data-method="delete" href="/users/sign_out">
-                登出
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/user">
-                會員專區
-              </a>
-            </li>
-          <%else%>
-            <li class="nav-item">
-              <a class="nav-link" href="/users/sign_up">
-                註冊
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/users/sign_in">
-                登入
-              </a>
-            </li>
-          <%end%>
-
-          
-        </ul>
-      </div>
-    </div>
-  </nav>
+          --> 
+      
+      <!--
+      <li class="nav-item"> <a class="nav-link" href="/users/sign_up"> 註冊 </a> </li>
+      <li class="nav-item"> <a class="nav-link" href="/users/sign_in"> 登入 </a> </li>
+-->
+    </ul>
+  </div>
+</nav>

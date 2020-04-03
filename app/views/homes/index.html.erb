@@ -13,20 +13,7 @@
     -webkit-box-orient: vertical;
     }
     
-    .cat-item{
-      float: left;
-      min-width: 80px;
-      min-height: 100px;
-      background-color: #FFFFFF;
-      margin:1px;
-      font:600 12px PingFangSC-Regular,HelveticaNeue-Light,'Helvetica Neue Light','Microsoft YaHei',sans-serif;
-      text-align: center;
-      line-height: 110px;
-    }
-    .cat-item:hover{
-      background-color: white !important;
-      color: black !important;
-    }
+    
 
     .announce{
       
@@ -34,11 +21,6 @@
       height:50%;
       margin:1px;
     }
-    .covers{
-      height:50%;
-      background-color: #FFFFFF;
-     
-      
     }
     
     
@@ -46,94 +28,78 @@
 
 </style>
 <header>
-  <div class="container-fluid text-center" style="margin-bottom: 30px; ">    
-    <div class="row content">
-      <div class="col-sm-2">
-        
-        <a class="cat-item" href="/books/?category=<%=Category.where(name: "east_fi")[0].id%>">玄幻</a>
-      
-        <a class="cat-item" href="/books/?category=<%=Category.where(name: "old_love")[0].id%>">古言</a>
-      
-        <a class="cat-item" href="/books/?category=<%=Category.where(name: "urban_love")[0].id%>">都言</a>
-      
-        <a class="cat-item" href="/books/?category=<%=Category.where(name: "short")[0].id%>">短篇</a>
-      
-        <a class="cat-item" href="/books/?category=<%=Category.where(name: "foreign")[0].id%>">外文</a>
-        
-        
-        <a class="cat-item" href="/books/?category=<%=Category.where(name: "bl")[0].id%>" >耽美</a>
-        
-        
-      </div>
-      <div class="col-sm-7"> 
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-          <ol class="carousel-indicators">
-            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-          </ol>
-          <div class="carousel-inner" role="listbox">
-            <!-- Slide One - Set the background image for this slide in the line below -->
-            <div class="carousel-item active" style="background-image: url('https://imgur.com/Jv0urki.jpg')">
-              <div class="carousel-caption d-none d-md-block">
-                <!--<h3>First Slide</h3>
-                <p>This is a description for the first slide.</p>-->
+    <div class="container-fluid text-center" style="margin-bottom: 30px; ">
+      <div class="row content"> 
+        <!--		 下方新增sortbox-->
+        <div class="col-sm-2 sortbox">
+			<a class="cat-item" href="/books/?category=5"><img src="../可晴重要文件/AI隨畫/illust_62203896_20180705_232143.jpg" alt="" height="30" width="30">玄幻</a> <a class="cat-item" href="/books/?category=3">古言</a> <a class="cat-item" href="/books/?category=8">都言</a> <a class="cat-item" href="/books/?category=1">短篇</a> <a class="cat-item" href="/books/?category=10">外文</a> <a class="cat-item" href="/books/?category=6" >耽美</a> <a class="cat-item" href="/books/?category=5">玄幻</a> <a class="cat-item" href="/books/?category=3">古言</a> </div>
+        <div class="col-sm-7">
+          <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner" role="listbox"> 
+              <!-- Slide One - Set the background image for this slide in the line below -->
+              <div class="carousel-item active" style="background-image: url('https://imgur.com/Jv0urki.jpg')">
+                <div class="carousel-caption d-none d-md-block"> 
+                  <!--<h3>First Slide</h3>
+                <p>This is a description for the first slide.</p>--> 
+                </div>
               </div>
-            </div>
-            <!-- Slide Two - Set the background image for this slide in the line below -->
-            <div class="carousel-item" style="background-image: url('https://imgur.com/lUOZoxi.jpg')">
-              <div class="carousel-caption d-none d-md-block">
-                <!--<h3>Second Slide</h3>
-                <p>This is a description for the second slide.</p>-->
+              <!-- Slide Two - Set the background image for this slide in the line below -->
+              <div class="carousel-item" style="background-image: url('https://imgur.com/lUOZoxi.jpg');">
+                <div class="carousel-caption d-none d-md-block"> 
+                  <!--<h3>Second Slide</h3>
+                <p>This is a description for the second slide.</p>--> 
+                </div>
               </div>
-            </div>
-            <!-- Slide Three - Set the background image for this slide in the line below -->
-            <div class="carousel-item" style="background-image: url('http://placehold.it/1900x1080')">
-              <div class="carousel-caption d-none d-md-block">
-                <!--<h3>Third Slide</h3>
-                <p>This is a description for the third slide.</p>-->
+              <!-- Slide Three - Set the background image for this slide in the line below -->
+              <div class="carousel-item" style="background-image: url('http://placehold.it/1900x1080')">
+                <div class="carousel-caption d-none d-md-block"> 
+                  <!--<h3>Third Slide</h3>
+                <p>This is a description for the third slide.</p>--> 
+                </div>
               </div>
-            </div>
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
-            </a>
+              <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev"> <span class="carousel-control-prev-icon" aria-hidden="true"></span> <span class="sr-only">Previous</span> </a> <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next"> <span class="carousel-control-next-icon" aria-hidden="true"></span> <span class="sr-only">Next</span> </a> </div>
           </div>
+          <!--		新增跑馬燈上-->
+          <div class="marqueebox" style="display: inline-block;width:750px;">
+            <marquee behavior="" direction="">
+            📢歡迎來到東方文創中文網!屬於台灣的寫書平台
+            </marquee>
+          </div>
+          <!--		新增跑馬燈下--> 
         </div>
-      </div>
-      <div class="col-sm-3 ">
-        <div class="announce" >
-          <b>網站公告</b>
-        </div>
-        <div class="covers" >
-          <b>明日必讀</b>
-          <div style="width:50%;"> 
-            <div id="carouselExampleIndicators1" class="carousel slide" data-ride="carousel">
-
-              <div class="carousel-inner"  role="listbox">
-                <!-- Slide One - Set the background image for this slide in the line below -->
-                <div class="carousel-item active" style="background-image: url('http://placehold.it/600x800');height:100px;width:75px;">
-                  <div class="carousel-caption d-none d-md-block">
-                    <!--<h3>First Slide</h3>
-                    <p>This is a description for the first slide.</p>-->
+        <div class="col-sm-3 "> 
+          <!--		新增myfontcolor上-->
+          <div class="myfontcolor announce" > <b>網站公告</b> </div>
+          <div class="myfontcolor covers" > <b>明日必讀</b> 
+            <!--			新增myfontcolor下-->
+            <div style="width:50%;">
+              <div id="carouselExampleIndicators1" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner"  role="listbox"> 
+                  <!-- Slide One - Set the background image for this slide in the line below -->
+                  <div class="carousel-item active" style="background-image: url('http://placehold.it/600x800');height:100px;width:75px;">
+                    <div class="carousel-caption d-none d-md-block"> 
+                      <!--<h3>First Slide</h3>
+                    <p>This is a description for the first slide.</p>--> 
+                    </div>
                   </div>
-                </div>
-                <!-- Slide Two - Set the background image for this slide in the line below -->
-                <div class="carousel-item" style="background-image: url('http://placehold.it/600x800');height:100px;width:75px;">
-                  <div class="carousel-caption d-none d-md-block">
-                    <!--<h3>Second Slide</h3>
-                    <p>This is a description for the second slide.</p>-->
+                  <!-- Slide Two - Set the background image for this slide in the line below -->
+                  <div class="carousel-item" style="background-image: url('http://placehold.it/600x800');height:100px;width:75px;">
+                    <div class="carousel-caption d-none d-md-block"> 
+                      <!--<h3>Second Slide</h3>
+                    <p>This is a description for the second slide.</p>--> 
+                    </div>
                   </div>
-                </div>
-                <!-- Slide Three - Set the background image for this slide in the line below -->
-                <div class="carousel-item" style="background-image: url('http://placehold.it/600x800');height:100px;width:75px;">
-                  <div class="carousel-caption d-none d-md-block">
-                    <!--<h3>Third Slide</h3>
-                    <p>This is a description for the third slide.</p>-->
+                  <!-- Slide Three - Set the background image for this slide in the line below -->
+                  <div class="carousel-item" style="background-image: url('http://placehold.it/600x800');height:100px;width:75px;">
+                    <div class="carousel-caption d-none d-md-block"> 
+                      <!--<h3>Third Slide</h3>
+                    <p>This is a description for the third slide.</p>--> 
+                    </div>
                   </div>
                 </div>
               </div>
@@ -142,9 +108,8 @@
         </div>
       </div>
     </div>
-  </div>
+  </header>
 
-</header>
 
   <!-- Page Content -->
 <div class="container"> 

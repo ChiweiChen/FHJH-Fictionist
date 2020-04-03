@@ -3,63 +3,183 @@
 <html>
   <head>
     <title>東方文創</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+    <meta name="csrf-param" content="authenticity_token" />
+    <meta name="csrf-token" content="YXPQc5jpRE2q//9bzyBO0II8e5/ZPc0GFmIjE/5Vh15cEwxhPUr88EQUXyHOpUklHkYYj40Y7RNZ8H0O03d7/A==" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.default.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.css">
     <link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
     <link href='/css/pagination.css' rel='stylesheet' type='text/css'>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-158900010-1"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics --> 
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-158900010-1"></script> 
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
 
-      gtag('config', 'UA-158900010-1');
-    </script>
-    
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <script src="https://cdn.bootcss.com/selectize.js/0.12.6/js/standalone/selectize.min.js"></script>
+          gtag('config', 'UA-158900010-1');
+        </script> 
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script> 
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script> 
+    <script src="https://cdn.bootcss.com/selectize.js/0.12.6/js/standalone/selectize.min.js"></script> 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" media="all" href="/assets/books.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" data-turbolinks-track="reload" />
+    <link rel="stylesheet" media="all" href="/assets/chapters.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" data-turbolinks-track="reload" />
+    <link rel="stylesheet" media="all" href="/assets/comments.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" data-turbolinks-track="reload" />
+    <link rel="stylesheet" media="all" href="/assets/likes.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" data-turbolinks-track="reload" />
+    <link rel="stylesheet" media="all" href="/assets/scaffolds.self-4e4284119c8feef92c15a5d15d864c32e826b286b38d48dd1a1b7e38a574b651.css?body=1" data-turbolinks-track="reload" />
+    <link rel="stylesheet" media="all" href="/assets/application.self-ee261293a8b3ce592230c9136372cf88e7c13b6a57024254633da4000c080b66.css?body=1" data-turbolinks-track="reload" />
+    <script src="/packs/js/application-05bc83490fcade04d051.js" data-turbolinks-track="reload"></script>
   </head>
   
   <style>
-    body {
-      padding-top: 56px;
-      
-    }
+    * {
+    font-family: Arial, "微軟正黑體";
+}
+/*字型下*/
+body {
+    padding-top: 56px;
+}
+/*字型色上*/
+.myfontcolor {
+    color: #51C29A;
+}
+/*字型色下*/
+/*連結上*/
+a:hover {
+    text-decoration: none;
+}
+/*連結下*/
 
-    .carousel-item {
-      height: 330px;
-      
-      background: no-repeat center center scroll;
-      -webkit-background-size: cover;
-      -moz-background-size: cover;
-      -o-background-size: cover;
-      background-size: cover;
-    }
+.carousel-item {
+    height: 330px;
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.portfolio-item {
+    margin-bottom: 30px;
+}
+.logo {
+    color: rgba(255,255,255,.5);
+    display: block;
+    padding: 8px;
+    text-decoration: none;
+}
+.logo:hover {
+    text-decoration: none;
+}
+.summary {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+/*有改一些上*/
+.cat-item {
+    float: left;
+    min-width: 80px;
+    min-height: 100px;
+    background-color: #FFFFFF;
+    margin: 1px;
+    font-weight: bold;
+    /*      font:600 12px PingFangSC-Regular,HelveticaNeue-Light,'Helvetica Neue Light','Microsoft YaHei',sans-serif;*/
+    text-align: center;
+    line-height: 110px;
+}
+.cat-item:hover {
+    background-color: #51C29A;
+    color: #fff;
+    transition: all .3s;
+}
+/*有改一些下*/
+/*clor拿掉上*/
+.announce {
+    height: 50%;
+    margin: 1px;
+}
+/*clor拿掉下*/
+.covers {
+    height: 50%;
+    background-color: #FFFFFF;
+}
+/*	以下為2020403新增的/////////////////////////*/
+.topbox {
+    height: 50px;
+}
+.mynav {
+    position: fixed;
+    height: 80px;
+    background-color: #fff;
+}
+.registered a {
+    position: fixed;
+    right: 90px;
+    line-height: 10px;
+    display: inline-block;
+    margin: 10px;
+    color: #51C29A;
+}
+.sign a {
+    position: fixed;
+    right: 20px;
+    line-height: 10px;
+    display: inline-block;
+    margin: 10px;
+    color: #51C29A;
+}
+.navbar {
+    top: 80px;
+    box-shadow: 0px 5px 10px #aaa;
+    background-color: #51C29A;
+    color: #fff;
+}
+.sortbox a {
+    color: #51C29A;
+}
+.sortbox a:hover {
+    background-color: #51C29A;
+    color: #fff;
+}
+.marqueebox {
+    margin: 15px;
+    width: 100%;
+}
     
-
-    .portfolio-item {
-      margin-bottom: 30px;
-    }
     
     
     
   </style>
   <body>
+  <div class="topbox"></div>
+<div class="mynav fixed-top"> <img src="" alt="">
+  <ul class=" navbar-nav ml-auto">
+    <% if user_signed_in?%>
+            <li class="nav-item">
+              <a rel="nofollow" class="nav-link" data-method="delete" href="/users/sign_out">
+                登出
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/user">
+                會員專區
+              </a>
+            </li>
+    <%else%>
+      <li class="registered nav-item"> <a class="nav-link" href="/users/sign_up"> 🖋註冊 </a> </li>
+      <li class="sign nav-item"> <a class="nav-link" href="/users/sign_in"> 🖋登入 </a> </li>
+    <%end%>
+  </ul>
   
+</div>
     <%= render 'layouts/nav' %>
     <div style='min-height: 600px;'>
     <!--Adds a 600-pixel thing between page content and footer-->
