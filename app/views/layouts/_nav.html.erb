@@ -6,13 +6,13 @@
 <div class="mynav fixed-top"> <img src="" alt="">
   <ul class=" navbar-nav ml-auto">
     <% if user_signed_in?%>
-      <li class="nav-item">
-        <a rel="nofollow" class="registered nav-item" data-method="delete" href="/users/sign_out">
+      <li class="registered nav-item">
+        <a rel="nofollow" class="nav-link" data-method="delete" href="/users/sign_out">
           登出
         </a>
       </li>
-      <li class="nav-item">
-        <a class="sign nav-tem" href="/user">
+      <li class="sign nav-item">
+        <a class="nav-link" href="/user">
           會員專區
         </a>
       </li>
