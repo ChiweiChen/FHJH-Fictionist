@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
     before_action :set_global_data
     before_action :configure_permitted_parameters, if: :devise_controller?
     protect_from_forgery with: :exception, prepend: true
+    
     def set_global_data
         @categories=Category.all
         @books=Book.all
