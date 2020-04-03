@@ -1,12 +1,15 @@
 <h1>搜尋結果：<h1>
     <% @results.each do |result| %>  
         <div class="col-sm-2"><img class="card-img-top" src="<%= result.get_cover%>" alt=""></div>
-        <div><a href="/books/<%=result.id%>"><%=result.book_name%></a></div>
-        <div><%=result.get_author%></div>
+        <div><a href="/books/<%=result.id%>">書名：<%=result.book_name%></a></div>
+        <div>作者：<%=result.get_author%></div>
         <div>
             <%result.get_categories.each do |category|%>
                 <a href="/books/?category=<%=category.id%>"><%=category.show%></a>
             <%end%>
+        </div>
+        <div>
+            <p>摘要：<%=result.summary%></p>
         </div>
         <div>
             <%if user_signed_in?%>
