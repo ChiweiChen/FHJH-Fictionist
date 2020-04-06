@@ -16,7 +16,7 @@
 # book4.chapters.create(title: 'yes', content: 'no')
 # book5.chapters.create(title: 'yes', content: 'no')
 # book6.chapters.create(title: 'yes', content: 'no')
-User.create(email: 'admin@gmail.com', name: 'admin',is_admin: true )
+
 #Category.delete_all()
 
 

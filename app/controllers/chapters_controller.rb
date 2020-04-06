@@ -39,7 +39,7 @@ class ChaptersController < ApplicationController
     if current_user == nil
       redirect_to "/books/#{@book.id}/"
     else
-      if User.where(name: @book.get_author)[0].id != current_user.id && current_user.is_admin!=true
+      if User.where(name: @book.get_author)[0].id != current_user.id && current_user.admin? !=true
         redirect_to "/books/#{@book.id}/"
       end
     end
