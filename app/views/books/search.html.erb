@@ -38,8 +38,8 @@
 <%if @authors_book!=[]%>
     <%@authors_books.each do |piece|%>
         <div class="col-sm-2"><img class="card-img-top" src="<%= piece.get_cover%>" alt=""></div>
-        <div><a href="/books/<%=piece.id%>"><b>書名：<%=piece.book_name%></b></a></div>
-        <div>作者：<%=piece.get_author%></div>
+        <div><a href="/books/<%=piece.id%>">書名：<%=piece.book_name%></a></div>
+        <div><b>作者：<%=piece.get_author%></b></div>
         <div>
             <%piece.get_categories.each do |category|%>
                 <a href="/books/?category=<%=category.id%>"><%=category.show%></a>
