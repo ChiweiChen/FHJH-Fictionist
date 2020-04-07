@@ -109,14 +109,14 @@ class BooksController < ApplicationController
       else
         @parameter = params[:search].downcase  
         @books = Book.all.where("lower(book_name) LIKE :search", search: "%#{@parameter}%")
-        
+        @authors=[]
         @authors= User.all.where("lower(name) LIKE :search", search: "%#{@parameter}%")
         @authors_books=[]
         @authors.each do |author|
-          author.get_books.each do |book|
-            if @books.include? book == false
-              @authors_books.push(book)
-            end
+          chapters= author.chapters.where(is_first: true)
+          chapters.each do |chapter|
+            
+            @authors_books.push(chapter.book)
           end
         end
         
