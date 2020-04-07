@@ -108,7 +108,17 @@ class BooksController < ApplicationController
         redirect_to(root_path, alert: "Empty field!") and return
       else
         @parameter = params[:search].downcase  
-        @results = Book.all.where("lower(book_name) LIKE :search", search: "%#{@parameter}%")
+        @books = Book.all.where("lower(book_name) LIKE :search", search: "%#{@parameter}%")
+        
+        @authors= User.all.where("lower(name) LIKE :search", search: "%#{@parameter}%")
+        @authors_books=[]
+        @authors.each do |author|
+          author.get_books.each do |book|
+            @authors_books.push(book)
+          end
+        end
+        
+        
       end
   end
 

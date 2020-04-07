@@ -29,7 +29,14 @@
       <div class="row content"> 
         <!--		 下方新增sortbox-->
         <div class="col-sm-2 sortbox">
-			<a class="cat-item" href="/books/?category=5"><img src="../可晴重要文件/AI隨畫/illust_62203896_20180705_232143.jpg" alt="" height="30" width="30">玄幻</a> <a class="cat-item" href="/books/?category=3">古言</a> <a class="cat-item" href="/books/?category=8">都言</a> <a class="cat-item" href="/books/?category=1">短篇</a> <a class="cat-item" href="/books/?category=10">外文</a> <a class="cat-item" href="/books/?category=6" >耽美</a> <a class="cat-item" href="/books/?category=5">玄幻</a> <a class="cat-item" href="/books/?category=3">古言</a> </div>
+			<a class="cat-item" href="/books/?category=<%=Category.where(name: 'east_fi')[0].id%>">玄幻</a> 
+      <a class="cat-item" href="/books/?category=<%=Category.where(name: 'old_love')[0].id%>">古言</a> 
+      <a class="cat-item" href="/books/?category=<%=Category.where(name: 'urban_love')[0].id%>">都言</a> 
+      <a class="cat-item" href="/books/?category=<%=Category.where(name: 'short')[0].id%>">短篇</a> 
+      <a class="cat-item" href="/books/?category=<%=Category.where(name: 'foreign')[0].id%>">外文</a> 
+      <a class="cat-item" href="/books/?category=<%=Category.where(name: 'bl')[0].id%>" >耽美</a> 
+      <a class="cat-item" href="/books/?category=<%=Category.where(name: 'mag_fi')[0].id%>">奇幻</a> 
+      <a class="cat-item" href="/books/?category=<%=Category.where(name: 'sci_fi')[0].id%>">科幻</a> </div>
         <div class="col-sm-7">
           <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">

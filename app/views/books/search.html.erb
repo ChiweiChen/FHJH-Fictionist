@@ -1,27 +1,68 @@
-<h1>搜尋結果：<h1>
-    <% @results.each do |result| %>  
-        <div class="col-sm-2"><img class="card-img-top" src="<%= result.get_cover%>" alt=""></div>
-        <div><a href="/books/<%=result.id%>">書名：<%=result.book_name%></a></div>
-        <div>作者：<%=result.get_author%></div>
+<%if @books==[] && @authors ==[]%>
+    <h4>您搜尋的<%=params[:search]%>並不符合任何結果</h4>
+    <h5>建議您：</h5>
+    <ul>
+        <li>確認關鍵字是否有拼對</li>
+        <li>嘗試看看別的關鍵字</li>
+    </ul>
+<%else%>
+    <h3>‘<%=params[:search]%>’的搜尋結果：</h3>
+<%end%>
+
+<% @books.each do |book| %>  
+    <div class="col-sm-2"><img class="card-img-top" src="<%= book.get_cover%>" alt=""></div>
+    <div><a href="/books/<%=book.id%>"><b>書名：<%=book.book_name%></b></a></div>
+    <div>作者：<%=book.get_author%></div>
+    <div>
+        <%book.get_categories.each do |category|%>
+            <a href="/books/?category=<%=category.id%>"><%=category.show%></a>
+        <%end%>
+    </div>
+    <div>
+        <p>摘要：<%=book.summary%></p>
+    </div>
+    <div>
+        <%if user_signed_in?%>
+            <%if book.check_subscriber(current_user.id)%>
+            <button class="btn btn-warning unsubscribe" data-book-id="<%=book.id%>">不收藏</button>
+            <% else%>
+            <button class="btn btn-primary subscribe" data-book-id="<%=book.id%>">收藏</button>
+            <% end%>
+        <%end%>
+    </div>
+    <div><a href="/books/<%=book.id%>" class="btn btn-primary">書籍詳情</a></div>
+<% end %>
+
+   
+
+<%if @authors_book!=[]%>
+    <%@authors_books.each do |piece|%>
+        <div class="col-sm-2"><img class="card-img-top" src="<%= piece.get_cover%>" alt=""></div>
+        <div><a href="/books/<%=piece.id%>"><b>書名：<%=piece.book_name%></b></a></div>
+        <div>作者：<%=piece.get_author%></div>
         <div>
-            <%result.get_categories.each do |category|%>
+            <%piece.get_categories.each do |category|%>
                 <a href="/books/?category=<%=category.id%>"><%=category.show%></a>
             <%end%>
         </div>
         <div>
-            <p>摘要：<%=result.summary%></p>
+            <p>摘要：<%=piece.summary%></p>
         </div>
         <div>
             <%if user_signed_in?%>
-                <%if result.check_subscriber(current_user.id)%>
-                  <button class="btn btn-warning unsubscribe" data-book-id="<%=result.id%>">不收藏</button>
+                <%if piece.check_subscriber(current_user.id)%>
+                <button class="btn btn-warning unsubscribe" data-book-id="<%=piece.id%>">不收藏</button>
                 <% else%>
-                  <button class="btn btn-primary subscribe" data-book-id="<%=result.id%>">收藏</button>
+                <button class="btn btn-primary subscribe" data-book-id="<%=piece.id%>">收藏</button>
                 <% end%>
             <%end%>
         </div>
-        <div><a href="/books/<%=result.id%>" class="btn btn-primary">書籍詳情</a></div>
-    <% end %>
+        <div><a href="/books/<%=piece.id%>" class="btn btn-primary">書籍詳情</a></div>
+    <%end%>
+<%end%>
+
+
+
 <script>
   $('.subscribe').click(function(){
       var bookId = $(this).data('book-id')

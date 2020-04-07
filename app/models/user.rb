@@ -21,5 +21,13 @@ class User < ApplicationRecord
     end
     
   end  
+  def get_books
+    @pieces = []
+    chapters = self.chapters.where(is_first: true)
+    chapters.each do |chapter|
+        @pieces.push(chapter.book)
+    end
+    return @pieces
+  end
   
 end
