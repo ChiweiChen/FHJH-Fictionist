@@ -11,7 +11,7 @@
     <h3>書名'<%=params[:search]%>'的搜尋結果</h3>
 <%end%>
 <% @books.each do |book| %>  
-    <div class="col-sm-2"><img class="card-img-top" src="<%= book.get_cover%>" alt=""></div>
+    <div class="col-sm-2"><a href="/books/<%=book.id%>"><img class="card-img-top" src="<%= book.get_cover%>" alt=""></a></div>
     <div><a href="/books/<%=book.id%>"><b>書名：<%=book.book_name%></b></a></div>
     <div>作者：<%=book.get_author%></div>
     <div>
@@ -40,7 +40,7 @@
 <%if @authors_books!=[]%>
     <%@authors_books.each do |piece|%>
         <%if piece!=nil%>
-        <div class="col-sm-2"><img class="card-img-top" src="<%= piece.get_cover%>" alt=""></div>
+        <div class="col-sm-2"><a href="/books/<%=piece.id%>"><img class="card-img-top" src="<%= piece.get_cover%>" alt=""></a></div>
         <div><a href="/books/<%=piece.id%>">書名：<%=piece.book_name%></a></div>
         <div><b>作者：<%=piece.get_author%></b></div>
         <div>
