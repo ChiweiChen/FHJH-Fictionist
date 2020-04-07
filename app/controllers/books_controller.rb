@@ -114,7 +114,9 @@ class BooksController < ApplicationController
         @authors_books=[]
         @authors.each do |author|
           author.get_books.each do |book|
-            @authors_books.push(book)
+            if @books.include? book == false
+              @authors_books.push(book)
+            end
           end
         end
         
