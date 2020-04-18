@@ -16,29 +16,38 @@
         </ul>
       </div>
     <% end %>
-    <h1>編輯書籍</h1>
-    <div class="form-group">
-      <label >書名</label>
-      <input type="text" class="form-control" id="book_book_name" name="book[book_name]" value="<%=@book.book_name%>">
-    </div>
+    <%if current_user.artist!="not"%>
+      <h1>編輯書籍封面</h1>
+    <%else%>
+      <h1>編輯書籍</h1>
+    <%end%>
+    <%if current_user.artist=="not"%>
+      <div class="form-group">
+        <label >書名</label>
+        <input type="text" class="form-control" id="book_book_name" name="book[book_name]" value="<%=@book.book_name%>">
+      </div>
 
+      
+
+      <div class="form-group">
+        <label>摘要</label>
+        <textarea class="form-control" id="editor" name="book[summary]" rows="6"><%=@book.summary%></textarea>
+      </div>
+
+      <div class="form-group">
+        <select id="category" name="book[category_ids][]">
+          <% @categories.each do |category| %>
+              <option value=<%=category.id%>><%=category.show%></option>
+          <% end%>
+        </select>
+      </div>
+    <%end%>
+  
     <div class="form-group">
       <label >封面</label>
       <input type="file" class="form-control" id="book_cover" name="book[cover]">
     </div>
-
-    <div class="form-group">
-      <label>摘要</label>
-      <textarea class="form-control" id="editor" name="book[summary]" rows="6"><%=@book.summary%></textarea>
-    </div>
-
-    <div class="form-group">
-      <select id="category" name="book[category_ids][]">
-        <% @categories.each do |category| %>
-            <option value=<%=category.id%>><%=category.show%></option>
-        <% end%>
-      </select>
-    </div>
+ 
 
     <input id="categories" type="hidden" value="<%= @book.categories.pluck('id').join(',') %>">
     <!-- Create variables from controller=> Read HTML and create webpage=> Run Javascript Code=> Take input from HTML code

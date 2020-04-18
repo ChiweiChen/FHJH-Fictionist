@@ -62,6 +62,15 @@ class BooksController < ApplicationController
 
   # GET /books/1/edit
   def edit
+    if current_user == nil
+      redirect_to "/books/#{@book.id}"
+    elsif current_user.id != User.where(name: @book.get_author)[0].id
+      if current_user.admin!=true
+        if current_user.artist=="not"
+          redirect_to "/books/#{@book.id}"
+        end
+      end
+    end
   end
 
   # POST /books
