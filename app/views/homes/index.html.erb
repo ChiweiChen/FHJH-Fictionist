@@ -114,7 +114,9 @@
     </div>
   </header>
 
-
+<div class="container">
+  
+</div>
   <!-- Page Content -->
 <div class="container"> 
   <!-- 
@@ -143,6 +145,14 @@
             </div>
           </div>
         </div>
+      <%end%>
+    </div>
+    <h2 style="text-align:center">訂閱排行榜</h2>
+    <hr>
+    <div >
+      <%for i in 0..8%>
+        <div><%=i+1%>. <%=@top_subs[i].book_name%></div><br>
+        <hr>
       <%end%>
     </div>
     <!-- /.row -->

@@ -45,7 +45,8 @@ class HomesController < ApplicationController
                 @todays.push(Book.find(@all_book_ids[i]))
             end
         end
-        
+        @top_subs=Book.all
+        @top_subs.sort_by{|book| book.subscriptions.count()}
         
         
     end
