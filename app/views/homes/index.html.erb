@@ -150,8 +150,8 @@
     <h2 style="text-align:center">訂閱排行榜</h2>
     <hr>
     <div >
-      <%for i in 0..8%>
-        <div><%=i+1%>. <%=@top_subs[i].book_name%></div><br>
+      <%for i in 0..9%>
+        <div ><%=i+1%>. <a href="/books/<%=@top_subs[i].id%>"><%=@top_subs[i].book_name%></a></div><br>
         <hr>
       <%end%>
     </div>
