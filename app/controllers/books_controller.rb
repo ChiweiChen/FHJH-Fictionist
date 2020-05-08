@@ -52,6 +52,8 @@ class BooksController < ApplicationController
   # GET /books/1
   # GET /books/1.json
   def show
+    temp= @book.views += 1
+    @book.update_attribute "views", temp
   end
   
   # GET /books/new

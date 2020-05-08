@@ -20,7 +20,7 @@
         <%end%>
     </div>
     <div>
-        <p>摘要：<%=book.summary%></p>
+        <p>摘要：<%=book.summary.html_safe%></p>
     </div>
     <div>
         <%if user_signed_in?%>

@@ -27,7 +27,9 @@
               <h4  id="title" style="min-height:30px;font-size:20px;">
                 <a href="/books/<%= book.id %>" style="text-overflow: ellipsis;"><%= book.book_name %>  </a>
               </h4>
-              <em><%=book.get_author%></em>
+              <a>觀看數：<%=book.get_views%></a>
+              <br>
+              <a href="/search?search=<%=book.get_author%>"><em><%=book. get_author%></em></a>
               <p class="card-text">
                 <% book.categories.each do |category|%>
                   <a href="/books/?category=<%=category.id%>" class="badge badge-pill badge-primary"><%=category.show%></a>

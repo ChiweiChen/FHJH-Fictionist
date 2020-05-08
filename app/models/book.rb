@@ -28,4 +28,12 @@ class Book < ApplicationRecord
     def get_categories
         self.categories
     end
+
+    def get_views
+        views=self.views
+        self.chapters.each do |chapter|
+            views+=chapter.views
+        end
+        return views
+    end
 end

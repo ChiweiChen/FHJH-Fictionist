@@ -20,10 +20,16 @@
       
       <div class="row container">
           <table>
+            <tr>
+              <th><a>書籍名稱</a></th>
+              <th><a>作者名稱</a></th>
+              <th><a>收藏數</a></th>
+            </tr>
               <%@books.each do |book|%>
                   <tr>
                       <th><a href="/books/<%=book.id %>"><%= book.book_name %></a></th>
                       <th><a><%=book.get_author%></a></th>
+                      <th><a><%=book.subscriptions.count()%></a></th>
                       <th><a class="btn btn-primary" href="/books/<%= book.id%>/dashboard/">編輯</a></th>
                       <th><%=link_to '刪除作品',book,method: :delete, data: {confirm:'您確定要刪除這本書嗎？'}%></th>
                   </tr>
