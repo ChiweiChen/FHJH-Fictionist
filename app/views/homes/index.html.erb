@@ -149,20 +149,22 @@
     </div>
     <h2 style="text-align:center">收藏排行榜</h2>
     <hr>
-    <div >
+    <div class="row container">
       <%for i in 0..9%>
-        <div ><%=i+1%>. <a href="/books/<%=@top_subs[i].id%>"><%=@top_subs[i].book_name%></a></div><br>
-        <a href="/books/<%=@top_subs[i].id%>"><img class="card-img-top" src="<%= @top_subs[i].get_cover%>" alt=""></a>
-        <hr>
+        <div class="col-sm-4">
+        <div ><%=i+1%>. <a href="/books/<%=@top_subs[i].id%>"><%=@top_subs[i].book_name%></a></div>
+        <div style="max-height:50%; max-width:25%;"><a href="/books/<%=@top_subs[i].id%>"><img class="card-img-top" src="<%= @top_subs[i].get_cover%>" alt=""></a></div>
+        </div>
       <%end%>
     </div>
     <h2 style="text-align:center">點擊排行榜</h2>
     <hr>
-    <div >
+    <div class="row container">
       <%for i in 0..9%>
-        <div ><%=i+1%>. <a href="/books/<%=@top_views[i].id%>"><%=@top_views[i].book_name%></a></div><br>
-        <a href="/books/<%=@top_views[i].id%>"><img class="card-img-top" src="<%= @top_views[i].get_cover%>" alt=""></a>
-        <hr>
+        <div class="col-sm-4">
+        <div ><%=i+1%>. <a href="/books/<%=@top_views[i].id%>"><%=@top_views[i].book_name%></a></div>
+        <div style="max-height:50%; max-width:25%;"><a href="/books/<%=@top_views[i].id%>"><img class="card-img-top" src="<%= @top_views[i].get_cover%>" alt=""></a></div>
+        </div>
       <%end%>
     </div>
     <!-- /.row -->
