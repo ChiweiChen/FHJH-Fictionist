@@ -47,6 +47,8 @@ class HomesController < ApplicationController
         end
         @top_subs=Book.all
         @top_subs.sort_by{|book| book.subscriptions.count()}
+        @top_views=Book.all
+        @top_subs.sort_by{|book| book.get_views}
         
         
     end

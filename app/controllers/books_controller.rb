@@ -52,7 +52,8 @@ class BooksController < ApplicationController
   # GET /books/1
   # GET /books/1.json
   def show
-    temp= @book.views += 1
+    add = Random.new.rand(1..3)
+    temp= @book.views += add
     @book.update_attribute "views", temp
   end
   

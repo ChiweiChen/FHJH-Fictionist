@@ -22,7 +22,8 @@ class ChaptersController < ApplicationController
     end
     @comments=Comment.where(chapter_id: @chapter.id)
     #For each chapter, check whether or not it is the same one as the one being displayed on the page
-    temp = @chapter.views += 1
+    add = Random.new.rand(3..5)
+    temp = @chapter.views += add
     @chapter.update_attribute "views", temp
     
   end

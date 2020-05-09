@@ -150,8 +150,16 @@
     <h2 style="text-align:center">收藏排行榜</h2>
     <hr>
     <div >
-      <%for i in 0..8%>
+      <%for i in 0..9%>
         <div ><%=i+1%>. <a href="/books/<%=@top_subs[i].id%>"><%=@top_subs[i].book_name%></a></div><br>
+        <hr>
+      <%end%>
+    </div>
+    <h2 style="text-align:center">點擊排行榜</h2>
+    <hr>
+    <div >
+      <%for i in 0..9%>
+        <div ><%=i+1%>. <a href="/books/<%=@top_views[i].id%>"><%=@top_views[i].book_name%></a></div><br>
         <hr>
       <%end%>
     </div>
