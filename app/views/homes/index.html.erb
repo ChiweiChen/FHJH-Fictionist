@@ -151,7 +151,7 @@
     <hr>
     <div >
       <%for i in 0..9%>
-        <div ><%=i+1%>. <a href="/books/<%=@top_subs[i].id%>"><%=@top_subs[i].book_name%></a></div><br>
+        <div ><%=i+1%>. <a href="/books/<%=@top_subs[i].id%>"><%=@top_subs[i].book_name%><%=@top_subs[i].get_cover%></a></div><br>
         <hr>
       <%end%>
     </div>
@@ -159,7 +159,7 @@
     <hr>
     <div >
       <%for i in 0..9%>
-        <div ><%=i+1%>. <a href="/books/<%=@top_views[i].id%>"><%=@top_views[i].book_name%></a></div><br>
+        <div ><%=i+1%>. <a href="/books/<%=@top_views[i].id%>"><%=@top_views[i].book_name%><%=@top_views[i].get_cover%></a></div><br>
         <hr>
       <%end%>
     </div>
