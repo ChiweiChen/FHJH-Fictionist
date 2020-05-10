@@ -60,7 +60,7 @@
                 </div>
               </div>
               <!-- Slide Three - Set the background image for this slide in the line below -->
-              <div class="carousel-item" style="background-image: url('http://placehold.it/1900x1080')">
+              <div class="carousel-item" style="background-image: url('https://i.imgur.com/TedZLQk.png')">
                 <div class="carousel-caption d-none d-md-block"> 
                   <!--<h3>Third Slide</h3>
                 <p>This is a description for the third slide.</p>--> 
@@ -150,7 +150,7 @@
     <h2 style="text-align:center">收藏排行榜</h2>
     <hr>
     <div class="row container">
-      <%for i in 0..9%>
+      <%for i in 0..5%>
         <div class="col-sm-4">
         <div ><%=i+1%>. <a href="/books/<%=@top_subs[i].id%>"><%=@top_subs[i].book_name%></a></div>
         <div style="max-height:50%; max-width:25%;"><a href="/books/<%=@top_subs[i].id%>"><img class="card-img-top" src="<%= @top_subs[i].get_cover%>" alt=""></a></div>
@@ -160,7 +160,7 @@
     <h2 style="text-align:center">點擊排行榜</h2>
     <hr>
     <div class="row container">
-      <%for i in 0..9%>
+      <%for i in 0..5%>
         <div class="col-sm-4">
         <div ><%=i+1%>. <a href="/books/<%=@top_views[i].id%>"><%=@top_views[i].book_name%></a></div>
         <div style="max-height:50%; max-width:25%;"><a href="/books/<%=@top_views[i].id%>"><img class="card-img-top" src="<%= @top_views[i].get_cover%>" alt=""></a></div>
