@@ -6,6 +6,10 @@ class ApplicationController < ActionController::Base
     def set_global_data
         @categories=Category.all
         @books=Book.all
+        @books.each do |book|
+            book.update_attribute "tviews", book.get_views
+            book.update_attribute "tsubs", book.subscriptions.count()
+        end
     end
 
     def configure_permitted_parameters
