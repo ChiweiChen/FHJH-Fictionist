@@ -34,7 +34,7 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   
-  <style>
+<style>
     * {
     font-family: Arial, "微軟正黑體";
 }
@@ -170,12 +170,12 @@ a:hover {
   <body>
   
 </div>
-    <%= render 'layouts/nav' %>
+    
     <div style='min-height: 600px;'>
     <!--Adds a 600-pixel thing between page content and footer-->
       <%= yield %>
     </div>
-    <%= render 'layouts/footer'%>
+
     <!--Gets html code from _footer.html.erb-->
 
   </body>

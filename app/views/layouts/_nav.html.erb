@@ -22,17 +22,7 @@
 <div class="topbox"></div>
 <div class="mynav fixed-top"> <img src="" alt="">
   <ul class=" navbar-nav ml-auto">
-    <li>
-        <%= form_tag(search_path, :method => "get",   
-            class: 'navbar-form navbar-left') do %>  
-          <div class="input-group">  
-            <%= search_field_tag :search, params[:search], placeholder: "搜尋作品、作者", class: "form-control" %>  
-            <div class="input-group-btn">  
-              <button class="btn btn-secondary btn btn-info glyphicon glyphicon-search" >搜尋</button>
-            </div>  
-          </div>  
-        <% end %>
-      </li>
+    
     <% if user_signed_in?%>
       <li class="registered nav-item">
         <a rel="nofollow" class="nav-link" data-method="delete" href="/users/sign_out">

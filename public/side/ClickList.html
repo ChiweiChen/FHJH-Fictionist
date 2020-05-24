@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>點擊榜</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+</head>
+
+<style>
+body {
+    background-color: #4d4f4f;
+    font-family: Arial, "微軟正黑體";
+}
+.Mytable {
+    text-align: justfy;
+}
+.alltable {
+    /*		overflow-y: auto;*/
+    height: 350px;
+    
+    margin: 50px;
+    box-shadow: 0px 10px 15px #1E1E1E;
+    padding-top: 40px;
+    padding-left: 40px;
+	overflow-x: scroll;
+}
+.mytable {
+    background-image: url("/images/book_bg.png");
+    
+    background-size: contain;
+}
+.rank {
+
+    background-image: url("/images/book_bg.png");
+    background-size: contain;
+}
+.Update {
+    background-image: url("/images/book_bg.png");
+    background-size: contain;
+}
+.allbook {
+    width: 3000px;
+	overflow: hidden;
+}
+.book {
+    display: inline-block;
+    width: 5%;
+    background-color: rgba(255,255,255,0.00);
+    margin-right: 70px;
+}
+.book img {
+    width: 100%;
+    height: 100%;
+	box-shadow: 0px 8px 10px;
+}
+.book-rank {
+    background-color: #ededed;
+    color: #666;
+    font-size: 18px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 10%;
+    font-weight: bolder;
+}
+#book-rank1, #book-rank4, #book-rank7 {
+    background-color: #bf2c24;
+    color: #fff;
+}
+#book-rank2, #book-rank5, #book-rank8 {
+    background-color: #e67225;
+    color: #fff;
+}
+#book-rank3, #book-rank6, #book-rank9 {
+    background-color: #e6bf25;
+    color: #fff;
+}
+.book-text {
+    display: inline-block;
+    color: #fff;
+    margin-top: 10px;
+}
+</style>
+<body>
+<div class="Mytable">
+  <div class="mytable alltable">
+    <div class="allbook">
+      <div class="book"> <img src="http://eastern-creativity.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--5f5e448a4407b2dd8994153bb366c1a382a68899/%E5%B0%81%E9%9D%A2.jpg" alt="">
+        <div class="book-text" id=""> <span class="book-rank" id="book-rank1">1</span> 標題內容 </div>
+      </div>
+      <div class="book"> <img src="http://eastern-creativity.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--5f5e448a4407b2dd8994153bb366c1a382a68899/%E5%B0%81%E9%9D%A2.jpg" alt="">
+        <div class="book-text" id=""> <span class="book-rank" id="book-rank2">2</span> 標題內容 </div>
+      </div>
+      <div class="book"> <img src="http://eastern-creativity.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--5f5e448a4407b2dd8994153bb366c1a382a68899/%E5%B0%81%E9%9D%A2.jpg" alt="">
+        <div class="book-text" id=""> <span class="book-rank" id="book-rank3">3</span> 標題內容 </div>
+      </div>
+      <div class="book"> <img src="http://eastern-creativity.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--5f5e448a4407b2dd8994153bb366c1a382a68899/%E5%B0%81%E9%9D%A2.jpg" alt="">
+        <div class="book-text" id=""> <span class="book-rank">4</span> 標題內容 </div>
+      </div>
+      <div class="book"> <img src="http://eastern-creativity.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--5f5e448a4407b2dd8994153bb366c1a382a68899/%E5%B0%81%E9%9D%A2.jpg" alt="">
+        <div class="book-text" id=""> <span class="book-rank">5</span> 標題內容 </div>
+      </div>
+      <div class="book"> <img src="http://eastern-creativity.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--5f5e448a4407b2dd8994153bb366c1a382a68899/%E5%B0%81%E9%9D%A2.jpg" alt="">
+        <div class="book-text" id=""> <span class="book-rank">6</span> 標題內容 </div>
+      </div>
+      <div class="book"> <img src="http://eastern-creativity.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--5f5e448a4407b2dd8994153bb366c1a382a68899/%E5%B0%81%E9%9D%A2.jpg" alt="">
+        <div class="book-text" id=""> <span class="book-rank">7</span> 標題內容 </div>
+      </div>
+      <div class="book"> <img src="http://eastern-creativity.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--5f5e448a4407b2dd8994153bb366c1a382a68899/%E5%B0%81%E9%9D%A2.jpg" alt="">
+        <div class="book-text" id=""> <span class="book-rank">8</span> 標題內容 </div>
+      </div>
+      <div class="book"> <img src="http://eastern-creativity.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--5f5e448a4407b2dd8994153bb366c1a382a68899/%E5%B0%81%E9%9D%A2.jpg" alt="">
+        <div class="book-text" id=""> <span class="book-rank">9</span> 標題內容 </div>
+      </div>
+      <div class="book"> <img src="http://eastern-creativity.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--5f5e448a4407b2dd8994153bb366c1a382a68899/%E5%B0%81%E9%9D%A2.jpg" alt="">
+        <div class="book-text" id=""> <span class="book-rank">10</span> 標題內容 </div>
+      </div>
+    </div>
+  </div>
+  <div class="Update alltable">
+    <h1></h1>
+    <div class="allbook">
+      <div class="book"> <img src="http://eastern-creativity.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--5f5e448a4407b2dd8994153bb366c1a382a68899/%E5%B0%81%E9%9D%A2.jpg" alt="">
+        <div class="book-text" id=""> <span class="book-rank" id="book-rank4">1</span> 標題內容 </div>
+      </div>
+      <div class="book"> <img src="http://eastern-creativity.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--5f5e448a4407b2dd8994153bb366c1a382a68899/%E5%B0%81%E9%9D%A2.jpg" alt="">
+        <div class="book-text" id=""> <span class="book-rank" id="book-rank5">2</span> 標題內容 </div>
+      </div>
+      <div class="book"> <img src="http://eastern-creativity.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--5f5e448a4407b2dd8994153bb366c1a382a68899/%E5%B0%81%E9%9D%A2.jpg" alt="">
+        <div class="book-text" id=""> <span class="book-rank" id="book-rank6">3</span> 標題內容 </div>
+      </div>
+      <div class="book"> <img src="http://eastern-creativity.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--5f5e448a4407b2dd8994153bb366c1a382a68899/%E5%B0%81%E9%9D%A2.jpg" alt="">
+        <div class="book-text" id=""> <span class="book-rank">4</span> 標題內容 </div>
+      </div>
+      <div class="book"> <img src="http://eastern-creativity.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--5f5e448a4407b2dd8994153bb366c1a382a68899/%E5%B0%81%E9%9D%A2.jpg" alt="">
+        <div class="book-text" id=""> <span class="book-rank">5</span> 標題內容 </div>
+      </div>
+      <div class="book"> <img src="http://eastern-creativity.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--5f5e448a4407b2dd8994153bb366c1a382a68899/%E5%B0%81%E9%9D%A2.jpg" alt="">
+        <div class="book-text" id=""> <span class="book-rank">6</span> 標題內容 </div>
+      </div>
+      <div class="book"> <img src="http://eastern-creativity.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--5f5e448a4407b2dd8994153bb366c1a382a68899/%E5%B0%81%E9%9D%A2.jpg" alt="">
+        <div class="book-text" id=""> <span class="book-rank">7</span> 標題內容 </div>
+      </div>
+      <div class="book"> <img src="http://eastern-creativity.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--5f5e448a4407b2dd8994153bb366c1a382a68899/%E5%B0%81%E9%9D%A2.jpg" alt="">
+        <div class="book-text" id=""> <span class="book-rank">8</span> 標題內容 </div>
+      </div>
+      <div class="book"> <img src="http://eastern-creativity.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--5f5e448a4407b2dd8994153bb366c1a382a68899/%E5%B0%81%E9%9D%A2.jpg" alt="">
+        <div class="book-text" id=""> <span class="book-rank">9</span> 標題內容 </div>
+      </div>
+      <div class="book"> <img src="http://eastern-creativity.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--5f5e448a4407b2dd8994153bb366c1a382a68899/%E5%B0%81%E9%9D%A2.jpg" alt="">
+        <div class="book-text" id=""> <span class="book-rank">10</span> 標題內容 </div>
+      </div>
+    </div>
+  </div>
+  <div class="rank alltable">
+    <h1></h1>
+    <div class="allbook">
+      <div class="book"> <img src="http://eastern-creativity.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--5f5e448a4407b2dd8994153bb366c1a382a68899/%E5%B0%81%E9%9D%A2.jpg" alt="">
+        <div class="book-text" id=""> <span class="book-rank" id="book-rank7">1</span> 標題內容 </div>
+      </div>
+      <div class="book"> <img src="http://eastern-creativity.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--5f5e448a4407b2dd8994153bb366c1a382a68899/%E5%B0%81%E9%9D%A2.jpg" alt="">
+        <div class="book-text" id=""> <span class="book-rank" id="book-rank8">2</span> 標題內容 </div>
+      </div>
+      <div class="book"> <img src="http://eastern-creativity.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--5f5e448a4407b2dd8994153bb366c1a382a68899/%E5%B0%81%E9%9D%A2.jpg" alt="">
+        <div class="book-text" id=""> <span class="book-rank" id="book-rank9">3</span> 標題內容 </div>
+      </div>
+      <div class="book"> <img src="http://eastern-creativity.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--5f5e448a4407b2dd8994153bb366c1a382a68899/%E5%B0%81%E9%9D%A2.jpg" alt="">
+        <div class="book-text" id=""> <span class="book-rank">4</span> 標題內容 </div>
+      </div>
+      <div class="book"> <img src="http://eastern-creativity.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--5f5e448a4407b2dd8994153bb366c1a382a68899/%E5%B0%81%E9%9D%A2.jpg" alt="">
+        <div class="book-text" id=""> <span class="book-rank">5</span> 標題內容 </div>
+      </div>
+      <div class="book"> <img src="http://eastern-creativity.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--5f5e448a4407b2dd8994153bb366c1a382a68899/%E5%B0%81%E9%9D%A2.jpg" alt="">
+        <div class="book-text" id=""> <span class="book-rank">6</span> 標題內容 </div>
+      </div>
+      <div class="book"> <img src="http://eastern-creativity.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--5f5e448a4407b2dd8994153bb366c1a382a68899/%E5%B0%81%E9%9D%A2.jpg" alt="">
+        <div class="book-text" id=""> <span class="book-rank">7</span> 標題內容 </div>
+      </div>
+      <div class="book"> <img src="http://eastern-creativity.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--5f5e448a4407b2dd8994153bb366c1a382a68899/%E5%B0%81%E9%9D%A2.jpg" alt="">
+        <div class="book-text" id=""> <span class="book-rank">8</span> 標題內容 </div>
+      </div>
+      <div class="book"> <img src="http://eastern-creativity.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--5f5e448a4407b2dd8994153bb366c1a382a68899/%E5%B0%81%E9%9D%A2.jpg" alt="">
+        <div class="book-text" id=""> <span class="book-rank">9</span> 標題內容 </div>
+      </div>
+      <div class="book"> <img src="http://eastern-creativity.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--5f5e448a4407b2dd8994153bb366c1a382a68899/%E5%B0%81%E9%9D%A2.jpg" alt="">
+        <div class="book-text" id=""> <span class="book-rank">10</span> 標題內容 </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+<script src="file:///D|/DATA/Desktop/demo/js/jquery-3.3.1.min.js"></script> 
+<!-- Include all compiled plugins (below), or include individual files as needed --> 
+<script src="file:///D|/DATA/Desktop/demo/js/popper.min.js"></script> 
+<script src="file:///D|/DATA/Desktop/demo/js/bootstrap-4.3.1.js"></script>
+</body>
+</html>

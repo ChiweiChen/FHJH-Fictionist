@@ -11,6 +11,7 @@ class ChaptersController < ApplicationController
   # GET /chapters/1
   # GET /chapters/1.json
   def show
+    
     #Get the book this chapter belongs to
     @which_chapter=0
     @chapter.book.chapters.each_with_index do |chapter, count|
@@ -77,6 +78,12 @@ class ChaptersController < ApplicationController
         format.json { render json: @chapter.errors, status: :unprocessable_entity }
       end
     end
+    
+    @stopwords = ["幹你娘","他媽"]
+    @stopwords.each do |word|
+      @chapter.update(content: @chapter.content.gsub(word,"*"))
+    end
+    
   end
 
   # DELETE /chapters/1

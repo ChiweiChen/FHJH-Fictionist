@@ -1,182 +1,481 @@
-<style>
-    
-    
-    .summary{
-      
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    }
-    
-    
 
-    .announce{
-      
-      background-color: #FFFFFF;
-      height:50%;
-      margin:1px;
-    }
-    }
-    
-    
-
-
+<link rel="icon" href="images/LOGO 東方-1 (1).png">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+<!--	 ====此連結CSS位置要注意上========================= -->
+<link rel="stylesheet" type="text/css" href="slick-1.8.1/slick/slick.css">
+<link rel="stylesheet" type="text/css" href="slick-1.8.1/slick/slick-theme.css">
+<!--	 ====此連結CSS位置要注意下========================= -->
+<style type="text/css">
+body {
+    font-family: Arial, "微軟正黑體";
+    background-color: #4d4f4f;
+}
+.navbar {
+    box-shadow: 0px 3px 10px 1px #BCBCBC;
+}
+/*------------------------------------------*/
+.Mycontainer {
+    height: 500px;
+    padding: 80px 0px 60px;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.form-control {
+    border-radius: 50rem;
+    background-color: rgba(0,0,0,0.00);
+    border-right: none;
+}
+.mybtn-search {
+    border-radius: 0rem 50rem 50rem 0rem;
+    background-color: rgba(0,0,0,0.00);
+    border: 1px solid #ced4da;
+    border-left: none;
+}
+.Whybox {
+    background-color: #E8E8E8;
+    color: #7d7d7d;
+}
+/*----------------------------------------*/
+.slider {
+    width: 100%;
+    margin: 50px auto;
+}
+.slick-slide {
+    margin: 0px 20px;
+}
+.slick-slide img {
+    width: 100%;
+}
+.slick-prev:before, .slick-next:before {
+    color: black;
+}
+.slick-slide {
+    transition: all ease-in-out .3s;
+    opacity: .2;
+}
+.slick-active {
+    opacity: .5;
+}
+.slick-current {
+    opacity: 1;
+}
+/*----------------------------------------*/
+.Mytable {
+    height: 1000px;
+}
+.Mytable iframe {
+    width: 100%;
+    height: 1300px;
+}
+.sortbox {
+    margin: 0px auto;
+    margin-top: 80px;
+    text-align: center;
+    height: 300px;
+    line-height: 300px;
+    font-size: 20px;
+    text-align: justfy;
+}
+.insortbox {
+    background-color: #9D9D9D;
+    background-image: url();
+    margin: 0px auto;
+    width: 30%;
+    height: 20%;
+}
+.navbar-collapse li {
+    margin: 5px;
+}
+.navbar-nav-item a:hover {
+    transition: all .5s linear;
+    border-bottom: 1px solid #958068;
+    color: #958068!important;
+}
+.nav-tabs a {
+    width: 33%;
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+#nav-hover a {
+    color: #B3B3B3;
+    font-weight: bolder;
+    border: none;
+}
+#nav-hover a:hover {
+    background-color: #2E2E2E;
+    color: #fff;
+    text-decoration: none;
+    transition: all .3s linear;
+    border-bottom: 1px solid #fff;
+}
+#nav-hover {
+    text-align: justfy;
+    border-bottom: 1px solid #fff;
+    border-top: 1px solid #fff;
+}
+#nav-contact-tab {
+    width: 34%;
+}
+/*----------------------------------------*/
+.mybox {
+    opacity: 0;
+    filter: blur(1px);
+    padding-top: 50px;
+}
+.myboxanima {
+    opacity: 1;
+    padding-top: 0px;
+    transition: all 1s linear;
+    filter: blur(0px);
+}
+#myhidebox1 {
+    width: 100%;
+    height: 500px;
+    background-color: rgba(240,61,64,0.00);
+    position: absolute;
+    top: 100px;
+}
+/*----------------------------------------*/
+.nav-link.active, .nav-item.show .nav-link {
+    background-color: #fff!important;
+}
+.nav-link.active {
+    color: #2E2E2E!important;
+}
 </style>
-<header>
-    <div class="container-fluid text-center" style="margin-bottom: 30px; ">
-      <div class="row content"> 
-        <!--		 下方新增sortbox-->
-        <div class="col-sm-2 sortbox">
-			<a class="cat-item" href="/books/?category=<%=Category.where(name: 'east_fi')[0].id%>">玄幻</a> 
-      <a class="cat-item" href="/books/?category=<%=Category.where(name: 'old_love')[0].id%>">古言</a> 
-      <a class="cat-item" href="/books/?category=<%=Category.where(name: 'urban_love')[0].id%>">都言</a> 
-      <a class="cat-item" href="/books/?category=<%=Category.where(name: 'short')[0].id%>">短篇</a> 
-      <a class="cat-item" href="/books/?category=<%=Category.where(name: 'foreign')[0].id%>">外文</a> 
-      <a class="cat-item" href="/books/?category=<%=Category.where(name: 'mag_fi')[0].id%>">奇幻</a> 
-      <a class="cat-item" href="/books/?category=<%=Category.where(name: 'sci_fi')[0].id%>">科幻</a> </div>
-        <div class="col-sm-7">
-          <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-            </ol>
-            <div class="carousel-inner" role="listbox"> 
-              <!-- Slide One - Set the background image for this slide in the line below -->
-              <div class="carousel-item active" style="background-image: url('https://imgur.com/Jv0urki.jpg')">
-                <div class="carousel-caption d-none d-md-block"> 
-                  <!--<h3>First Slide</h3>
-                <p>This is a description for the first slide.</p>--> 
-                </div>
-              </div>
-              <!-- Slide Two - Set the background image for this slide in the line below -->
-              <div class="carousel-item" style="background-image: url('https://imgur.com/lUOZoxi.jpg');">
-                <div class="carousel-caption d-none d-md-block"> 
-                  <!--<h3>Second Slide</h3>
-                <p>This is a description for the second slide.</p>--> 
-                </div>
-              </div>
-              <!-- Slide Three - Set the background image for this slide in the line below -->
-              <div class="carousel-item" style="background-image: url('http://placehold.it/1900x1080')">
-                <div class="carousel-caption d-none d-md-block"> 
-                  <!--<h3>Third Slide</h3>
-                <p>This is a description for the third slide.</p>--> 
-                </div>
-              </div>
-              <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev"> <span class="carousel-control-prev-icon" aria-hidden="true"></span> <span class="sr-only">Previous</span> </a> <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next"> <span class="carousel-control-next-icon" aria-hidden="true"></span> <span class="sr-only">Next</span> </a> </div>
-          </div>
-          <!--		新增跑馬燈上-->
-          <div class="marqueebox" style="display: inline-block;width:750px;">
-            <marquee behavior="" direction="">
-            📢歡迎來到東方文學中文網!屬於台灣的寫書平台
-            </marquee>
-          </div>
-          <!--		新增跑馬燈下--> 
-        </div>
-        <div class="col-sm-3 "> 
-          <!--		新增myfontcolor上-->
-          <div class="myfontcolor announce" > <b>網站公告</b> </div>
-          <div class="myfontcolor covers" > <b>明日必讀</b> 
-            <!--			新增myfontcolor下-->
-            <div style="width:50%;">
-              <div id="carouselExampleIndicators1" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner"  role="listbox"> 
-                  <!-- Slide One - Set the background image for this slide in the line below -->
-                  <div class="carousel-item active" style="background-image: url('http://placehold.it/600x800');height:100px;width:75px;">
-                    <div class="carousel-caption d-none d-md-block"> 
-                      <!--<h3>First Slide</h3>
-                    <p>This is a description for the first slide.</p>--> 
-                    </div>
-                  </div>
-                  <!-- Slide Two - Set the background image for this slide in the line below -->
-                  <div class="carousel-item" style="background-image: url('http://placehold.it/600x800');height:100px;width:75px;">
-                    <div class="carousel-caption d-none d-md-block"> 
-                      <!--<h3>Second Slide</h3>
-                    <p>This is a description for the second slide.</p>--> 
-                    </div>
-                  </div>
-                  <!-- Slide Three - Set the background image for this slide in the line below -->
-                  <div class="carousel-item" style="background-image: url('http://placehold.it/600x800');height:100px;width:75px;">
-                    <div class="carousel-caption d-none d-md-block"> 
-                      <!--<h3>Third Slide</h3>
-                    <p>This is a description for the third slide.</p>--> 
-                    </div>
-                  </div>
-                </div>
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+  <div class="container"> <a class="navbar-brand" href="#">
+	  
+	  東方文創logo</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="navbar-nav-item"> <a class="nav-link" href="/books">全部作品</a> </li>
+        <li class="navbar-nav-item"> <a class="nav-link" href="/contact">聯絡我們</a> </li>
+        <li class="navbar-nav-item dropdown"> <a class="nav-link dropdown-toggle" href="/books/#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 作品類別 </a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio"> <a class="dropdown-item" href="/books/?category=1">短篇小說</a> <a class="dropdown-item" href="/books/?category=2">科幻空間</a> <a class="dropdown-item" href="/books/?category=3">古代言情</a> <a class="dropdown-item" href="/books/?category=4">西方奇幻</a> <a class="dropdown-item" href="/books/?category=5">玄幻魔法</a> <a class="dropdown-item" href="/books/?category=6">耽美小說</a> <a class="dropdown-item" href="/books/?category=7">同人小說</a> <a class="dropdown-item" href="/books/?category=8">都市言情</a> <a class="dropdown-item" href="/books/?category=9">青春校園</a> <a class="dropdown-item" href="/books/?category=10">外文小說</a> <a class="dropdown-item" href="/books/?category=11">現實小說</a> <a class="dropdown-item" href="/books/?category=12">懸疑驚悚</a> <a class="dropdown-item" href="/books/?category=13">學術文章</a> <a class="dropdown-item" href="/books/?category=14">兒童文學</a> </div>
+        </li>
+        <li>
+          <form class="navbar-form navbar-left" action="/search" accept-charset="UTF-8" method="get" style="">
+            <div class="input-group">
+              <input type="search" name="search" id="search" placeholder="搜尋作品、作者" class="form-control" />
+              <div class="input-group-btn"> 
+                <!--<button type="submit" class="btn btn-info glyphicon glyphicon-search"></button>  -->
+                <button class="mybtn btn btn-light btn btn-info glyphicon glyphicon-search mybtn-search ">搜尋</button>
               </div>
             </div>
+          </form>
+        </li>
+        <% if user_signed_in?%>
+        <li class="registered nav-item">
+          <a rel="nofollow" class="nav-link" data-method="delete" href="/users/sign_out">
+            登出
+          </a>
+        </li>
+        <li class="sign nav-item">
+          <a class="nav-link" href="/user">
+            會員專區
+          </a>
+        </li>
+        <%else%>
+        <li class="registered nav-item"> <a class="nav-link" href="/users/sign_up"> 🖋註冊 </a> </li>
+        <li class="sign nav-item"> <a class="nav-link" href="/users/sign_in"> 🖋登入 </a> </li>
+        <%end%>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div style="height:100px"></div>
+<div class="container">
+  <div class="row">
+    <div>
+      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleControls" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleControls" data-slide-to="1"></li>
+          <li data-target="#carouselExampleControls" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active"> <img src="/images/customer_service.png"  height="350px;" class="d-block w-100">
+            <div class="carousel-caption d-none d-md-block">
+<!--
+              <h5>Item 1 Heading</h5>
+              <p>Item 1 Description</p>
+-->
+            </div>
           </div>
+          <div class="carousel-item"> <img src="http://placehold.it/1900x600" alt="Second slide" height="450" class="d-block w-100">
+            <div class="carousel-caption d-none d-md-block">
+<!--
+              <h5>Item 2 Heading</h5>
+              <p>Item 2 Description</p>
+-->
+            </div>
+          </div>
+          <div class="carousel-item"> <img src="http://placehold.it/1900x600" alt="Third slide" height="450" class="d-block w-100">
+            <div class="carousel-caption d-none d-md-block">
+<!--
+              <h5>Item 3 Heading</h5>
+              <p>Item 3 Description</p>
+-->
+            </div>
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev"> <span class="carousel-control-prev-icon" aria-hidden="true"></span> <span class="sr-only">Previous</span> </a> <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next"> <span class="carousel-control-next-icon" aria-hidden="true"></span> <span class="sr-only">Next</span> </a> </div>
+    </div>
+  </div>
+</div>
+<div id="myhidebox1"></div>
+<div id="box1" class="mybox">
+  <div class="sortbox container">
+    <div class="row">
+      <div class="insortbox"><img src="/images/poem.png" style="width:100%; height:100%;"></div>
+      <div class="insortbox"><img src="/images/novel.png" style="width:100%; height:100%;"></div>
+      <div class="insortbox"><img src="/images/essay.png" style="width:100%; height:100%;"> </div>
+    </div>
+  </div>
+</div>
+
+<!--
+<div class="Mycontainer container text-center">
+  <h4 class="Myh4">暢銷精選</h4>
+  <section class="regular slider">
+    <div> <img src="http://placehold.it/350x300?text=1"> </div>
+    <div> <img src="http://placehold.it/350x300?text=2"> </div>
+    <div> <img src="http://placehold.it/350x300?text=3"> </div>
+    <div> <img src="http://placehold.it/350x300?text=4"> </div>
+    <div> <img src="http://placehold.it/350x300?text=5"> </div>
+    <div> <img src="http://placehold.it/350x300?text=6"> </div>
+    <div> <img src="http://placehold.it/350x300?text=7"> </div>
+    <div> <img src="http://placehold.it/350x300?text=8"> </div>
+  </section>
+</div>
+-->
+
+<div class="Mytable Mycontainer">
+  <nav id="nav-hover">
+    <div class="nav nav-tabs" id="nav-tab" role="tablist" style="border-bottom: 0px;"> <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">點擊榜</a> <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">收藏榜</a> <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">新書榜</a> </div>
+  </nav>
+  <div class="myiframe tab-content" id="nav-tabContent">
+    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+      <iframe src="/side/ClickList.html" frameborder="0" scrolling="no"></iframe>
+    </div>
+    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+      <iframe src="/side/FavoriteList.html" frameborder="0" scrolling="no"></iframe>
+    </div>
+    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+      <iframe src="/side/NewBookList.html" frameborder="0" scrolling="no"></iframe>
+    </div>
+  </div>
+</div>
+<div style="height: 500px"></div>
+
+<!--
+<div class="container">
+  <h2 class="text-center">RECOMMENDED PRODUCTS</h2>
+  <hr>
+  <div class="row text-center">
+    <div class="col-md-4 pb-1 pb-md-0">
+      <div class="card"> <img class="card-img-top" src="../demo/images/400X200.gif" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">Add to Cart</a> </div>
+      </div>
+    </div>
+    <div class="col-md-4 pb-1 pb-md-0">
+      <div class="card"> <img class="card-img-top" src="../demo/images/400X200.gif" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">Add to Cart</a> </div>
+      </div>
+    </div>
+    <div class="col-md-4 pb-1 pb-md-0">
+      <div class="card"> <img class="card-img-top" src="../demo/images/400X200.gif" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">Add to Cart</a> </div>
+      </div>
+    </div>
+  </div>
+  <div class="row text-center mt-4">
+    <div class="col-md-4 pb-1 pb-md-0">
+      <div class="card"> <img class="card-img-top" src="../demo/images/400X200.gif" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">Add to Cart</a> </div>
+      </div>
+    </div>
+    <div class="col-md-4 pb-1 pb-md-0">
+      <div class="card"> <img class="card-img-top" src="../demo/images/400X200.gif" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">Add to Cart</a> </div>
+      </div>
+    </div>
+    <div class="col-md-4 pb-1 pb-md-0">
+      <div class="card"> <img class="card-img-top" src="../demo/images/400X200.gif" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">Add to Cart</a> </div>
+      </div>
+    </div>
+  </div>
+</div>
+<hr>
+<h2 class="text-center">FEATURED PRODUCTS</h2>
+<hr>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4">
+      <ul class="list-unstyled">
+        <li class="media"> <img class="mr-3" src="images/100X125.gif" alt="Generic placeholder image">
+          <div class="media-body">
+            <h5 class="mt-0 mb-1">List-based media object</h5>
+            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus. </div>
+        </li>
+        <li class="media my-4"> <img class="mr-3" src="images/100X125.gif" alt="Generic placeholder image">
+          <div class="media-body">
+            <h5 class="mt-0 mb-1">List-based media object</h5>
+            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus. </div>
+        </li>
+        <li class="media"> <img class="mr-3" src="images/100X125.gif" alt="Generic placeholder image">
+          <div class="media-body">
+            <h5 class="mt-0 mb-1">List-based media object</h5>
+            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus. </div>
+        </li>
+      </ul>
+    </div>
+    <div class="col-lg-4">
+      <ul class="list-unstyled">
+        <li class="media"> <img class="mr-3" src="images/100X125.gif" alt="Generic placeholder image">
+          <div class="media-body">
+            <h5 class="mt-0 mb-1">List-based media object</h5>
+            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus. </div>
+        </li>
+        <li class="media my-4"> <img class="mr-3" src="images/100X125.gif" alt="Generic placeholder image">
+          <div class="media-body">
+            <h5 class="mt-0 mb-1">List-based media object</h5>
+            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus. </div>
+        </li>
+        <li class="media"> <img class="mr-3" src="images/100X125.gif" alt="Generic placeholder image">
+          <div class="media-body">
+            <h5 class="mt-0 mb-1">List-based media object</h5>
+            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus. </div>
+        </li>
+      </ul>
+    </div>
+    <div class="col-lg-4">
+      <ul class="list-unstyled">
+        <li class="media"> <img class="mr-3" src="images/100X125.gif" alt="Generic placeholder image">
+          <div class="media-body">
+            <h5 class="mt-0 mb-1">List-based media object</h5>
+            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus. </div>
+        </li>
+        <li class="media my-4"> <img class="mr-3" src="images/100X125.gif" alt="Generic placeholder image">
+          <div class="media-body">
+            <h5 class="mt-0 mb-1">List-based media object</h5>
+            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus. </div>
+        </li>
+        <li class="media"> <img class="mr-3" src="images/100X125.gif" alt="Generic placeholder image">
+          <div class="media-body">
+            <h5 class="mt-0 mb-1">List-based media object</h5>
+            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus. </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<hr>
+<div class="container text-white bg-dark p-4">
+  <div class="row">
+    <div class="col-6 col-md-8 col-lg-7">
+      <div class="row text-center">
+        <div class="col-sm-6 col-md-4 col-lg-4 col-12">
+          <ul class="list-unstyled">
+            <li class="btn-link"> <a>Link anchor</a> </li>
+            <li class="btn-link"> <a>Link anchor</a> </li>
+            <li class="btn-link"> <a>Link anchor</a> </li>
+            <li class="btn-link"> <a>Link anchor</a> </li>
+            <li class="btn-link"> <a>Link anchor</a> </li>
+          </ul>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-4">
+          <ul class="list-unstyled">
+            <li class="btn-link"> <a>Link anchor</a> </li>
+            <li class="btn-link"> <a>Link anchor</a> </li>
+            <li class="btn-link"> <a>Link anchor</a> </li>
+            <li class="btn-link"> <a>Link anchor</a> </li>
+            <li class="btn-link"> <a>Link anchor</a> </li>
+          </ul>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-4 col-12">
+          <ul class="list-unstyled">
+            <li class="btn-link"> <a>Link anchor</a> </li>
+            <li class="btn-link"> <a>Link anchor</a> </li>
+            <li class="btn-link"> <a>Link anchor</a> </li>
+            <li class="btn-link"> <a>Link anchor</a> </li>
+            <li class="btn-link"> <a>Link anchor</a> </li>
+          </ul>
         </div>
       </div>
     </div>
-  </header>
-
-<div class="container">
-  
+    <div class="col-md-4 col-lg-5 col-6">
+      <address>
+      <strong>MyStoreFront, Inc.</strong><br>
+      Indian Treasure Link<br>
+      Quitman, WA, 99110-0219<br>
+      <abbr title="Phone">P:</abbr> (123) 456-7890
+      </address>
+      <address>
+      <strong>Full Name</strong><br>
+      <a href="mailto:#">first.last@example.com</a>
+      </address>
+    </div>
+  </div>
 </div>
-  <!-- Page Content -->
-<div class="container"> 
-  <!-- 
-    <% if user_signed_in?%>
-      <h1><%=current_user.name%>,歡迎來到東方文創！</h1>
-    <% else%>
-      <h1 class="my-4">歡迎來到夢想中文網!</h1>
-    <%end%>
-  -->
-    <!-- Portfolio Section -->
-  <h2 style="text-align:center">今日作品</h2>
-    <hr>
-    <div class="container row">
-      <% @todays.each do |book| %>
-        <div class="col-sm-4 portfolio-item">
-          <div class="card h-100">
-            <div class="card-body">
-              <h4 class="card-title">
-                <a href="/books/<%= book.id %>"><%= book.book_name %></a>
-              </h4>
-              <div class="card-text summary" style="max-height:55px;"><%= book.summary.html_safe %></div>
-              <%if user_signed_in?%>
-                <a class="btn btn-primary" href="/books/<%= book.id %>">訂閱</a>
-              <%end%>
-            </div>
-          </div>
-        </div>
-      <%end%>
+-->
+<footer class="text-center">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <p>Copyright © MyWebsite. All rights reserved.</p>
+      </div>
     </div>
-    <h2 style="text-align:center">收藏排行榜</h2>
-    <hr>
-    <div class="row container">
-      <%for i in 0..5%>
-        <div class="col-sm-4">
-        <div ><%=i+1%>. <a href="/books/<%=@top_subs[i].id%>"><%=@top_subs[i].book_name%></a></div>
-        <div style="max-height:50%; max-width:25%;"><a href="/books/<%=@top_subs[i].id%>"><img class="card-img-top" src="<%= @top_subs[i].get_cover%>" alt=""></a></div>
-        </div>
-      <%end%>
-    </div>
-    <h2 style="text-align:center">點擊排行榜</h2>
-    <hr>
-    <div class="row container">
-      <%for i in 0..5%>
-        <div class="col-sm-4">
-        <div ><%=i+1%>. <a href="/books/<%=@top_views[i].id%>"><%=@top_views[i].book_name%></a></div>
-        <div style="max-height:50%; max-width:25%;"><a href="/books/<%=@top_views[i].id%>"><img class="card-img-top" src="<%= @top_views[i].get_cover%>" alt=""></a></div>
-        </div>
-      <%end%>
-    </div>
-    <!-- /.row -->
+  </div>
+</footer>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+<script src="../demo/js/jquery-3.3.1.min.js"></script> 
+<!-- Include all compiled plugins (below), or include individual files as needed --> 
+<script src="../demo/js/popper.min.js"></script> 
+<script src="../demo/js/bootstrap-4.3.1.js"></script> 
+<!--	  =====輪播上====================================--> 
+<script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script> 
+<script src="slick-1.8.1/slick/slick.js" type="text/javascript" charset="utf-8"></script> 
+<script>
+	 $(document).on('ready', function() {
+	$(".regular").slick({
+        dots: true,
+        infinite: true,
+        slidesToShow: 4,
+        slidesToScroll: 4
+      });
+		 });
+	</script> 
+<!--	  =====輪播下====================================--> 
+<script>
+	
+document.getElementById("myhidebox1").addEventListener("mouseover", function(){document.getElementById("box1").className = "myboxanima";});
 
-    <!-- Features Section -->
-    <!-- /.row -->
 
-    
-
-    <!-- Call to Action Section -->
-    
-
-</div>
-  <!-- /.container -->
-
-  
-  
+</script>
