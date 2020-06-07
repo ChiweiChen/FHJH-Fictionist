@@ -43,7 +43,7 @@
     </div>
   <% end %>
 
-  <div class="btn sign_in-btn actions" style="background-color:#000;" >
+  <div class="sign_in-btn actions" >
   
   <%= f.submit "登入"%>
   </div>
@@ -56,3 +56,12 @@
 </div>
 </div>
 </div>
+
+<script>
+setTimeout(getname,50);
+ function getname(){
+ var x = document.getElementsByName("commit");
+ x[0].classList.add("btn"); 
+ }
+ 
+</script>
