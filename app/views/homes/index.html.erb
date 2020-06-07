@@ -1,6 +1,5 @@
 
 <link rel="icon" href="images/LOGO 東方-1 (1).png">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 <!--	 ====此連結CSS位置要注意上========================= -->
 <link rel="stylesheet" type="text/css" href="slick-1.8.1/slick/slick.css">
 <link rel="stylesheet" type="text/css" href="slick-1.8.1/slick/slick-theme.css">
@@ -30,7 +29,7 @@ body {
     border-radius: 0rem 50rem 50rem 0rem;
     background-color: rgba(0,0,0,0.00);
     border: 1px solid #ced4da;
-    border-left: none;
+    
 }
 .Whybox {
     background-color: #E8E8E8;
@@ -60,65 +59,7 @@ body {
 .slick-current {
     opacity: 1;
 }
-/*----------------------------------------*/
-.Mytable {
-    height: 1000px;
-}
-.Mytable iframe {
-    width: 100%;
-    height: 1300px;
-}
-.sortbox {
-    margin: 0px auto;
-    margin-top: 80px;
-    text-align: center;
-    height: 300px;
-    line-height: 300px;
-    font-size: 20px;
-    text-align: justfy;
-}
-.insortbox {
-    background-color: #9D9D9D;
-    background-image: url();
-    margin: 0px auto;
-    width: 30%;
-    height: 20%;
-}
-.navbar-collapse li {
-    margin: 5px;
-}
-.navbar-nav-item a:hover {
-    transition: all .5s linear;
-    border-bottom: 1px solid #958068;
-    color: #958068!important;
-}
-.nav-tabs a {
-    width: 33%;
-    text-align: center;
-    font-size: 24px;
-    margin-bottom: 10px;
-    display: inline-block;
-}
-#nav-hover a {
-    color: #B3B3B3;
-    font-weight: bolder;
-    border: none;
-}
-#nav-hover a:hover {
-    background-color: #2E2E2E;
-    color: #fff;
-    text-decoration: none;
-    transition: all .3s linear;
-    border-bottom: 1px solid #fff;
-}
-#nav-hover {
-    text-align: justfy;
-    border-bottom: 1px solid #fff;
-    border-top: 1px solid #fff;
-}
-#nav-contact-tab {
-    width: 34%;
-}
+
 /*----------------------------------------*/
 .mybox {
     opacity: 0;
@@ -148,48 +89,7 @@ body {
 </style>
 
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-  <div class="container"> <a class="navbar-brand" href="#">
-	  
-	  東方文創logo</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="navbar-nav-item"> <a class="nav-link" href="/books">全部作品</a> </li>
-        <li class="navbar-nav-item"> <a class="nav-link" href="/contact">聯絡我們</a> </li>
-        <li class="navbar-nav-item dropdown"> <a class="nav-link dropdown-toggle" href="/books/#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 作品類別 </a>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio"> <a class="dropdown-item" href="/books/?category=1">短篇小說</a> <a class="dropdown-item" href="/books/?category=2">科幻空間</a> <a class="dropdown-item" href="/books/?category=3">古代言情</a> <a class="dropdown-item" href="/books/?category=4">西方奇幻</a> <a class="dropdown-item" href="/books/?category=5">玄幻魔法</a> <a class="dropdown-item" href="/books/?category=6">耽美小說</a> <a class="dropdown-item" href="/books/?category=7">同人小說</a> <a class="dropdown-item" href="/books/?category=8">都市言情</a> <a class="dropdown-item" href="/books/?category=9">青春校園</a> <a class="dropdown-item" href="/books/?category=10">外文小說</a> <a class="dropdown-item" href="/books/?category=11">現實小說</a> <a class="dropdown-item" href="/books/?category=12">懸疑驚悚</a> <a class="dropdown-item" href="/books/?category=13">學術文章</a> <a class="dropdown-item" href="/books/?category=14">兒童文學</a> </div>
-        </li>
-        <li>
-          <form class="navbar-form navbar-left" action="/search" accept-charset="UTF-8" method="get" style="">
-            <div class="input-group">
-              <input type="search" name="search" id="search" placeholder="搜尋作品、作者" class="form-control" />
-              <div class="input-group-btn"> 
-                <!--<button type="submit" class="btn btn-info glyphicon glyphicon-search"></button>  -->
-                <button class="mybtn btn btn-light btn btn-info glyphicon glyphicon-search mybtn-search ">搜尋</button>
-              </div>
-            </div>
-          </form>
-        </li>
-        <% if user_signed_in?%>
-        <li class="registered nav-item">
-          <a rel="nofollow" class="nav-link" data-method="delete" href="/users/sign_out">
-            登出
-          </a>
-        </li>
-        <li class="sign nav-item">
-          <a class="nav-link" href="/user">
-            會員專區
-          </a>
-        </li>
-        <%else%>
-        <li class="registered nav-item"> <a class="nav-link" href="/users/sign_up"> 🖋註冊 </a> </li>
-        <li class="sign nav-item"> <a class="nav-link" href="/users/sign_in"> 🖋登入 </a> </li>
-        <%end%>
-      </ul>
-    </div>
-  </div>
-</nav>
+
 <div style="height:100px"></div>
 <div class="container">
   <div class="row">
@@ -258,6 +158,20 @@ body {
 -->
 
 <div class="Mytable Mycontainer">
+  <!--<a>點擊排行榜：</a>
+  <%@top_views.each do |book|%>
+    <%=book.book_name%>
+  <%end%>
+  <br>
+  <a>訂閱排行榜：</a>
+  <%@top_subs.each do |book|%>
+    <%=book.book_name%>
+  <%end%>
+  <br>
+  <a>新書排行榜：</a>
+  <%@top_news.each do |book|%>
+    <%=book.book_name%>
+  <%end%>-->
   <nav id="nav-hover">
     <div class="nav nav-tabs" id="nav-tab" role="tablist" style="border-bottom: 0px;"> <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">點擊榜</a> <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">收藏榜</a> <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">新書榜</a> </div>
   </nav>

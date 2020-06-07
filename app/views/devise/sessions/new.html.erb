@@ -1,7 +1,32 @@
-<h2>登入</h2>
+<style>
+/*2020-06-03=======================================================*/
+	#sign_in-btn{
+		border:1px solid #958068;
+		color: #958068;
+		margin-bottom: 10px;
+	}
+	#sign_in-btn:hover{
+		background-color:#958068;
+		color: #fff;
+	}
+	#submit-btn:hover{
+		color: #958068;
+	}
+</style>
 
+<div style="height:40px"></div>
+<div style='min-height: 600px;'> 
+<div class="container">
+<div class="row">
+<div class="col-md-3 col-12"></div>
+<div class="col-md-3 col-12">
+<img src="images/LOGO 東方-1 (1).png" alt="" style="width:100%">
+	</div>
+<div class="col-md-3 col-12">
+   <h1 class="text-center" style="color:#958068;width: 100%">登入</h1>
+<hr style="border: 1px solid #958068">
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
+  <div class="form-group field">
     <%= f.label :name %><br />
     <%= f.text_field :login %>
   </div>
@@ -18,9 +43,16 @@
     </div>
   <% end %>
 
-  <div class="actions">
-    <%= f.submit "登入" %>
+  <div class="btn sign_in-btn actions" style="background-color:#000;" >
+  
+  <%= f.submit "登入"%>
   </div>
 <% end %>
 
 <%= render "devise/shared/links" %>
+
+</div>
+<div class="col-md-3 col-12"></div>	
+</div>
+</div>
+</div>

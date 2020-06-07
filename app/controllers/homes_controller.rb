@@ -46,10 +46,18 @@ class HomesController < ApplicationController
             end
         end
         @top_subs=Book.all
-        @top_subs.sort_by(&:tsubs)
+        @top_subs=@top_subs.sort_by(&:tsubs)
         @top_views=Book.all
-        @top_views.sort_by(&:tviews)
+        @top_views=@top_views.sort_by(&:tviews)
+        @top_news=[]
+        Book.all.each do |book|
+            if (Time.now-book.created_at)<2592000
+                @top_news.push(book)
+            end
+        end
         
-        
+    end
+    def nav
+        @cats = Category.all
     end
 end
