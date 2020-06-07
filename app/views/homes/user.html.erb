@@ -51,17 +51,19 @@
       <hr>
       <div class="col-sm-9">
         <table>
-          <% @pieces.each do |piece| %>
-            <tr>
-              <th>
-                <%piece.get_categories.each do |category|%>
-                  <a href="/books/?category=<%=category.id%>"><%=category.show%></a>
-                <%end%>
-              </th>
-              <th><a href="/books/<%= piece.id %>"><%= piece.book_name %></a></th>
-              <th><a class="btn btn-primary" href="/books/<%= piece.id%>/dashboard/">編輯</a></th>
-            </tr>
-          <%end%> 
+          <%begin%>
+            <% @pieces.each do |piece| %>
+              <tr>
+                <th>
+                  <%piece.get_categories.each do |category|%>
+                    <a href="/books/?category=<%=category.id%>"><%=category.show%></a>
+                  <%end%>
+                </th>
+                <th><a href="/books/<%= piece.id %>"><%= piece.book_name %></a></th>
+                <th><a class="btn btn-primary" href="/books/<%= piece.id%>/dashboard/">編輯</a></th>
+              </tr>
+            <%end%> 
+          <%end%>
         </table>
       </div>
     </div>
