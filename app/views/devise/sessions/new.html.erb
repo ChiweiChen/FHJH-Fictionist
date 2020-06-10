@@ -1,15 +1,29 @@
 <style>
 /*2020-06-03=======================================================*/
-	#sign_in-btn{
+	.sign_in-btn{
 		border:1px solid #958068;
 		color: #958068;
 		margin-bottom: 10px;
 	}
-	#sign_in-btn:hover{
+	.sign_in-btn:hover{
 		background-color:#958068;
 		color: #fff;
 	}
 	#submit-btn:hover{
+		color: #958068;
+	}
+  div{
+  margin-right:10px
+}
+	#submit-btn{
+		border:1px solid #958068;
+		color: #958068;
+	}
+	#submit-btn:hover{
+		background-color:#958068;
+		color: #fff;
+	}
+	#sign_in-btn:hover{
 		color: #958068;
 	}
 </style>
@@ -20,36 +34,36 @@
 <div class="row">
 <div class="col-md-3 col-12"></div>
 <div class="col-md-3 col-12">
-<img src="images/LOGO 東方-1 (1).png" alt="" style="width:100%">
+<img src="/images/logo.png" alt="" style="width:100%">
 	</div>
 <div class="col-md-3 col-12">
    <h1 class="text-center" style="color:#958068;width: 100%">登入</h1>
 <hr style="border: 1px solid #958068">
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="form-group field">
-    <%= f.label :name %><br />
-    <%= f.text_field :login %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+      <label for="user_name">使用者名稱</label>
+      <br />
+      <input type="text" value="" name="user[login]" id="user_login"  class="form-control" required placeholder="請輸入姓名" />
+		
+		
+		
     </div>
-  <% end %>
-
-  <div class="sign_in-btn actions" >
-  
-  <%= f.submit "登入"%>
-  </div>
+    <div class="field">
+      <label for="user_password">密碼</label>
+      <br />
+      <input autocomplete="current-password" type="password" name="user[password]" id="user_password" class="form-control" required placeholder="請輸入密碼" />
+    </div>
+    <div class="field">
+      <input name="user[remember_me]" type="hidden" value="0" />
+      <input type="checkbox" value="1" name="user[remember_me]" id="user_remember_me" />
+      <label for="user_remember_me" style="margin-top:10px">記住我的資訊</label>
+    </div>
+    <div class="actions">
+      <input type="submit" name="commit" value="登入" data-disable-with="登入" class="btn" id="sign_in-btn" />
+    </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+ <a href="/users/sign_up" id="submit-btn">註冊</a>
 
 </div>
 <div class="col-md-3 col-12"></div>	
@@ -62,6 +76,7 @@ setTimeout(getname,50);
  function getname(){
  var x = document.getElementsByName("commit");
  x[0].classList.add("btn"); 
+ x[0].classList.add("sign_in-btn"); 
  }
  
 </script>

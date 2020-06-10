@@ -1,66 +1,52 @@
 
 
-<h2>註冊</h2>
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-<div>
-  <div class="portfolio-item">
-    <div class="card h-100">
-      <div class="card-body">
-        <h6 class="card-title">
-          <a><%= f.label :email %> </a>
-        </h6>
-        <div class="field card-text">
-          <br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-        </div>
-        
+<style>
+
+div{
+  margin-right:10px
+}
+	#submit-btn{
+		border:1px solid #958068;
+		color: #958068;
+	}
+	#submit-btn:hover{
+		background-color:#958068;
+		color: #fff;
+	}
+	#sign_in-btn:hover{
+		color: #958068;
+	}
+
+</style>
+
+<div style="height:40px"></div>
+<div class="container">
+  <h1 class="text-center" style="color:#958068;">註冊</h1>
+  <hr style="border: 1px solid #958068">
+  <div class="row">
+    <div class="col-md-3 col-12"></div>
+    <div class="col-md-6 col-12">
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+      <div>
+        <div class="form-group">
+                <lable for="user_email">電子信箱*</lable>
+                <input autofocus="autofocus" autocomplete="email" type="email" value="" name="user[email]" id="user_email" class="form-control" placeholder="請輸入電郵" />
+              </div>
+              <div class="form-group">
+                <lable for="user_name">使用者名稱*</lable>
+                <input autofocus="autofocus" type="text" name="user[name]" id="user_name"  class="form-control" required placeholder="請輸入姓名" />
+              </div>
+              <div class="form-group">
+                <lable for="user_password">密碼*</lable>
+                <input autocomplete="new-password" type="password" name="user[password]" id="user_password" class="form-control" required placeholder="最少 6 碼" />
+              </div>
+              <div class="form-group">
+                <lable for="user_password_confirmation">確認密碼*</lable>
+                <input autocomplete="new-password" type="password" name="user[password_confirmation]" id="user_password_confirmation" class="form-control" required placeholder="再次輸入密碼" />
+              </div>
       </div>
-    </div>
-  </div>
-  <div class="portfolio-item">
-    <div class="card h-100">
-      <div class="card-body">
-        <h6 class="card-title">
-          <a><%= f.label :name %> </a>
-        </h6>
-        <div class="field card-text">
-          <br />
-          <%= f.text_field :name, autofocus: true %>
-        </div>        
-      </div>
-    </div>
-  </div>
-  <div class="portfolio-item">
-    <div class="card h-100">
-      <div class="card-body">
-        <h6 class="card-title">
-          <a><%= f.label :password %> </a>
-        </h6>
-        <div class="field card-text">
-          
-          <% if @minimum_password_length %>
-          <em>(最少 <%= @minimum_password_length %> 碼)</em>
-          <% end %><br />
-          <%= f.password_field :password, autocomplete: "new-password" %>
-        </div>      
-      </div>
-    </div>
-  </div>
-  <div class="portfolio-item">
-    <div class="card h-100">
-      <div class="card-body">
-        <h6 class="card-title">
-          <a><%= f.label :password_confirmation %></a>
-        </h6>
-        <div class="field card-text">
-          <br />
-          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-        </div>    
-      </div>
-    </div>
-  </div>
-</div>
+      <input type="submit" name="commit" value="註冊" data-disable-with="立即註冊"  class="btn" id="submit-btn" />
   
 
   
@@ -68,9 +54,10 @@
 
   
 
-<div class="actions">
-  <%= f.submit "註冊" %>
-</div>
+
 <% end %>
 
-<%= render "devise/shared/links" %>
+<a class="btn" href="/users/sign_in" id="sign_in-btn">登入</a> </div>
+    <div class="col-md-3 col-12"></div>
+  </div>
+</div>

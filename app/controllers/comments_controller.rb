@@ -28,6 +28,9 @@ class CommentsController < ApplicationController
     @chapter = Chapter.find(@comment.chapter_id)
     respond_to do |format|
       if @comment.save
+        @stopwords.each do |word|
+          @comment.update(comment: @comment.comment.gsub(word,"*"))
+        end
         format.html { redirect_to @chapter, notice: 'Comment was successfully created.' }
         format.json { render :show, status: :created, location: @comment }
       else
@@ -42,6 +45,9 @@ class CommentsController < ApplicationController
   def update
     respond_to do |format|
       if @comment.update(comment_params)
+        @stopwords.each do |word|
+          @comment.update(comment: @comment.comment.gsub(word,"*"))
+        end
         format.html { redirect_to @comment, notice: 'Comment was successfully updated.' }
         format.json { render :show, status: :ok, location: @comment }
       else

@@ -22,6 +22,7 @@ class ChaptersController < ApplicationController
       end
     end
     @comments=Comment.where(chapter_id: @chapter.id)
+    
     #For each chapter, check whether or not it is the same one as the one being displayed on the page
     add = Random.new.rand(3..5)
     temp = @chapter.views += add
@@ -57,6 +58,10 @@ class ChaptersController < ApplicationController
     respond_to do |format|
       if @chapter.save
         @chapter.update(user_ids: current_user.id)
+        @stopwords.each do |word|
+          @chapter.update(content: @chapter.content.gsub(word,"*"))
+          @chapter.update(title: @chapter.title.gsub(word,"*"))
+        end
         format.html { redirect_to "/books/#{@book.id}/dashboard", notice: 'Chapter was successfully created.' }
         format.json { render :show, status: :created, location: @chapter }
       else
@@ -64,6 +69,7 @@ class ChaptersController < ApplicationController
         format.json { render json: @chapter.errors, status: :unprocessable_entity }
       end
     end
+    
   end
 
   # PATCH/PUT /chapters/1
@@ -71,6 +77,10 @@ class ChaptersController < ApplicationController
   def update
     respond_to do |format|
       if @chapter.update(chapter_params)
+        @stopwords.each do |word|
+          @chapter.update(content: @chapter.content.gsub(word,"*"))
+          @chapter.update(title: @chapter.title.gsub(word,"*"))
+        end
         format.html { redirect_to "/books/#{@chapter.book_id}/dashboard", notice: 'Chapter was successfully updated.' }
         format.json { render :show, status: :ok, location: @chapter }
       else
@@ -79,10 +89,7 @@ class ChaptersController < ApplicationController
       end
     end
     
-    @stopwords = ["幹你娘","他媽"]
-    @stopwords.each do |word|
-      @chapter.update(content: @chapter.content.gsub(word,"*"))
-    end
+    
     
   end
 

@@ -110,7 +110,13 @@ p{
   </div>
   <div class="container">
     <%@comments.each do |comment|%>
-      <div class="column-sm-3"><%=User.find(comment.get_author).name%>:</div>
+      <div class="column-sm-3">
+        <%name= User.find(comment.get_author).name%>
+      <%@stopwords.each do |word|%>
+        <%name=name.gsub(word,"*")%>
+      <%end%>
+      <%=name%>:
+      </div>
       <div class="column-sm-9" style="margin-bottom:20px;"><%=comment.comment%></div>
     <%end%>
   </div>
