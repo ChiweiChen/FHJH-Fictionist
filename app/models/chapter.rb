@@ -38,4 +38,9 @@ class Chapter < ApplicationRecord
             return @all_chapters[@order-1].id
         end
     end
+
+    def get_comments
+        @comments = Comment.where(chapter_id: self.id)
+        return @comments
+    end
 end

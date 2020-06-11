@@ -55,6 +55,12 @@ class BooksController < ApplicationController
     add = Random.new.rand(1..3)
     temp= @book.views += add
     @book.update_attribute "views", temp
+    @comments = []
+    @book.chapters.each do |chapter|
+      chapter.get_comments.each do |comment|
+        @comments.push(comment)
+      end
+    end
   end
   
   # GET /books/new
