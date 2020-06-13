@@ -1,66 +1,101 @@
 <style>
 
-body{
-  background-color:#fefbd8;
+/*
+.titlebox{
+		  width: 60%;
+		  background-color:#f6f1e7;
+		padding: 10%;
+	  }	
+	.titlebox img{
+		max-width: 150px;
+		margin: 0 auto;
+	}
+*/
+.mainbox {
+    width: 65%;
+    background-color: #f6f1e7;
+    margin-top: 50px;
 }
-p{
-  
-  
+.mainbox select {
+    margin-left: 10px;
+    margin-right: 15px;
+    border-radius: 10px;
+    display: inline-block;
 }
-
+.helpbtn {
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border: 1px solid #958068;
+    color: #958068;
+    display: inline-block;
+    padding: 5px;
+}
+.helpbtn:hover {
+    transition: all .5s linear;
+    background-color: #958068;
+    color: #fff;
+}
+.helpbox {
+    margin-top: 20px;
+    width: 100%;
+}
+/*2020-05-31改下======================================================	*/
+	#selectFontFamily{
+		border: 1px solid #958068;
+		color: #958068;
+		padding: 1px;
+	}
+	#selectFontSize{
+		border: 1px solid #958068;
+		color: #958068;
+		padding: 1px;
+	}
+	
 </style>
-<div class="container d-flex align-content-between flex-wrap" style="min-height: 600px; margin-bottom:60px"> 
-  
-  <div class="col-12">
-    <!-- Page Heading/Breadcrumbs -->
-    <h1 class="mt-4 mb-3" id="title">
-    <!--Uses @which_chapter variable created in chapters_controller-->
-      <%=@chapter.title%>
-    </h1>
-    <a href="/books/<%=@chapter.book.id %>" style="font-size:18px;" class="btn ">目錄</a>
-    <div class="container fluid row">
-      
-      <select class="column-sm-2" id="selectFontFamily" name="selectFontFamily" onchange="updatefamily()">
-        <option> Serif </option>
-        <option> Arial </option>
-        <option> Sans-Serif </option>                                  
-        <option> DFKai-sb</option>                             
-      </select>
-      
-      <select class="column-sm-2" id="selectFontSize" name="selectFontSize" onchange="updatesize()" style="margin-right:20px;">
-        <option>16px</option>
-        <option>20px</option>
-        <option>24px</option>
-        <option>28px</option>
-        <option>32px</option>
-      </select>
 
-      <%if @chapter.has_prev%>
-        <a class="btn btn-primary column-sm-3" style="text-align:right; margin-right:20px;" href="/books/<%=@chapter.book.id%>/chapters/<%=@chapter.get_prev%>">前一章</a>
+
+<div style='min-height: 600px;'> 
+  <!--Adds a 600-pixel thing between page content and footer-->
+  <div class="mainbox container d-flex align-content-between flex-wrap" style="min-height: 600px; margin-bottom:60px">
+    <div class="col-12"> 
+      <!-- Page Heading/Breadcrumbs -->
+      <h3 class="mt-4 mb-3" id="title"> 
+        <!--Uses @which_chapter variable created in chapters_controller--> 
+        <%=@chapter.title%></h3>
+      <div class="helpbox">
+		
+        </input>
+        <div class="" style="display: inline-block"> 字型
+          <select class="column-sm-2" id="selectFontFamily" name="selectFontFamily" onchange="updatefamily()">
+            <option> Serif </option>
+            <option> Arial </option>
+            <option> Sans-Serif </option>
+            <option> DFKai-sb</option>
+          </select>
+          文字大小
+          <select class="column-sm-2" id="selectFontSize" name="selectFontSize" onchange="updatesize()" style="margin-right:20px;">
+            <option>16px</option>
+            <option>20px</option>
+            <option>24px</option>
+            <option>28px</option>
+            <option>32px</option>
+          </select>
+        </div>
+      </div>
+      <div id="content" style="min-height:600px;font-size:16px;margin-top:50px;margin-bottom:50px;">
+        <%=@chapter.content.html_safe%>
+      </div>
+	   <a href="/books/<%=@chapter.book.id%>" class="btn helpbtn">目錄</a>
+     <%if @chapter.has_prev%>
+        <a class="btn helpbtn" href="/books/<%=@chapter.book.id%>/chapters/<%=@chapter.get_prev%>">前一章</a>
       <%end%>
       <%if @chapter.has_next%>
-        <a class="btn btn-primary column-sm-3" style="text-align:right;margin-right:50px;" href="/books/<%=@chapter.book.id%>/chapters/<%=@chapter.get_next%>">下一章</a>
+        <a class="btn helpbtn" href="/books/<%=@chapter.book.id%>/chapters/<%=@chapter.get_next%>">下一章</a>
       <%end%>
-    
+      <div class="container fluid row"> </div>
     </div>
-    <div id="content" style="min-height:600px;font-size:16px;margin-top:50px;margin-bottom:50px;">
-      
-      <%=@chapter.content.html_safe%>
-    </div>
-    <div class="container fluid row">
-      <%if @chapter.has_prev%>
-        <a class="btn btn-primary column-sm-3" style="text-align:right;margin-right:20px;" href="/books/<%=@chapter.book.id%>/chapters/<%=@chapter.get_prev%>">前一章</a>
-      <%end%>
-      <%if @chapter.has_next%>
-        <a class="btn btn-primary column-sm-3" style="text-align:right" href="/books/<%=@chapter.book.id%>/chapters/<%=@chapter.get_next%>">下一章</a>
-      <%end%>
-      
-    </div>
-    
-    
   </div>
-</div>
-<script>
+  <script>
     function updatefamily() {
       var selector = document.getElementById('selectFontFamily');
       var family = selector.options[selector.selectedIndex].value;
@@ -88,38 +123,9 @@ p{
     }
 
 </script>
-
-  <div class="container" style="margin-bottom:50px;">
-  
-    <%if user_signed_in?%>
-      <h3>
-      留言
-      </h3>
-      <div class="text-left">
-        <form action="/comments" method="post">
-          <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-          <input type="hidden" name="comment[user_id]"  value=<%= current_user.id%>>
-          <!--use <%=%> for current_user.id to make it detectable by value on the html -->
-          <textarea id="editor" name="comment[comment]" cols="100" rows="5"></textarea>
-          <input type="hidden" name="comment[chapter_id]" value=<%= @chapter.id%>>
-          <br>
-          <button class="btn btn-success">送出</button>
-        </form>
-      </div>
-    <%end%>
-  </div>
-  <div class="container">
-    <%@comments.each do |comment|%>
-      <div class="column-sm-3">
-        <%name= User.find(comment.get_author).name%>
-      <%@stopwords.each do |word|%>
-        <%name=name.gsub(word,"*")%>
-      <%end%>
-      <%=name%>:
-      </div>
-      <div class="column-sm-9" style="margin-bottom:20px;"><%=comment.comment%></div>
-    <%end%>
-  </div>
+  <div class="container" style="margin-bottom:50px;"> </div>
+  <div class="container"> </div>
+</div>
 
 
 

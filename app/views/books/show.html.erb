@@ -60,12 +60,12 @@
   
   <div class="inbox1 allbox container"><a href=""> <img src="<%=@book.get_cover%>" alt=""> </a>
     <h1 style="display: inline-block"><%=@book.book_name%></h1>
-    <h4>作者：<%=@book.get_author%>.</h4>
+    <h4>作者：<%=@book.get_author%></h4>
   </div>
   <div class="inbox2 allbox container">
     <h3 style="color:#958068">作品信息</h3>
     <hr>
-    <p style="font-family:DFKai-sbl; font-size:16px;"><%=@book.summary%></p>
+    <p style="font-family:DFKai-sbl; font-size:16px;"><%=@book.summary.html_safe%></p>
   </div>
   <div class="inbox3 allbox container">
     <h3 style="color:#958068">章節目錄</h3>
