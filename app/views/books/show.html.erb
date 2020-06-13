@@ -77,9 +77,9 @@
       
       <!-- For each chapter, create a box that takes up 3 portions of the page-->
       <%@book.chapters.each do |chapter|%>
-        <div class="col-sm-3"> <a href="/books/<%=@book.id%>/chapters/<%=chapter.id%>" class="list-group-item"><%=chapter.title%></a> 
+        <div class="col-sm-3"> <a href="/books/<%=@book.id%>/chapters/<%=chapter.id%>" class="list-group-item"><%=chapter.title%></a></div> 
       <%end%>
-      </div>
+      
     </div>
     
     <!-- /.row --> 
