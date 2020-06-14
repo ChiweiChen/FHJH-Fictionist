@@ -54,78 +54,78 @@
 </style>
 
 
-<div style='min-height: 600px;'> 
-  <!--Adds a 600-pixel thing between page content and footer-->
-  <div class="mainbox container d-flex align-content-between flex-wrap" style="min-height: 600px; margin-bottom:60px">
-    <div class="col-12"> 
-      <!-- Page Heading/Breadcrumbs -->
-      <h3 class="mt-4 mb-3" id="title"> 
-        <!--Uses @which_chapter variable created in chapters_controller--> 
-        <%=@chapter.title%></h3>
-      <div class="helpbox">
-		
-        </input>
-        <div class="" style="display: inline-block"> 字型
-          <select class="column-sm-2" id="selectFontFamily" name="selectFontFamily" onchange="updatefamily()">
-            <option> Serif </option>
-            <option> Arial </option>
-            <option> Sans-Serif </option>
-            <option> DFKai-sb</option>
-          </select>
-          文字大小
-          <select class="column-sm-2" id="selectFontSize" name="selectFontSize" onchange="updatesize()" style="margin-right:20px;">
-            <option>16px</option>
-            <option>20px</option>
-            <option>24px</option>
-            <option>28px</option>
-            <option>32px</option>
-          </select>
-        </div>
-      </div>
-      <div id="content" style="min-height:600px;font-size:16px;margin-top:50px;margin-bottom:50px;">
-        <%=@chapter.content.html_safe%>
-      </div>
-	   <a href="/books/<%=@chapter.book.id%>" class="btn helpbtn">目錄</a>
-     <%if @chapter.has_prev%>
-        <a class="btn helpbtn" href="/books/<%=@chapter.book.id%>/chapters/<%=@chapter.get_prev%>">前一章</a>
-      <%end%>
-      <%if @chapter.has_next%>
-        <a class="btn helpbtn" href="/books/<%=@chapter.book.id%>/chapters/<%=@chapter.get_next%>">下一章</a>
-      <%end%>
-      <div class="container fluid row"> </div>
-    </div>
-  </div>
-  <script>
-    function updatefamily() {
-      var selector = document.getElementById('selectFontFamily');
-      var family = selector.options[selector.selectedIndex].value;
-      var contents = document.getElementById("content").querySelectorAll("p")
-      var title = document.getElementById('title')
-      
-      var i;
-      for(i = 0 ; i<contents.length;i++){
-        contents[i].style.fontFamily=family;
-      }
-      
-      title.style.fontFamily = family;        
-    }
 
-    function updatesize() {
-      var selector = document.getElementById('selectFontSize');
-      var size = selector.options[selector.selectedIndex].value;
-      var contents = document.getElementById("content")
-      var title = document.getElementById('title')
-      
-      contents.style.fontSize=size;
-      contents.style.lineHeight=size/2;
-      
+<div class="mainbox container d-flex align-content-between flex-wrap" style="min-height: 600px; margin-bottom:60px">
+  <div class="col-12"> 
+    <!-- Page Heading/Breadcrumbs -->
+    <h3 class="mt-4 mb-3" id="title"> 
+      <!--Uses @which_chapter variable created in chapters_controller--> 
+      <%=@chapter.title%></h3>
+    <div class="helpbox">
+  
+      </input>
+      <div class="" style="display: inline-block"> 字型
+        <select class="column-sm-2" id="selectFontFamily" name="selectFontFamily" onchange="updatefamily()">
+          <option> Serif </option>
+          <option> Arial </option>
+          <option> Sans-Serif </option>
+          <option> DFKai-sb</option>
+        </select>
+        文字大小
+        <select class="column-sm-2" id="selectFontSize" name="selectFontSize" onchange="updatesize()" style="margin-right:20px;">
+          <option>16px</option>
+          <option>20px</option>
+          <option>24px</option>
+          <option>28px</option>
+          <option>32px</option>
+        </select>
+      </div>
+    </div>
+    <div id="content" style="min-height:600px;font-size:16px;margin-top:50px;margin-bottom:50px;">
+      <%=@chapter.content.html_safe%>
+    </div>
+    <a href="/books/<%=@chapter.book.id%>" class="btn helpbtn">目錄</a>
+
+    <%if @chapter.has_prev%>
+      <a class="btn helpbtn" href="/books/<%=@chapter.book.id%>/chapters/<%=@chapter.get_prev%>">前一章</a>
+    <%end%>
+    <%if @chapter.has_next%>
+      <a class="btn helpbtn" href="/books/<%=@chapter.book.id%>/chapters/<%=@chapter.get_next%>">下一章</a>
+    <%end%>
+    <div class="container fluid row"> </div>
+  </div>
+</div>
+<script>
+  function updatefamily() {
+    var selector = document.getElementById('selectFontFamily');
+    var family = selector.options[selector.selectedIndex].value;
+    var contents = document.getElementById("content").querySelectorAll("p")
+    var title = document.getElementById('title')
     
+    var i;
+    for(i = 0 ; i<contents.length;i++){
+      contents[i].style.fontFamily=family;
     }
+    
+    title.style.fontFamily = family;        
+  }
+
+  function updatesize() {
+    var selector = document.getElementById('selectFontSize');
+    var size = selector.options[selector.selectedIndex].value;
+    var contents = document.getElementById("content")
+    var title = document.getElementById('title')
+    
+    contents.style.fontSize=size;
+    contents.style.lineHeight=size/2;
+    
+  
+  }
 
 </script>
-  <div class="container" style="margin-bottom:50px;"> </div>
-  <div class="container"> </div>
-</div>
+<div class="container" style="margin-bottom:50px;"> </div>
+<div class="container"> </div>
+
 
 
 
