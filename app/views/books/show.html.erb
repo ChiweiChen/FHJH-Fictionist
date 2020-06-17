@@ -84,34 +84,5 @@
     
     <!-- /.row --> 
   </div>
-  <div class="inbox4 allbox container">
-    <h3 style="color:#958068">留言板</h3>
-    <hr>
-    <%if current_user !=nil && @book.chapters[0].id != nil%>
-    <%begin%>
-    <div class="text-left">
-      <form action="/comments" method="post">
-        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-        <input type="hidden" name="comment[user_id]"  value=<%= current_user.id%>>
-        <!--use <%=%> for current_user.id to make it detectable by value on the html -->
-        <textarea id="editor" name="comment[comment]" cols="100" rows="5"></textarea>
-        <input type="hidden" name="comment[<%=@book.chapters[0].id%>]" value=<%= @chapter.id%>>
-        <br>
-        <button class="btn btn-success">送出</button>
-      </form>
-    </div>
-    <%rescue%>
-    <%end%>
-    <%end%>
-    <%@comments.each do |comment|%>
-      <div class="column-sm-3">
-        <%name= User.find(comment.get_author).name%>
-      <%@stopwords.each do |word|%>
-        <%name=name.gsub(word,"*")%>
-      <%end%>
-      <%=name%>:
-      </div>
-      <div class="column-sm-9" style="margin-bottom:20px;"><%=comment.comment%></div>
-    <%end%>
-    <%= link_to "回到上一頁", :back %>
-  </div>
+  
+  <%= link_to "回到上一頁", :back %>
