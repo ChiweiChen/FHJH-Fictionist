@@ -30,8 +30,6 @@ Rails.application.routes.draw do
   
 
   root 'homes#index' 
-  get '/about', to: 'homes#about'
-  get '/contact', to: 'homes#contact'
   get '/user', to: 'homes#user'
   get '/admin', to: 'homes#admin'
   get '/search', to: 'books#search'
