@@ -51,7 +51,7 @@ html {
   min-width: 990px
 }
 body {
-  font-family: PingFangSC-Regular,HelveticaNeue-Light,'Helvetica Neue Light','Microsoft YaHei',sans-serif;
+  font-family:'Noto Serif TC','Microsoft YaHei';!important
   text-align: left;
   color: #262626;
   background: #fff;
@@ -77,16 +77,16 @@ a:hover {
   transition: color .3s,background-color .3s
 }
 textarea {
-  font: 14px/1.8 PingFangSC-Regular,HelveticaNeue-Light,'Helvetica Neue Light','Microsoft YaHei',sans-serif;
+  font: 14px/1.8 'Noto Serif TC','Microsoft YaHei';
   resize: none;
   outline: 0
 }
 select {
-  font-family: PingFangSC-Regular,HelveticaNeue-Light,'Helvetica Neue Light','Microsoft YaHei',sans-serif
+  font-family: 'Noto Serif TC','Microsoft YaHei'
 }
 button,
 input {
-  font-family: PingFangSC-Regular,HelveticaNeue-Light,'Helvetica Neue Light','Microsoft YaHei',sans-serif;
+  font-family: 'Noto Serif TC','Microsoft YaHei';
   border: none;
   outline: 0
 }
@@ -123,340 +123,12 @@ p {
   visibility: hidden
 }@charset 'UTF-8';
 @font-face {
-  font-family: qd_iconfont;
-  src: url(../fonts/qd_iconfont.51f86.eot);
-  src: url(../fonts/qd_iconfont.51f86.eot#iefix) format('embedded-opentype'),url(../fonts/qd_iconfont.f9a3f.woff) format('woff'),url(../fonts/qd_iconfont.0a60d.ttf) format('truetype'),url(../images/qd_iconfont.8a95f.svgz#iconfont) format('svg')
-}
-@font-face {
-  font-family: FZZCYSK;
-  font-weight: 400;
-  font-style: normal;
-  src: url(../fonts/FZZCYSK.a62e5.eot);
-  src: url(../fonts/FZZCYSK.a62e5.eot#iefix) format('embedded-opentype'),url(../fonts/FZZCYSK.f7b3a.woff) format('woff'),url(../fonts/FZZCYSK.a7018.ttf) format('truetype'),url(../images/FZZCYSK.4f61a.svgz#FZZCYSK) format('svg')
+  font-family: 'Noto Serif TC';
+  src: url(../fonts/font.otf);
 }
 .lang {
   font-family: FZZCYSK;
   font-weight: 400
-}
-.iconfont {
-  font-family: qd_iconfont!important;
-  font-size: 24px;
-  font-style: normal;
-  -webkit-font-smoothing: antialiased;
-  -webkit-text-stroke-width: .1px;
-  -moz-osx-font-smoothing: grayscale
-}
-.icon-dushi:before {
-  content: '\e600'
-}
-.icon-jingji:before {
-  content: '\e601'
-}
-.icon-junshi:before {
-  content: '\e602'
-}
-.icon-kehuan:before {
-  content: '\e603'
-}
-.icon-kehuduan:before {
-  content: '\e604'
-}
-.icon-lingyi:before {
-  content: '\e606'
-}
-.icon-nvshengwang:before {
-  content: '\e607'
-}
-.icon-pinglun:before {
-  content: '\e608'
-}
-.icon-qihuan:before {
-  content: '\e609'
-}
-.icon-shijian:before {
-  content: '\e60a'
-}
-.icon-shouyou:before {
-  content: '\e60b'
-}
-.icon-shujia:before {
-  content: '\e60c'
-}
-.icon-sousuo:before {
-  content: '\e60d'
-}
-.icon-tongzhi:before {
-  content: '\e62a'
-}
-.icon-wuxia:before {
-  content: '\e60f'
-}
-.icon-xianxia:before {
-  content: '\e610'
-}
-.icon-xuanhuan:before {
-  content: '\e611'
-}
-.icon-youxi:before {
-  content: '\e612'
-}
-.icon-youxi1:before {
-  content: '\e613'
-}
-.icon-zhichang:before {
-  content: '\e614'
-}
-.icon-erciyuan:before {
-  content: '\e617'
-}
-.icon-lishi:before {
-  content: '\e616'
-}
-.icon-tuliebiao:before {
-  content: '\e618'
-}
-.icon-tuwen:before {
-  content: '\e62b'
-}
-.icon-wenziliebiao:before {
-  content: '\e61a'
-}
-.icon-shangyinhao:before {
-  content: '\e61b'
-}
-.icon-xiayinhao:before {
-  content: '\e61c'
-}
-.icon-chenggong:before {
-  content: '\e61d'
-}
-.icon-cuowu:before {
-  content: '\e61e'
-}
-.icon-guanbi:before {
-  content: '\e61f'
-}
-.icon-youjiantou:before {
-  content: '\e621'
-}
-.icon-zuojiantou:before {
-  content: '\e628'
-}
-.icon-shangjiantou:before {
-  content: '\e622'
-}
-.icon-xiajiantou:before {
-  content: '\e623'
-}
-.icon-jiangxu:before {
-  content: '\e625'
-}
-.icon-shengxu:before {
-  content: '\e626'
-}
-.icon-weipaixu:before {
-  content: '\e627'
-}
-.icon-yiwen:before {
-  content: '\e620'
-}
-.icon-gift:before {
-  content: '\e629'
-}
-.icon-dushi1:before {
-  content: '\e62c'
-}
-.icon-lishi2:before {
-  content: '\e62d'
-}
-.icon-lingyi1:before {
-  content: '\e62e'
-}
-.icon-qihuan1:before {
-  content: '\e62f'
-}
-.icon-shouyou1:before {
-  content: '\e630'
-}
-.icon-tiyu:before {
-  content: '\e631'
-}
-.icon-wuxia1:before {
-  content: '\e632'
-}
-.icon-youxi3:before {
-  content: '\e634'
-}
-.icon-dashang:before {
-  content: '\e635'
-}
-.icon-dingyue:before {
-  content: '\e636'
-}
-.icon-gaibiandianying:before {
-  content: '\e637'
-}
-.icon-gaibiandongman:before {
-  content: '\e638'
-}
-.icon-gaibianyingshi:before {
-  content: '\e639'
-}
-.icon-gaibianyouxi:before {
-  content: '\e63a'
-}
-.icon-shoujiyuedu:before {
-  content: '\e63b'
-}
-.icon-suo:before {
-  content: '\e63c'
-}
-.icon-taolun:before {
-  content: '\e63d'
-}
-.icon-tuijianpiao:before {
-  content: '\e63e'
-}
-.icon-yuepiao:before {
-  content: '\e63f'
-}
-.icon-zan:before {
-  content: '\e640'
-}
-.icon-lingyi2:before {
-  content: '\e641'
-}
-.icon-xuanhuan1:before {
-  content: '\e642'
-}
-.icon-add:before {
-  content: '\e643'
-}
-.icon-xiazai:before {
-  content: '\e644'
-}
-.icon-anquan:before {
-  content: '\e646'
-}
-.icon-bianjipinglun:before {
-  content: '\e64d'
-}
-.icon-danyefan:before {
-  content: '\e64e'
-}
-.icon-shangxiafanye:before {
-  content: '\e65a'
-}
-.icon-zishu:before {
-  content: '\e64f'
-}
-.icon-zuozhe:before {
-  content: '\e650'
-}
-.icon-fanhuidingbu:before {
-  content: '\e651'
-}
-.icon-fanhuishuye:before {
-  content: '\e652'
-}
-.icon-gengxinshijian:before {
-  content: '\e653'
-}
-.icon-jiarushuji:before {
-  content: '\e654'
-}
-.icon-jianxiaokuandu:before {
-  content: '\e655'
-}
-.icon-jianxiaozihao:before {
-  content: '\e656'
-}
-.icon-zengdakuandu:before {
-  content: '\e65f'
-}
-.icon-zengdazihao:before {
-  content: '\e660'
-}
-.icon-jinggao:before {
-  content: '\e657'
-}
-.icon-pinglun1:before {
-  content: '\e658'
-}
-.icon-shanchu:before {
-  content: '\e659'
-}
-.icon-shezhi:before {
-  content: '\e65b'
-}
-.icon-shouji:before {
-  content: '\e65c'
-}
-.icon-toupiao:before {
-  content: '\e65d'
-}
-.icon-youxi2:before {
-  content: '\e65e'
-}
-.icon-baidu:before {
-  content: '\e649'
-}
-.icon-xinlang:before {
-  content: '\e645'
-}
-.icon-android:before {
-  content: '\e64a'
-}
-.icon-pingguo:before {
-  content: '\e64c'
-}
-.icon-zhifubao:before {
-  content: '\e647'
-}
-.icon-xiaogougou:before {
-  content: '\e64b'
-}
-.icon-liebiao:before {
-  content: '\e661'
-}
-.icon-wenjian:before {
-  content: '\e663'
-}
-.icon-huidaodingbu:before {
-  content: '\e66b'
-}
-.icon-gou:before {
-  content: '\e664'
-}
-.icon-moon:before {
-  content: '\e665'
-}
-.icon-cry:before {
-  content: '\e662'
-}
-.icon-shuaxin:before {
-  content: '\e667'
-}
-.icon-look-lishi:before {
-  content: '\e666'
-}
-.icon-putonghongbao:before {
-  content: '\e668'
-}
-.icon-tuijianpiaohongbao:before {
-  content: '\e669'
-}
-.icon-yuepiaohongbao:before {
-  content: '\e66a'
-}
-.icon-key:before {
-  content: '\e67e'
-}
-.icon-bell:before {
-  content: '\e67f'
-}
-.icon-money:before {
-  content: '\e680'
 }
 .error,
 .success {
@@ -469,7 +141,7 @@ p {
   color: #ed4259
 }
 * + html .lang {
-  font-family: PingFangSC-Regular,HelveticaNeue-Light,'Helvetica Neue Light','Microsoft YaHei',sans-serif
+  font-family: 'Noto Serif TC','Microsoft YaHei'
 }@charset 'UTF-8';
 .book-list-wrap .book-list li,
 .classify-list dd {
@@ -545,7 +217,7 @@ h3.wrap-title {
   background-position: 0 -24px
 }
 .lbf-checkbox + label {
-  font: 12px/17px PingFangSC-Regular,'-apple-system',Simsun;
+  font: 12px/17px 'Noto Serif TC','-apple-system';
   display: inline-block;
   vertical-align: middle;
   color: #666
@@ -665,7 +337,7 @@ embed.embed-fix {
   height: 38px
 }
 .pin-nav-wrap .nav-list li a {
-  font: 14px/42px PingFangSC-Regular,HelveticaNeue-Light,'Helvetica Neue Light','Microsoft YaHei',sans-serif;
+  font: 14px/42px 'Noto Serif TC','Microsoft YaHei',sans-serif;
   position: relative;
   display: block;
   overflow: hidden;
@@ -694,7 +366,7 @@ embed.embed-fix {
   box-shadow: 0 2px 4px rgba(0,0,0,.2)
 }
 .pin-nav-wrap .nav-list li .dropdown a {
-  font: 14px/38px PingFangSC-Regular,HelveticaNeue-Light,'Helvetica Neue Light','Microsoft YaHei',sans-serif;
+  font: 14px/38px 'Noto Serif TC','Microsoft YaHei',sans-serif;
   height: auto;
   padding: 2px 15px;
   color: #ccc;
@@ -714,7 +386,7 @@ embed.embed-fix {
   width: 56px;
   padding: 0 10px
 }
-.pin-nav-wrap .min-user .iconfont {
+.pin-nav-wrap .min-user{
   font-size: 17px;
   display: inline-block;
   vertical-align: middle;
@@ -734,7 +406,7 @@ embed.embed-fix {
   display: none
 }
 .pin-nav-wrap .min-user li .pin-input {
-  font-family: PingFangSC-Regular,HelveticaNeue-Light,'Helvetica Neue Light','Microsoft YaHei',sans-serif;
+  font-family: 'Noto Serif TC','Microsoft YaHei',sans-serif;
   font-size: 14px;
   position: absolute;
   z-index: 1;
@@ -898,11 +570,11 @@ embed.embed-fix {
   text-align: left
 }
 .classify-list dd a cite .info i {
-  font: 14px/1 PingFangSC-Regular,'-apple-system',Simsun;
+  font: 14px/1 'Noto Serif TC','-apple-system',Simsun;
   white-space: nowrap
 }
 .classify-list dd a cite .info b {
-  font: 12px/1.5 Arial;
+  font: 12px/1.5 'Noto Serif TC',Arial;
   transition: color .2s;
   color: #999
 }
@@ -952,14 +624,14 @@ h3.wrap-title span {
   margin-left: 5px
 }
 h3.wrap-title a {
-  font: 12px/1 Arail,PingFangSC-Regular,'-apple-system',Simsun;
+  font: 12px/1 'Noto Serif TC','-apple-system',Simsun;
   color: #3f5a93
 }
 h3.wrap-title a:hover {
   color: #2972cc
 }
 h3.wrap-title i {
-  font-family: Arail,PingFangSC-Regular,HelveticaNeue-Light,'Helvetica Neue Light','Microsoft YaHei',sans-serif;
+  font-family: 'Noto Serif TC','Microsoft YaHei',sans-serif;
   margin: 0 5px
 }
 h3.wrap-title .more {
@@ -987,7 +659,7 @@ h3.wrap-title .more em.iconfont {
   border-top: none
 }
 .book-list-wrap .book-list li a {
-  font: 14px/32px PingFangSC-Regular,'-apple-system',Simsun;
+  font: 14px/32px 'Noto Serif TC','-apple-system',Simsun;
   float: left
 }
 .book-list-wrap .book-list li a.channel {
@@ -998,7 +670,7 @@ h3.wrap-title .more em.iconfont {
   color: grey
 }
 .book-list-wrap .book-list li a.channel em {
-  font-family: PingFangSC-Regular,HelveticaNeue-Light,'Helvetica Neue Light','Microsoft YaHei',sans-serif;
+  font-family: 'Noto Serif TC','Microsoft YaHei',sans-serif;
   font-size: 13px
 }
 .book-list-wrap .book-list li a.name {
@@ -1026,7 +698,7 @@ h3.wrap-title .more em.iconfont {
 }
 .book-list-wrap .book-list li .author,
 .book-list-wrap .book-list li .rec {
-  font: 12px/32px PingFangSC-Regular,'-apple-system',Simsun;
+  font: 12px/32px 'Noto Serif TC','-apple-system',Simsun;
   float: right;
   overflow: hidden;
   width: 64px;
@@ -5761,15 +5433,8 @@ li.have-img .book-info p {
   margin-left: -196.5px;
   background: 0 0
 }@charset 'UTF-8';
-@font-face {
-  font-family: FZZCYSK_www;
-  font-weight: 400;
-  font-style: normal;
-  src: url(../fonts/FZZCYSK_www.e58a0.eot);
-  src: url(../fonts/FZZCYSK_www.e58a0.eot#iefix) format('embedded-opentype'),url(../fonts/FZZCYSK_www.784ca.woff) format('woff'),url(../fonts/FZZCYSK_www.eb7ac.ttf) format('truetype'),url(../images/FZZCYSK_www.bebca.svgz#FZZCYSK) format('svg')
-}
 .lang {
-  font-family: FZZCYSK_www!important
+  font-family: 'Noto Serif TC'!important
 }
 .help-head {
   line-height: 78px;
