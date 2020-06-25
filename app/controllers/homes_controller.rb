@@ -17,6 +17,8 @@ class HomesController < ApplicationController
         end
         
     end
+    def helpcenter
+    end
 
     
 
