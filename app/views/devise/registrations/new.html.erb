@@ -45,6 +45,9 @@ div{
                 <lable for="user_password_confirmation">確認密碼*</lable>
                 <input autocomplete="new-password" type="password" name="user[password_confirmation]" id="user_password_confirmation" class="form-control" required placeholder="再次輸入密碼" />
               </div>
+<div class="form-group">
+<input type="checkbox" required="required" id="checkacc">&nbsp;*我已閱讀並同意<a href="acc">《東文使用者條款》</a>
+</div>
       </div>
       <input type="submit" name="commit" value="註冊" data-disable-with="立即註冊"  class="btn" id="submit-btn" />
   
@@ -61,3 +64,7 @@ div{
     <div class="col-md-3 col-12"></div>
   </div>
 </div>
+<script>
+$("#checkacc").prop("checked", true);
+</script>
+
