@@ -96,6 +96,10 @@ class BooksController < ApplicationController
           @book.update(summary: @book.summary.gsub(word,"*"))
           @book.update(book_name: @book.book_name.gsub(word,"*"))
         end
+        @stopword.each do |word|
+          @book.update(summary: @book.summary.gsub(word,""))
+          @book.update(book_name: @book.book_name.gsub(word,""))
+        end
         #@book.update([column_name]: [value])
         #category_ids does not belong to any table, it belongs to the model Book
         #the :book in params is a key for book_name, book_summary, and category_ids
@@ -120,6 +124,10 @@ class BooksController < ApplicationController
         @stopwords.each do |word|
           @book.update(summary: @book.summary.gsub(word,"*"))
           @book.update(book_name: @book.book_name.gsub(word,"*"))
+        end
+        @stopword.each do |word|
+          @book.update(summary: @book.summary.gsub(word,""))
+          @book.update(book_name: @book.book_name.gsub(word,""))
         end
         format.html { redirect_to "/books/#{@book.id}/dashboard", notice: 'Book was successfully updated.' }
         format.json { render :show, status: :ok, location: @book }
