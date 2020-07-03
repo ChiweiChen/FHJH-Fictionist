@@ -28,6 +28,9 @@ class CommentsController < ApplicationController
     @chapter = Chapter.find(@comment.chapter_id)
     respond_to do |format|
       if @comment.save
+        @stopword.each do |word|
+          @comment.update(comment: @comment.comment.gsub(word,""))
+        end
         @stopwords.each do |word|
           @comment.update(comment: @comment.comment.gsub(word,"*"))
         end

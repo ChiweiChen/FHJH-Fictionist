@@ -92,14 +92,15 @@ class BooksController < ApplicationController
         
         chapter = Chapter.create(title: '第一章', content: '第一章內容', book_id: @book.id, is_first: true)
         chapter.update(user_ids: current_user.id)
-        @stopwords.each do |word|
-          @book.update(summary: @book.summary.gsub(word,"*"))
-          @book.update(book_name: @book.book_name.gsub(word,"*"))
-        end
         @stopword.each do |word|
           @book.update(summary: @book.summary.gsub(word,""))
           @book.update(book_name: @book.book_name.gsub(word,""))
         end
+        @stopwords.each do |word|
+          @book.update(summary: @book.summary.gsub(word,"*"))
+          @book.update(book_name: @book.book_name.gsub(word,"*"))
+        end
+        
         #@book.update([column_name]: [value])
         #category_ids does not belong to any table, it belongs to the model Book
         #the :book in params is a key for book_name, book_summary, and category_ids
