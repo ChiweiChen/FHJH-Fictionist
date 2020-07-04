@@ -90,7 +90,7 @@ class BooksController < ApplicationController
       if @book.save
         @book.update(category_ids: params[:book][:category_ids])
         
-        chapter = Chapter.create(title: '第一章', content: '第一章內容', book_id: @book.id, is_first: true)
+        chapter = Chapter.create(title: '新章節', content: '目前尚無內容', book_id: @book.id, is_first: true)
         chapter.update(user_ids: current_user.id)
         @stopword.each do |word|
           @book.update(summary: @book.summary.gsub(word,""))
