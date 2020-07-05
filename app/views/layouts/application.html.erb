@@ -169,11 +169,15 @@ a:hover {
   <body>
   
 </div>
+    <%if current_user.admin?%>
+        <%=render 'layouts/nav'%>
+    <%end%>
     
     <div>
     <!--Adds a 600-pixel thing between page content and footer-->
       <%= yield %>
     </div>
+    
     
 
     <!--Gets html code from _footer.html.erb-->
