@@ -9,10 +9,9 @@ class HomesController < ApplicationController
             @pieces = nil
             chapters = current_user.chapters.where(is_first: true)
             chapters.each do |chapter|
-                begin
-                    @pieces.push(chapter.book)
-                rescue
-                end
+                
+                @pieces.push(chapter.book)
+                
             end
         end
         
