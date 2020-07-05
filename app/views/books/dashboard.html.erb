@@ -33,7 +33,7 @@
             <%else%>
                 <button class="badge badge-pill badge-danger unsend"data-chapter-id="<%= chapter.id %>">收回</button>
             <%end%>
-            <th><%=link_to '刪除作品',chapter,method: :delete, data: {confirm:'您確定要刪除這個章節嗎？'}%></th>
+            <th><%=link_to '刪除章節',chapter,method: :delete, data: {confirm:'您確定要刪除這個章節嗎？'}%></th>
             
          </div>
           <!--
