@@ -4,6 +4,7 @@ namespace :admin do
         Chapters.all.each do |chapter|
             if(chapter.book==nil)
                 chapter.destroy
+            end
         end
     end
 end
