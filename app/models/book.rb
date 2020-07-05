@@ -24,7 +24,7 @@ class Book < ApplicationRecord
         if self.cover.attached?
             Rails.application.routes.url_helpers.rails_blob_path(self.cover, only_path:true)
         else
-            "http://placehold.it/600x800"
+            "https://via.placeholder.com/600x800/000000/0FF0F0/?text=sorry,%20no%20cover%20yet"
         end
     end
 

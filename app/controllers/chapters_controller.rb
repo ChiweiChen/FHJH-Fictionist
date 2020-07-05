@@ -58,6 +58,10 @@ class ChaptersController < ApplicationController
     respond_to do |format|
       if @chapter.save
         @chapter.update(user_ids: current_user.id)
+        @stopword.each do |word|
+          @chapter.update(content: @chapter.content.gsub(word,""))
+          @chapter.update(title: @chapter.title.gsub(word,""))
+        end
         @stopwords.each do |word|
           @chapter.update(content: @chapter.content.gsub(word,"*"))
           @chapter.update(title: @chapter.title.gsub(word,"*"))
@@ -77,6 +81,10 @@ class ChaptersController < ApplicationController
   def update
     respond_to do |format|
       if @chapter.update(chapter_params)
+        @stopword.each do |word|
+          @chapter.update(content: @chapter.content.gsub(word,""))
+          @chapter.update(title: @chapter.title.gsub(word,""))
+        end
         @stopwords.each do |word|
           @chapter.update(content: @chapter.content.gsub(word,"*"))
           @chapter.update(title: @chapter.title.gsub(word,"*"))
