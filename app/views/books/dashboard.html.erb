@@ -33,8 +33,9 @@
             <%else%>
                 <button class="badge badge-pill badge-danger unsend"data-chapter-id="<%= chapter.id %>">收回</button>
             <%end%>
-            <th><%=link_to '刪除章節',chapter,method: :delete, data: {confirm:'您確定要刪除這個章節嗎？'}%></th>
-            
+            <%if(!chapter.is_first)%>
+            <button class="badge badge-pill badge-danger"><%=link_to '刪除章節',chapter,method: :delete, data: {confirm:'您確定要刪除這個章節嗎？'}%></button>
+            <%end%>
          </div>
           <!--
           Nested route created in routes.rb

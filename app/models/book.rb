@@ -1,9 +1,20 @@
 class Book < ApplicationRecord
-    has_many :chapters
+    has_many :chapters, :dependent => :destroy
     has_and_belongs_to_many :categories
-    has_many :subscriptions
+    has_many :subscriptions, :dependent => :destroy
     has_many :users, through: :subscriptions 
-    has_one_attached :cover
+    has_one_attached :cover, :dependent => :destroy
+
+    validate :check_file_type
+
+   
+
+    def check_file_type
+        if cover.attached? && !cover.content_type.include?('image')
+            cover=nil #change the file to nil
+            errors.add(:cover, '必須要是圖片')
+        end
+    end
 
     def check_subscriber(user_id)
         users.pluck("id").include?(user_id)

@@ -106,7 +106,7 @@ class ChaptersController < ApplicationController
   def destroy
     @chapter.destroy
     respond_to do |format|
-      format.html { redirect_to chapters_url, notice: 'Chapter was successfully destroyed.' }
+      format.html { redirect_to "/books/#{@chapter.book_id}/dashboard", notice: 'Chapter was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

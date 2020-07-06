@@ -6,11 +6,11 @@ class HomesController < ApplicationController
             redirect_to "/admin/"
         end
         if current_user!=nil
-            @pieces = nil
+            @pieces = []
             chapters = current_user.chapters.where(is_first: true)
             chapters.each do |chapter|
                 
-                @pieces.push(chapter.book)
+                @pieces.push(chapter.book) if @pieces
                 
             end
         end

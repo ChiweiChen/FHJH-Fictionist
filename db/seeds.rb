@@ -19,10 +19,6 @@
 
 #Category.delete_all()
 
-Place.create(location_id: 1, book_id: 1)
-Place.create(location_id: 2, book_id: 2)
-Place.create(location_id: 3, book_id: 3)
-Place.create(location_id: 4, book_id: 4)
 
 
 

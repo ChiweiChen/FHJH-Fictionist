@@ -1,7 +1,7 @@
 class BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :destroy, :dashboard, :subscribe, :unsubscribe]
   #When showing the page, the page runs the function set_book before Show, creating @book for use in View
-
+  
   # GET /books
   # GET /books.json
   def index

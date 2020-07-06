@@ -51,8 +51,7 @@
       <hr>
       <div class="col-sm-9">
         <table>
-          <%begin%>
-            <% @pieces.each do |piece| %>
+            <% @pieces.each do |piece|%>
               <tr>
                 <th>
                   <%piece.get_categories.each do |category|%>
@@ -63,8 +62,6 @@
                 <th><a class="btn btn-primary" href="/books/<%= piece.id%>/dashboard/">編輯</a></th>
               </tr>
             <%end%> 
-          <%rescue%>
-          <%end%>
         </table>
       </div>
     </div>

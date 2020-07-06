@@ -29,8 +29,10 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <script src="https://cdn.bootcss.com/selectize.js/0.12.6/js/standalone/selectize.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
   </head>
   
 <style>
@@ -169,14 +171,15 @@ a:hover {
   <body>
   
 </div>
-    <%if current_user.admin?%>
-        <%=render 'layouts/nav'%>
-    <%end%>
     
-    <div>
+    <%=render 'layouts/nav'%>
+    
+    
+    <div style="padding-top:50px;">
     <!--Adds a 600-pixel thing between page content and footer-->
       <%= yield %>
     </div>
+    <%=render 'layouts/footer'%>
     
     
 
